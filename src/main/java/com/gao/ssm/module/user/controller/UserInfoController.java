@@ -1,5 +1,8 @@
 package com.gao.ssm.module.user.controller;
 
+import com.gao.ssm.module.user.json.JsonResp;
+import com.gao.ssm.module.user.pojo.BaseUser;
+import com.gao.ssm.module.user.service.UserInfoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,18 +20,16 @@ public class UserInfoController {
     @Resource
     private UserInfoService userInfoService;
 
-    @RequestMapping("/show")
+    @RequestMapping("/crainnogao")
     public String showTest(){
-        return "gaobh";
+        return "crainnogao";
     }
 
     @RequestMapping(value = "/login" ,method = RequestMethod.POST)
     @ResponseBody
     public Object login(BaseUser user){
         BaseUser baseUser = userInfoService.loginValid(user);
-//        System.out.println(JSONUtils.toJSONString(baseUser));
         return new JsonResp(JsonResp.Result_Success,null,null,null);
-//        return JSONUtils.toJSONString(baseUser);
     }
 
 }

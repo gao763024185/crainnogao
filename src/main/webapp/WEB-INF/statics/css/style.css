@@ -1,0 +1,186 @@
+/*把自己定义的Web字体嵌入到自己的网页*/
+@font-face {
+    font-family: 'icomoon';
+    src:url('../fonts/icomoon.eot?rretjt');
+    src:url('../fonts/icomoon.eot?#iefixrretjt') format('embedded-opentype'),
+    url('../fonts/icomoon.woff?rretjt') format('woff'),
+    url('../fonts/icomoon.ttf?rretjt') format('truetype'),
+    url('../fonts/icomoon.svg?rretjt#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+div {
+    display: block;
+}
+body {
+    font: normal 12px 'Helvetica Neue', helvetica, arial, sans-serif;
+    background: #fcfcfc url(../images/bg/light_grunge.jpg) repeat;
+    color: #889397;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+html, body {
+    height: 100%;
+}
+a {
+    outline: none;
+    text-decoration: none;
+    color:silver;
+}
+
+/** header那一块start **/
+#strip {
+    background: transparent url(../images/strip/check_strip.png) repeat-x 0px -15px;
+    height: 83px;
+}
+.more{
+    float: right;
+    margin-top: 82px;
+    font-family: Monaco;
+    font-size: medium;
+    display: block;
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+.menu {
+    background: #fafafa;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+    color: #757575;
+    padding: 16px 0;
+    position: absolute;
+    top: 48px;
+    transform: scale(0);
+    transition: transform 0.2s;
+    z-index: 96; }
+.menu.show {
+    transform: scale(1); }
+.menu.menu--right {
+    transform-origin: top right; }
+.menu.menu--left {
+    transform-origin: top left; }
+.menu li {
+    display: block;
+    min-height: 32px;
+    line-height: 16px;
+    margin: 8px 0;
+    padding: 0 16px;
+    width: 100%; }
+.menu li.menu-separator {
+    background: #eee;
+    height: 1px;
+    min-height: 0;
+    margin: 12px 0;
+    padding: 0; }
+.menu li.menu-separator:hover {
+    background: #eee; }
+.menu li:first-child {
+    margin-top: 0; }
+.menu li:last-child {
+    margin-bottom: 0; }
+.menu li:hover {
+    background: #eee; }
+.menu a {
+    color: inherit;
+    display: block;
+    height: 32px;
+    line-height: 32px;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+    white-space: nowrap; }
+.menu a:hover {
+    color: #444; }
+.menu a,.menu li{
+    display:block;
+    width:100%
+}
+/** header那一块start **/
+
+#container {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    padding: 0px 0px;
+    margin: -70px auto -57px;
+}
+#header {
+    width: 960px;
+    height: 35px;
+    margin: 0px auto 80px auto;
+}
+img.logo {
+    margin-top: -15px;
+    margin-left: -100px;
+    float: left;
+}
+#wrapper {
+    width: 1116px;
+    margin: 0 auto;
+    padding: 0px 0px;
+    line-height: 20px;
+}
+table{
+    width: 80%;
+    float: right;
+
+}
+#top-menu td{
+    border: 1px;
+    border-width: medium;
+    border-right-style: double ;
+    border-right-color: slategray;
+    width: 10em;
+    height: 1.4em;
+    text-align: center;
+    vertical-align:middle;
+    font-family:'STLiti';
+    font-size: 2em;
+
+
+}
+ul#tab-menu {
+    float: left;
+    width: 210px;
+    background-color: transparent;
+    font: normal 20px "CardoRegular", serif;
+    margin: 0px 10px 0 0;
+    padding: 38px 60px 0px 0px;
+    list-style: none;
+}
+ul#tab-menu li {
+    border-top: 1px dotted #bbb;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin: 0;
+    color: #6B777C;
+}
+ul#tab-menu li.selected {
+    color: #6B777C;
+    background: url(../images/red_ribbon.png) no-repeat 182px -3px;
+}
+ul#tab-menu li:hover {
+    color: #54BBDD;
+}

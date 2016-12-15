@@ -49,4 +49,8 @@ public interface BaseUserMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(BaseUser record);
+
+    /* 自定义 start*/
+    BaseUser loginValid (BaseUser user);
+    /* 自定义 end*/
 }

@@ -1,8 +1,8 @@
 package com.gao.ssm.module.user.service.impl;
 
-import com.youmeek.ssm.module.user.mapper.BaseUserMapper;
-import com.youmeek.ssm.module.user.pojo.BaseUser;
-import com.youmeek.ssm.module.user.service.UserInfoService;
+import com.gao.ssm.module.user.mapper.BaseUserMapper;
+import com.gao.ssm.module.user.pojo.BaseUser;
+import com.gao.ssm.module.user.service.UserInfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
