@@ -5,7 +5,7 @@
 ##    <a name="top" id="top"></a>
     <div id="strip">
         <span class="more">
-            <a href="javascript:;" class="toggle right" id="menu-toggle2">
+            <a href="javascript:" class="toggle right" id="menu-toggle2">
                 <i class="material-icons">more_vert</i>
             </a>
             <ul class="menu" data-menu data-menu-toggle="#menu-toggle2">

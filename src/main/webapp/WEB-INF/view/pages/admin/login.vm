@@ -1,11 +1,25 @@
-###set($layout="layout/layout.vm")
-#set( $page_title = "crainnogao")
-<div>
-    <div>idea啦啦啦啦</div>
-    <lable for="username">用户名：</lable>
-    <input type="text" name="username" id="username"></br>
-    <label for="password">密码：</label>
-    <input type="password" name="password" id="password"></br>
-    <input type="submit" id="loginSubmit" value="提交">
+#set($layout="layout/layout_ad.vm")
+#set( $page_title = "crainnogao后台管理")
+
+<div class="admin_login">
+    <div class="stitle">
+        <span>crainnogao 后台管理</span>
+        <span>Management System</span>
+    </div>
+    <dd class="icon-user">
+        <lable for="username">用户名：</lable>
+        <input type="text" name="username" id="username" placeholder="账号" class="login_txtbx">
+    </dd>
+    <dd class="icon-pwd">
+        <label for="password">密码：</label>
+        <input type="password" name="password" id="password"  placeholder="密码" class="login_txtbx">
+    </dd>
+    <dd class="icon-valid">
+        <div class="checkcode">
+            <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="login_txtbx">
+        </div>
+        <input type="button" value="验证码核验"  class="ver_btn" >
+    </dd>
+    <input type="submit"  value="立即登陆" class="submit_btn"/>
+
 </div>
-$screen_content

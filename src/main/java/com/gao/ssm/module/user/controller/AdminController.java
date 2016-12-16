@@ -11,19 +11,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 
 /**
- * Created by 孙皓 on 2016/12/13.
+ * Created by 孙皓 on 2016/12/16.
  */
 @Controller
-public class UserInfoController {
-
+@RequestMapping("/crainnogao/admin")
+public class AdminController {
     @Resource
     private UserInfoService userInfoService;
+    String view_base="/admin/";
 
-    @RequestMapping("/crainnogao")
-    public String showTest(){
-        return "crainnogao";
+    /*后台首页*/
+    @RequestMapping("/login")
+    public String loginPage(){
+        return view_base+"login";
     }
-
-
-
+    @RequestMapping(value = "/login" ,method = RequestMethod.POST)
+    @ResponseBody
+    public Object login(BaseUser user){
+        BaseUser baseUser = userInfoService.loginValid(user);
+        return new JsonResp(JsonResp.Result_Success,null,null,null);
+    }
 }
