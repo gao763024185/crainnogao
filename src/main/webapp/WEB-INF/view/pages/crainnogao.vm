@@ -1,46 +1,82 @@
 #set($layout="layout/layout.vm")
 #set( $page_title = "crainnogao")
-<a name="top" id="top"></a>
 
-<!-- Top Strip -->
-<a name="top" id="top"></a>
-<div id="strip">
-    <span class="more">
-        <a href="javascript:;" class="toggle right" id="menu-toggle2">
-            <i class="material-icons">more_vert</i>
-        </a>
-        <ul class="menu" data-menu data-menu-toggle="#menu-toggle2">
-            <li><a href="#">哈哈啦</a></li>
-            <li class="menu-separator"></li>
-            <li><a href="#">呵呵哒</a></li>
-            <li><a href="#">噜啦啦</a></li>
-        </ul>
-    </span>
-
-</div>
-<div id="container">
-    <div id="header">
-        <img src="/images/logo.png" width="248" height="134" alt="" class="logo" />
-    </div>
-    <div id="wrapper">
-        <table id="top-menu">
-                <td>Home</td>
-                <td>Module1</td>
-                <td>Module2</td>
-                <td>About</td>
-        </table>
-
-        <div id="smoothmenu1">
-            <ul id="tab-menu" class="ddsmoothmenu">
-                <li>One</li>
-                <li>Two</li>
-                <li>There</li>
-                <li>four</li>
-                <li>five</li>
-                <li>Contact</li>
+<div class="page-group">
+##    <a name="top" id="top"></a>
+    <div id="strip">
+        <span class="more">
+            <a href="javascript:;" class="toggle right" id="menu-toggle2">
+                <i class="material-icons">more_vert</i>
+            </a>
+            <ul class="menu" data-menu data-menu-toggle="#menu-toggle2">
+                <li><a href="#">哈哈啦</a></li>
+                <li class="menu-separator"></li>
+                <li><a href="#">呵呵哒</a></li>
+                <li><a href="#">噜啦啦</a></li>
             </ul>
+        </span>
+    </div>
+    <div id="container">
+        <div id="header">
+            <img src="/images/logo.png" class="logo" />
         </div>
-
+        <div id="wrapper">
+            <div id="contactUs">
+                <div id="countrySelection">
+                    <div id="countrySelection-wrapper">
+                        <ul id="countrySelection-items" style="">
+                            <div id="countrySelector"></div>
+                            <li class="countrySelection-item active">
+                                <a href="#">Australia</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">Canada</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">Chile</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">France</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">Germany</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">Japan</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">Scandinavia</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">Scandinavia</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">Scandinavia</a>
+                            </li>
+                            <li class="countrySelection-item">
+                                <a href="#">Scandinavia</a>
+                            </li>
+                        </ul>
+                        <div class="countrySelection-paddles">
+                            <button class="countrySelection-paddle-left icon-chevronleft" aria-hidden="true">
+                            </button>
+                            <button class="countrySelection-paddle-right icon-chevronright" aria-hidden="true">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="smoothmenu1">
+                <p class="">crainnogao 印象</p>
+                <ul id="tab-menu" class="ddsmoothmenu">
+                    <li>One</li>
+                    <li>Two</li>
+                    <li>There</li>
+                    <li>four</li>
+                    <li>five</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
-

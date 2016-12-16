@@ -1,4 +1,5 @@
 /*把自己定义的Web字体嵌入到自己的网页*/
+/*@import url(http://fonts.useso.com/css?family=Raleway:200,500,700,800);*/
 @font-face {
     font-family: 'icomoon';
     src:url('../fonts/icomoon.eot?rretjt');
@@ -9,7 +10,20 @@
     font-weight: normal;
     font-style: normal;
 }
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
     margin: 0;
     padding: 0;
     border: 0;
@@ -23,18 +37,17 @@ div {
 }
 body {
     font: normal 12px 'Helvetica Neue', helvetica, arial, sans-serif;
-    background: #fcfcfc url(../images/bg/light_grunge.jpg) repeat;
-    color: #889397;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /*overflow-y: scroll;*/
+    /*overflow-x: hidden;*/
 }
-html, body {
+html{
     height: 100%;
+    background-color: #889397;
 }
 a {
     outline: none;
     text-decoration: none;
-    color:silver;
+    color:#f1ecec;
 }
 
 /** header那一块start **/
@@ -135,6 +148,9 @@ img.logo {
     margin-top: -15px;
     margin-left: -100px;
     float: left;
+    width:248px;
+    height:134px;
+    alt:"";
 }
 #wrapper {
     width: 1116px;
@@ -142,24 +158,82 @@ img.logo {
     padding: 0px 0px;
     line-height: 20px;
 }
-table{
+/** table导航 start**/
+#contactUs {
     width: 80%;
-    float: right;
-
+    margin-left: auto;
+    margin-top: 100px;
+    position: relative;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
-#top-menu td{
-    border: 1px;
-    border-width: medium;
-    border-right-style: double ;
-    border-right-color: slategray;
-    width: 10em;
-    height: 1.4em;
-    text-align: center;
-    vertical-align:middle;
-    font-family:'STLiti';
-    font-size: 2em;
+#contactUs #countrySelection {
+    border-bottom: 1px solid #c3c0be;
+    border-top: 1px solid #c3c0be;
+    position: relative;
+}
+#contactUs #countrySelection #countrySelection-wrapper {
+    overflow: hidden;
+    height: 60px;
+    padding: 0 30px;
+}
+#countrySelection-items {
+    margin: 0 20px;
+    padding: 1px 0;
+    list-style: none;
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+#contactUs #countrySelector {
+    position: relative;
+    margin-left: -5px;
+    top: -1px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #c7c5c3;
+}
+#contactUs #countrySelection ul li {
+    display: inline-block;
+    margin: 16px 24px;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    font-size: 16px;
+    font-family: Monaco;
+}
+.slick-prev, .icon-chevronleft {
+    transform: rotate(180deg);
+}
+.countrySelection-paddle-left, .countrySelection-paddle-right {
+    cursor: pointer;
+    border: none;
+    position: absolute;
+    top: 20px;
+    background-color: transparent;
+    width: 25px;
+    height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.slick-prev, .countrySelection-paddle-left {
+    left: 0;
+}
 
-
+.slick-next, .countrySelection-paddle-right {
+    right: 0;
+}
+/** table导航 end**/
+/** 左边导航栏 start **/
+#smoothmenu1 p{
+    font-size: 21px;
+     font-family: Arial;
+    color: #f3dede;
+    /* font-family: monospace; */
 }
 ul#tab-menu {
     float: left;
@@ -184,3 +258,4 @@ ul#tab-menu li.selected {
 ul#tab-menu li:hover {
     color: #54BBDD;
 }
+/** 左边导航栏 start **/
