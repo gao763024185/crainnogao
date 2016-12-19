@@ -109,6 +109,26 @@
     
     <!-- ############################################ servlet end  ############################################ -->
 
-
-
+    <!-- 图片验证码servlet配置start -->
+    <servlet>
+        <servlet-name>VerifyCodeServlet</servlet-name>
+        <servlet-class>com.gao.ssm.module.tools.VerifyCodeServlet</servlet-class>
+        <init-param>
+            <param-name>width</param-name>
+            <param-value>120</param-value>
+        </init-param>
+        <init-param>
+            <param-name>height</param-name>
+            <param-value>32</param-value>
+        </init-param>
+        <init-param>
+            <param-name>codeCount</param-name>
+            <param-value>4</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerifyCodeServlet</servlet-name>
+        <url-pattern>/VerifyCodeServlet</url-pattern>
+    </servlet-mapping>
+    <!-- 图片验证码servlet配置end -->
 </web-app>

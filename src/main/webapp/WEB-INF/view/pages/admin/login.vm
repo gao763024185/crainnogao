@@ -1,25 +1,36 @@
 #set($layout="layout/layout_ad.vm")
 #set( $page_title = "crainnogao后台管理")
 
-<div class="admin_login">
-    <div class="stitle">
-        <span>crainnogao 后台管理</span>
-        <span>Management System</span>
-    </div>
-    <dd class="icon-user">
-        <lable for="username">用户名：</lable>
-        <input type="text" name="username" id="username" placeholder="账号" class="login_txtbx">
-    </dd>
-    <dd class="icon-pwd">
-        <label for="password">密码：</label>
-        <input type="password" name="password" id="password"  placeholder="密码" class="login_txtbx">
-    </dd>
-    <dd class="icon-valid">
-        <div class="checkcode">
-            <input type="text" id="J_codetext" placeholder="验证码" maxlength="4" class="login_txtbx">
+<div class="admin_login" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <div class="content">
+            <div class="stitle">
+                <span>crainnogao 后台管理</span></br>
+            </div>
+            <ul class="form-content">
+                <li class="icon-user">
+                    <label for="username"></label>
+                    <input type="text" name="username" id="username" placeholder="账  号" class="login_txtbx">
+                </li>
+                <li class="icon-pwd">
+                    <label for="password"></label>
+                    <input type="password" name="password" id="password"  placeholder="密  码" class="login_txtbx">
+                </li>
+                <li class="icon-valid">
+                    <span class="checkcode">
+                        <input type="text" id="codetext" placeholder="验证码" maxlength="4" class="login_txtbx">
+                    </span>
+                    <span>
+                       <div class="valpic">
+                           <img id ="verPic" src="/VerifyCodeServlet" width="100px;"height="30px;" alt="验 证 码">
+                            <a class="noclear">看不清点我</a>
+                       </div>
+                    </span>
+                </li>
+                <li>
+                    <input type="submit"  value="立即登陆" class="submit_lgbtn"/>
+                </li>
+            </ul>
         </div>
-        <input type="button" value="验证码核验"  class="ver_btn" >
-    </dd>
-    <input type="submit"  value="立即登陆" class="submit_btn"/>
-
+    </div>
 </div>
