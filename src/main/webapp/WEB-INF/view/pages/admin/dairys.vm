@@ -2,22 +2,24 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th>我是日志</th>
-            <th>我是日志</th>
-            <th>我是日志</th>
+            <th>日志ID</th>
+            <th>主题</th>
+            <th>概要</th>
+            <th>上传时间</th>
+            <th></更新>时间</th>
         </tr>
         </thead>
         <tbody>
+        #foreach($logs in $listlogs)
+
         <tr>
-            <td>表格单元格</td>
-            <td>表格单元格</td>
-            <td>表格单元格</td>
+            <td>$!{logs.logId}</td>
+            <td>$!{logs.logName}</td>
+            <td>$!{logs.logSummary}</td>
+            <td>$!{logs.logCreated}</td>
+            <td>$!{logs.logUpdate}</td>
         </tr>
-        <tr>
-            <td>表格单元格</td>
-            <td>表格单元格</td>
-            <td>表格单元格</td>
-        </tr>
+        #end
         </tbody>
     </table>
 </div>

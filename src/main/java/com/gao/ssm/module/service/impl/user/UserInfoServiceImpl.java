@@ -1,11 +1,12 @@
-package com.gao.ssm.module.user.service.impl;
+package com.gao.ssm.module.service.impl.user;
 
-import com.gao.ssm.module.user.mapper.BaseUserMapper;
-import com.gao.ssm.module.user.pojo.BaseUser;
-import com.gao.ssm.module.user.service.UserInfoService;
+import com.gao.ssm.module.mapper.user.BaseUserMapper;
+import com.gao.ssm.module.pojo.user.BaseUser;
+import com.gao.ssm.module.service.user.UserInfoService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by 孙皓 on 2016/12/14.
@@ -18,4 +19,6 @@ public class UserInfoServiceImpl implements UserInfoService{
     public BaseUser loginValid(BaseUser user){
         return baseUserMapper.loginValid(user);
     }
+
+    public List<BaseUser> findAll(){ return baseUserMapper.findAll();}
 }

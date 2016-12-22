@@ -1,4 +1,4 @@
-package com.gao.ssm.module.user.pojo;
+package com.gao.ssm.module.pojo.user;
 
 import java.util.Date;
 

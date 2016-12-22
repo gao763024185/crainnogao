@@ -1,4 +1,4 @@
-package com.gao.ssm.module.user.json;
+package com.gao.ssm.module.json;
 
 
 public class JsonResp {

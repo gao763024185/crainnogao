@@ -1,9 +1,12 @@
-package com.gao.ssm.module.user.controller;
+package com.gao.ssm.module.controller.user;
 
-import com.gao.ssm.module.user.json.JsonResp;
-import com.gao.ssm.module.user.pojo.BaseUser;
-import com.gao.ssm.module.user.service.UserInfoService;
+import com.gao.ssm.module.json.JsonResp;
+import com.gao.ssm.module.pojo.logs.Logs;
+import com.gao.ssm.module.pojo.user.BaseUser;
+import com.gao.ssm.module.service.logs.LogsService;
+import com.gao.ssm.module.service.user.UserInfoService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by 孙皓 on 2016/12/16.
@@ -21,6 +25,9 @@ import javax.servlet.http.HttpSession;
 public class AdminController {
     @Resource
     private UserInfoService userInfoService;
+
+    @Resource
+    private LogsService logsService;
     String view_base="/admin/";
 
     /*后台登录页*/
@@ -42,7 +49,13 @@ public class AdminController {
     }
 
     @RequestMapping("/crainnogao_ad")
-    public String crainnogao_ad(){
+    public String crainnogao_ad(ModelMap model){
+        //用户信息显示
+        List<BaseUser> user = userInfoService.findAll();
+        model.addAttribute("list",user);
+        //logs信息显示
+        List<Logs> logs = logsService.findAll();
+        model.addAttribute("listlogs",logs);
         return view_base+"crainnogao_ad";
     }
 }

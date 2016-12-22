@@ -42,8 +42,13 @@ $("#toggle > li > div").click(function () {
  $("#nav ul li").click(function () {
      var _index = $(this).index();
      $(this).find('a').addClass('active1').parent().parent().siblings('li').find('div').find('a').removeClass('active1');
-     $('.dairys').eq(_index).show().siblings('.libiao').hide();
+     $("#nav ul li ul li a").removeClass('active1');
+     $('.listmenu').eq(_index).show().siblings('.libiao').hide();
  });
- // $("ul li").click(function(){
- //     $(this).find('a').addClass('active').parent().siblings('li').find('a').removeClass('active');
- // })
+
+ //tab切换 日志管理
+ $("#toggle ul li").click(function () {
+     var _index = $(this).index();
+     $(this).find('a').addClass('active2').parent().siblings('li').find('a').removeClass('active2');
+     $('.listmenu1').eq(_index).show().siblings('.libiao1').hide();
+ });

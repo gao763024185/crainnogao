@@ -28,10 +28,29 @@
             </ul>
         </div>
         <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
-       <div class="libiao dairys">
-           #parse("pages/admin/userInfo.vm")
-       </div>
-        <div class="libiao dairys">
+
+##       <div class="libiao listmenu">
+##           #parse("pages/admin/userInfo.vm")
+##       </div>
+##        <div class="libiao listmenu" id="dairys">
+##            #parse("pages/admin/dairys.vm")
+##        </div>
+##            <div class="libiao1 listmenu1">
+##                #parse("pages/admin/issuedairys.vm")
+##            </div>
+##            <div class="libiao1 listmenu1">
+##                #parse("pages/admin/dairys.vm")
+##            </div>
+        <div class="libiao listmenu">
+            #parse("pages/admin/userInfo.vm")
+        </div>
+        <div class="libiao listmenu">
+            #parse("pages/admin/dairys.vm")
+        </div>
+        <div class="libiao listmenu">
+            #parse("pages/admin/issuedairys.vm")
+        </div>
+        <div class="libiao listmenu">
             #parse("pages/admin/dairys.vm")
         </div>
     </div>

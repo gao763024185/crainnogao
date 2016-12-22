@@ -1,12 +1,8 @@
-package com.gao.ssm.module.user.controller;
+package com.gao.ssm.module.controller.user;
 
-import com.gao.ssm.module.user.json.JsonResp;
-import com.gao.ssm.module.user.pojo.BaseUser;
-import com.gao.ssm.module.user.service.UserInfoService;
+import com.gao.ssm.module.service.user.UserInfoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -15,7 +11,6 @@ import javax.annotation.Resource;
  */
 @Controller
 public class UserInfoController {
-
     @Resource
     private UserInfoService userInfoService;
 
@@ -23,7 +18,4 @@ public class UserInfoController {
     public String showTest(){
         return "crainnogao";
     }
-
-
-
 }

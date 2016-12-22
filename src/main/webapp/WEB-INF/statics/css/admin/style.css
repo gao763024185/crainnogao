@@ -317,3 +317,7 @@ span.the-btn {
 #toggle ul li a {
     margin-left: 0;
 }
+.table {
+    width: 80% !important;
+    margin-left: 1% !important;
+}
