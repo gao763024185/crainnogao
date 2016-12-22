@@ -2,8 +2,8 @@
 #set( $page_title = "crainnogao")
 
 <div class="page-group">
-##    <a name="top" id="top"></a>
-    <div id="strip">
+    <div id="containerauto">
+        <div id="strip">
         <span class="more">
             <a href="javascript:" class="toggle right" id="menu-toggle2">
                 <i class="material-icons">more_vert</i>
@@ -15,60 +15,12 @@
                 <li><a href="#">噜啦啦</a></li>
             </ul>
         </span>
-    </div>
-    <div id="container">
-        <div id="header">
-            <img src="/images/logo.png" class="logo" />
         </div>
+        <img src="/images/logo.png" class="logo" />
         <div id="wrapper">
-            <div id="contactUs">
-                <div id="countrySelection">
-                    <div id="countrySelection-wrapper">
-                        <ul id="countrySelection-items" style="">
-                            <div id="countrySelector"></div>
-                            <li class="countrySelection-item active">
-                                <a href="#">Australia</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">Canada</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">Chile</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">France</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">Germany</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">Japan</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">Scandinavia</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">Scandinavia</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">Scandinavia</a>
-                            </li>
-                            <li class="countrySelection-item">
-                                <a href="#">Scandinavia</a>
-                            </li>
-                        </ul>
-                        <div class="countrySelection-paddles">
-                            <button class="countrySelection-paddle-left icon-chevronleft" aria-hidden="true">
-                            </button>
-                            <button class="countrySelection-paddle-right icon-chevronright" aria-hidden="true">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div id="smoothmenu1">
-                <p class="">crainnogao 印象</p>
                 <ul id="tab-menu" class="ddsmoothmenu">
+                    <p class="yinxiang">crainnogao 印象</p>
                     <li>One</li>
                     <li>Two</li>
                     <li>There</li>
@@ -76,6 +28,13 @@
                     <li>five</li>
                     <li>Contact</li>
                 </ul>
+            </div>
+            <div class="board">
+            <div class="panel panel-default">
+                <div class="panel-heading">java基础知识</div>
+                <div class="panel-body">第一章节</div>
+                <div class="panel-footer">gbh</div>
+            </div>
             </div>
         </div>
     </div>
