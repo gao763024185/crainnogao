@@ -1,7 +1,6 @@
 #set($layout="layout/layout_ad.vm")
 #set( $page_title = "crainnogao后台管理")
-
-<div class="admin_login" xmlns="http://www.w3.org/1999/html">
+<div class="admin_login">
     <div class="container">
         <div class="content">
             <div class="stitle">

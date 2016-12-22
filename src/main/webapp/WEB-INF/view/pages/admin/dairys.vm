@@ -1,0 +1,23 @@
+<div class="tab-container">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>我是日志</th>
+            <th>我是日志</th>
+            <th>我是日志</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+        </tr>
+        <tr>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+            <td>表格单元格</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

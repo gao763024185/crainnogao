@@ -1,0 +1,38 @@
+#set($layout="layout/layout_ad.vm")
+#set( $page_title = "crainnogao后台管理首页")
+
+<div id="container_ad">
+    <div id="canvas">
+        <div id="nav">
+            <h2 id="title"><i class="fa fa-sitemap"></i> MENU</h2>
+            <ul id="toggle">
+                <li>
+                    <div class="active border">
+                        <span></span>   <a class="active1" href="#">用户管理&nbsp;&nbsp;&nbsp;</a>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <span class=""></span>   <a class="" href="#">日志管理</a>
+                        <span class="the-btn fa fa-plus"></span>
+                    </div>
+                    <ul>
+                        <li>
+                            <a class="" href="#">发表日志</a>
+                        </li>
+                        <li>
+                            <a class="" href="#">查看日志</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
+       <div class="libiao dairys">
+           #parse("pages/admin/userInfo.vm")
+       </div>
+        <div class="libiao dairys">
+            #parse("pages/admin/dairys.vm")
+        </div>
+    </div>
+</div>
