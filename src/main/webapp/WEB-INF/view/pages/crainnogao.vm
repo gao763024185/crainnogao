@@ -9,7 +9,7 @@
                 <i class="material-icons">more_vert</i>
             </a>
             <ul class="menu" data-menu data-menu-toggle="#menu-toggle2">
-                <li><a href="#">哈哈啦</a></li>
+                <li><a href="/crainnogao/admin/crainnogao_ad">哈哈啦</a></li>
                 <li class="menu-separator"></li>
                 <li><a href="#">呵呵哒</a></li>
                 <li><a href="#">噜啦啦</a></li>
@@ -17,24 +17,31 @@
         </span>
         </div>
         <img src="/images/logo.png" class="logo" />
-        <div id="wrapper">
-            <div id="smoothmenu1">
-                <ul id="tab-menu" class="ddsmoothmenu">
-                    <p class="yinxiang">crainnogao 印象</p>
-                    <li>One</li>
-                    <li>Two</li>
-                    <li>There</li>
-                    <li>four</li>
-                    <li>five</li>
-                    <li>Contact</li>
-                </ul>
-            </div>
-            <div class="board">
-            <div class="panel panel-default">
-                <div class="panel-heading">java基础知识</div>
-                <div class="panel-body">第一章节</div>
-                <div class="panel-footer">gbh</div>
-            </div>
+        <div class="col-lg-12">
+            <div id="wrapper">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-3">
+                <div id="smoothmenu1">
+                    <ul id="tab-menu" class="ddsmoothmenu">
+                        <p class="yinxiang">crainnogao 印象</p>
+                        <li>One</li>
+                        <li>Two</li>
+                        <li>There</li>
+                        <li>four</li>
+                        <li>five</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                </div>
+                <div class="col-lg-8">
+                <div class="board">
+                <div class="panel panel-default">
+                    <div class="panel-heading">java基础知识</div>
+                    <div class="panel-body">第一章节</div>
+                    <div class="panel-footer">gbh</div>
+                </div>
+                </div>
+                </div>
             </div>
         </div>
     </div>

@@ -25,7 +25,7 @@
     <mvc:resources mapping="/css/**" location="/WEB-INF/statics/css/"/>
     <mvc:resources mapping="/js/**" location="/WEB-INF/statics/js/"/>
     <mvc:resources mapping="/images/**" location="/WEB-INF/statics/images/"/>
-
+    <mvc:resources mapping="/editormd/**" location="/WEB-INF/editormd/"/>
 
     <!-- velocity 配置start -->
     <!-- 视图模式配置,velocity配置文件-->
@@ -55,14 +55,12 @@
         <property name="exposeSpringMacroHelpers" value="true" /> <!--是否使用spring对宏定义的支持-->
         <property name="layoutKey" value="layout"></property>
       <!--  <property name="screenContentKey" value="screen_content" />-->
-
         <property name="dateToolAttribute">
             <value>dateTool</value> <!--日期函数名称-->
         </property>
         <property name="numberToolAttribute">
             <value>numberTool</value> <!--数字函数名称-->
         </property>
-
         <property name="allowRequestOverride" value="true" />
         <property name="exposeRequestAttributes" value="true" /> <!--是否开放request属性-->
         <property name="exposeSessionAttributes" value="true" /> <!--是否开放session属性-->

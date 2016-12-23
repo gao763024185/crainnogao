@@ -1,9 +1,8 @@
 #set($layout="layout/layout_ad.vm")
 #set( $page_title = "crainnogao后台管理首页")
-
-<div id="container_ad">
+<div id="container_ad" class="display-nav">
     <div id="canvas">
-        <div id="nav">
+        <div id="nav" >
             <h2 id="title"><i class="fa fa-sitemap"></i> MENU</h2>
             <ul id="toggle">
                 <li>
@@ -41,17 +40,19 @@
 ##            <div class="libiao1 listmenu1">
 ##                #parse("pages/admin/dairys.vm")
 ##            </div>
-        <div class="libiao listmenu">
-            #parse("pages/admin/userInfo.vm")
-        </div>
-        <div class="libiao listmenu">
-            #parse("pages/admin/dairys.vm")
-        </div>
-        <div class="libiao listmenu">
+
+
+##        <div class="libiao listmenu">
+##            #parse("pages/admin/userInfo.vm")
+##        </div>
+##        <div class="libiao listmenu">
+##            #parse("pages/admin/dairys.vm")
+##        </div>
+        <div class="libiao listmenu col-lg-12">
             #parse("pages/admin/issuedairys.vm")
         </div>
-        <div class="libiao listmenu">
-            #parse("pages/admin/dairys.vm")
-        </div>
+##        <div class="libiao listmenu">
+##            #parse("pages/admin/dairys.vm")
+##        </div>
     </div>
 </div>

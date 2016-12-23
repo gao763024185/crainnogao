@@ -3,20 +3,36 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="title">$!page_title</title>
     <link rel="stylesheet" type="text/css" href="/css/admin/style.css" media="all" />
     <link rel="stylesheet" type="text/css" href="/css/admin/reset.css" />
     <link rel="stylesheet" type="text/css" href="/css/admin/default.css">
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="/editormd/css/editormd.min.css"/>
+
 </head>
 <body>
     $screen_content
 <script src="/js/jQuery-core/jquery-2.0.3.min.js"></script>
 <script src='/js/jQuery-core/jquery-ui.min.js'></script>
 <script src="/js/bootstrap/bootstrap.min.js"></script>
+<script src="/editormd/editormd.min.js"></script>
 <script src="/js/admin/script.js"></script>
 <script src="/js/admin/custom.js"></script>
+<script>
+    //    调用编辑器
+    var testEditor;
+    $(function() {
+        testEditor = editormd("test-editormd", {
+            width   : "1000px",
+            height  : 640,
+            syncScrolling : "single",
+            path    : "/editormd/lib/"
+        });
+    });
+</script>
 </body>
 
 </html>
