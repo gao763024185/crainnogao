@@ -16,4 +16,5 @@ public class LogsServiceImpl implements LogsService{
     @Resource
     private LogsMapper logsMapper;
     public List<Logs> findAll(){return logsMapper.findAll();}
+    public int insert(Logs logs){return logsMapper.insert(logs);}
 }

@@ -8,32 +8,30 @@
         </ul>
     </div>
     <div class="container_issue1">
+        <form action="/issue">
     <table>
-        <tr>
-            <td><p>标题</p><hr></td>
-        </tr>
-        <tr>
-            <td><input type="text" name="title" id="title"></td>
-        </tr>
-        <tr>
-            <td><p>内容</p>
-                <hr></td>
-        </tr>
+        <tr><td><p>标题</p><hr></td></tr>
+        <tr><td><input type="text" name="logTitle" id="logTitle"></td></tr>
+        <tr><td><p>摘要</p><hr></td></tr>
+        <tr><td><input type="text" name="logSummary" id="logSummary"></td></tr>
+        <tr><td><p>内容</p><hr></td></tr>
         <tr>
             <td>
                 <!--编辑器-->
                 <div id="test-editormd">
-                    <textarea style="display:none;" id="ts"></textarea>
+                    <textarea  data-provide="markdown" style="display:none;" id="ts" name="logContent"></textarea>
                 </div>
             </td>
         </tr>
         <tr>
-            <td>请输入验证码：</td>
-            <td>看不清</td>
+            <td>
+                请输入验证码：<input style="width: 200px" type="text" name="codetext" id="codetext">
+                <img id ="verPic" src="/VerifyCodeServlet" width="100px;"height="30px;" alt="验 证 码">
+                <a class="noclear">看不清点我</a>
+            </td>
         </tr>
-        <tr>
-            <td><input type="submit" value="发表"></td>
-        </tr>
+        <tr><td><input type="submit" value="发表"></td></tr>
     </table>
+        </form>
     </div>
 </div>

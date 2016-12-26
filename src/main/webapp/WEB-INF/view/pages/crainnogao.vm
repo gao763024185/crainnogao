@@ -33,15 +33,17 @@
                     </ul>
                 </div>
                 </div>
+                #foreach($log in $logs)
                 <div class="col-lg-8">
-                <div class="board">
-                <div class="panel panel-default">
-                    <div class="panel-heading">java基础知识</div>
-                    <div class="panel-body">第一章节</div>
-                    <div class="panel-footer">gbh</div>
+                    <div class="board">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">$!{log.logTitle}</div>
+                            <div class="panel-body">$!{log.logSummary}</div>
+                            <div class="panel-footer">$!{log.logContent}</div>
+                        </div>
+                    </div>
                 </div>
-                </div>
-                </div>
+                #end
             </div>
         </div>
     </div>

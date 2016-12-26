@@ -8,5 +8,7 @@ import java.util.List;
  * Created by 孙皓 on 2016/12/22.
  */
 public interface LogsService {
+
+    int insert(Logs record);
     List<Logs> findAll();
 }
