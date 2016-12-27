@@ -32,7 +32,7 @@ public class LogsInfoController {
         if (!(codetext.equalsIgnoreCase(validateCode))){
             return new JsonResp(JsonResp.Result_Fail,null,"验证码输入错误",null);
         }
-        logs.setLogId(DateUtil.format(new Date(),"yyyyMMddhh"));
+        logs.setLogId(DateUtil.format(new Date(),"yyMMddhhmmss"));
         logs.setLogCreated(new Date());
         logs.setLogUpdate(new Date());
         logsService.insert(logs);
