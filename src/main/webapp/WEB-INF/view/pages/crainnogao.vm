@@ -24,12 +24,9 @@
                 <div id="smoothmenu1">
                     <ul id="tab-menu" class="ddsmoothmenu">
                         <p class="yinxiang">crainnogao 印象</p>
-                        <li>One</li>
-                        <li>Two</li>
-                        <li>There</li>
-                        <li>four</li>
-                        <li>five</li>
-                        <li>Contact</li>
+                        #foreach($log in $logs)
+                        <li>$!{log.logTitle}</li>
+                        #end
                     </ul>
                 </div>
                 </div>
@@ -42,8 +39,8 @@
                                 <strong>$!{log.logTitle}</strong>
                             </div>
                             <div class="panel-body">关键字：$!{log.logSummary}</div>
-                            <div class="panel-footer"></div>
-                            <input type="hidden" id="logContent-$velocityCount" value="$!{log.logContent}"/>
+                            <div  class="contentshow"></div>
+                            <input type="hidden" class="logContent" value="$!{log.logContent}"/>
                         </div>
                     </div>
                 </div>

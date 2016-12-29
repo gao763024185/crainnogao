@@ -1,18 +1,18 @@
 $(function () {
     /* 菜单栏 start */
-    var offset = $("#tab-menu").offset();
-    var topPadding = 15;
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > offset.top) {
-            $("#tab-menu").stop().animate({
-                marginTop: $(window).scrollTop() - offset.top + topPadding
-            });
-        } else {
-            $("#tab-menu").stop().animate({
-                marginTop: 0
-            });
-        }
-    });
+    // var offset = $("#tab-menu").offset();
+    // var topPadding = 15;
+    // $(window).scroll(function() {
+    //     if ($(window).scrollTop() > offset.top) {
+    //         $("#tab-menu").stop().animate({
+    //             marginTop: $(window).scrollTop() - offset.top + topPadding
+    //         });
+    //     } else {
+    //         $("#tab-menu").stop().animate({
+    //             marginTop: 0
+    //         });
+    //     }
+    // });
     $('#tab-menu > li').click(function(){
         $('#tab-menu > li').removeClass('selected');
         $(this).addClass('selected');
@@ -100,12 +100,17 @@ $(function () {
     //         left: totalelement + parentScroll
     //     })
     // }
+    // var count = $("#count").val();
+    // for (var i =1 ; i<count;i++){
+    //     var converter = new showdown.Converter();
+    //     var text     = $('.logContent').eq(i).val();
+    //         html      = converter.makeHtml(text);
+    //     $('.contentshow').eq(i).html(html);
+    // }
     var count = $("#count").val();
-    for (var i =1 ; i<count;i++){
-        var converter = new showdown.Converter();
-        var text      = $("#logContent-"+i).val(),
-            html      = converter.makeHtml(text);
-        $(".panel-footer").html(html);
+    for (var i =0 ; i<count;i++){
+        var contentshow = $('.logContent').eq(i).val();
+        $('.contentshow').eq(i).html(marked(contentshow));
     }
 
 });
