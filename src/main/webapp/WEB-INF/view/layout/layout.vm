@@ -19,6 +19,7 @@
     $screen_content
     <script src="/js/jQuery-core/jquery-2.0.3.min.js"></script>
     <script src='/js/jQuery-core/jquery-ui.min.js'></script>
+<script src="/js/jQuery-core/jquery.page.js"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
 ##    <script src="https://cdn.bootcss.com/showdown/1.3.0/showdown.min.js"></script>
 <script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>
@@ -26,7 +27,17 @@
 <script>hljs.initHighlightingOnLoad();</script>
     <script src="/js/script.js"></script>
 ##    <script src="/js/menu.js"></script>
-##    <script>$('[data-menu]').menu();</script>
+##    <script>$('[data-menu]').menu();</
+<script>
+    var totalPage = $("#totalPage").val();
+    $(".tcdPageCode").createPage({
+        pageCount:totalPage,
+        current:1,
+        backFn:function(p){
+            console.log(p);
+        }
+    });
+</script>
 </body>
 
 </html>

@@ -1,6 +1,8 @@
 #set($layout="layout/layout.vm")
 #set( $page_title = "crainnogao")
 
+<input type="hidden" name="totalPage" id="totalPage" value="$logs.getTotalPage()"/>
+<input type="hidden" name="totalRecord" id="totalRecord" value="$logs.getTotalRecord()"/>
 <div class="page-group">
     <div id="containerauto">
         <div id="strip">
@@ -23,28 +25,19 @@
                 <div class="col-lg-3">
                 <div id="smoothmenu1">
                     <ul id="tab-menu" class="ddsmoothmenu">
+
                         <p class="yinxiang">crainnogao 印象</p>
-                        #foreach($log in $logs)
-                        <li>$!{log.logTitle}</li>
+
+                        #foreach($log in $logs.getDataList())
+                            <li>$!{log.logTitle}</li>
                         #end
                     </ul>
-                </div>
-                </div>
-                <input type="hidden" id="count" value="$logs.size()"/>
-                #foreach($log in $logs)
-                <div class="col-lg-8">
-                    <div class="board">
-                        <div class="panel panel-default wenben">
-                            <div class="panel-heading">
-                                <strong>$!{log.logTitle}</strong>
-                            </div>
-                            <div class="panel-body">关键字：$!{log.logSummary}</div>
-                            <div  class="contentshow"></div>
-                            <input type="hidden" class="logContent" value="$!{log.logContent}"/>
-                        </div>
+                    <div class="fenye">
+                        <div class="tcdPageCode"></div>
                     </div>
                 </div>
-                #end
+                </div>
+                #parse("pages/p/logshow.vm")
             </div>
         </div>
     </div>

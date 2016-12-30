@@ -8,8 +8,8 @@
         </ul>
     </div>
     <div class="container_issue1">
-        <form action="/issue">
-    <table>
+        <form action="/issue" method="post">
+    <table class="tablepannel">
         <tr><td><p>标题</p><hr></td></tr>
         <tr><td><input type="text" name="logTitle" id="logTitle"></td></tr>
         <tr><td><p>摘要</p><hr></td></tr>
