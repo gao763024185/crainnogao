@@ -1,7 +1,6 @@
 package com.gao.ssm.module.controller.user;
 
 import com.gao.ssm.module.json.JsonResp;
-import com.gao.ssm.module.pojo.logs.Logs;
 import com.gao.ssm.module.pojo.user.BaseUser;
 import com.gao.ssm.module.service.logs.LogsService;
 import com.gao.ssm.module.service.user.UserInfoService;
@@ -54,8 +53,8 @@ public class AdminController {
         List<BaseUser> user = userInfoService.findAll();
         model.addAttribute("list",user);
         //logs信息显示
-        List<Logs> logs = logsService.findAll();
-        model.addAttribute("listlogs",logs);
+//        List<Logs> logs = logsService.findAll();
+//        model.addAttribute("listlogs",logs);
         return view_base+"crainnogao_ad";
     }
 }

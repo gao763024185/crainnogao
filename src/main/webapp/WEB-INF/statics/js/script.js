@@ -100,13 +100,8 @@ $(function () {
     //         left: totalelement + parentScroll
     //     })
     // }
-    // var count = $("#count").val();
-    // for (var i =1 ; i<count;i++){
-    //     var converter = new showdown.Converter();
-    //     var text     = $('.logContent').eq(i).val();
-    //         html      = converter.makeHtml(text);
-    //     $('.contentshow').eq(i).html(html);
-    // }
+
+
     var count = $("#count").val();
     for (var i =0 ; i<count;i++){
         var contentshow = $('.logContent').eq(i).val();

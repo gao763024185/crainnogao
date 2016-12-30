@@ -54,4 +54,14 @@ public interface LogsMapper {
     int updateByPrimaryKey(Logs record);
 
     List<Logs> findAll();
+
+    /**
+     * 定义分页功能
+     * @param logs
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+
+//    public Pager<Logs> findAll(List<Logs> logs,int pageNum,int pageSize);
 }

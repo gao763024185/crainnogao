@@ -9,6 +9,9 @@ import java.util.List;
  */
 public interface LogsService {
 
+    Logs getById(String logId);
     int insert(Logs record);
     List<Logs> findAll();
+
+//     Pager<Logs> findAll (List<Logs> logs,int pageNum,int pageSize);
 }

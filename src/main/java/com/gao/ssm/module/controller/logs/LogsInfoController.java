@@ -32,10 +32,10 @@ public class LogsInfoController {
         if (!(codetext.equalsIgnoreCase(validateCode))){
             return new JsonResp(JsonResp.Result_Fail,null,"验证码输入错误",null);
         }
-        logs.setLogId(DateUtil.format(new Date(),"yyMMddhhmmss"));
+        logs.setLogId(DateUtil.format(new Date(),"yyMMddHHmmss"));
         logs.setLogCreated(new Date());
         logs.setLogUpdate(new Date());
         logsService.insert(logs);
-        return new JsonResp(JsonResp.Result_Success,null,null,null);
+        return "redirect:crainnogao_ad";
     }
 }
