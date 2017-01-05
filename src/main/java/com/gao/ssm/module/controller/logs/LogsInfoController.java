@@ -38,4 +38,5 @@ public class LogsInfoController {
         logsService.insert(logs);
         return "redirect:crainnogao_ad";
     }
+
 }

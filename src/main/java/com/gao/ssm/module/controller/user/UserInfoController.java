@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -36,21 +37,20 @@ public class UserInfoController {
         return "crainnogao";
     }
 
-//    @RequestMapping("fenye")
-//    @ResponseBody
-//    public Object fenye(@RequestParam(value = "pageNum",required = false) Integer pageNum,
-//        @RequestParam(value = "pageSize",required = false) Integer pageSize){
-//
-//        pageSize=5;
-//        List<Logs> logsList = logsService.findAll();
-//        Pager<Logs> logs = new Pager<Logs>(pageNum,pageSize,logsList);
-//        return new JsonResp(JsonResp.Result_Success,null,null,logs.getDataList());
-//    }
-//    @RequestMapping("/logshow")
-//    public String logshow(ModelMap modelMap,@RequestParam(value = "logId") String logId){
-//
-//        Logs logs = logsService.getById(logId);
-//        modelMap.addAttribute("log",logs);
-//        return view_base+"logshow";
-//    }
+    @RequestMapping("fenye")
+    @ResponseBody
+    public Object fenye(@RequestParam(value = "pageNum",required = false) Integer pageNum,
+        @RequestParam(value = "pageSize",required = false) Integer pageSize){
+
+        pageSize=5;
+        List<Logs> logsList = logsService.findAll();
+        Pager<Logs> logs = new Pager<Logs>(pageNum,pageSize,logsList);
+        return logs.getDataList();
+    }
+    @RequestMapping("/logshow")
+    @ResponseBody
+    public Object logshow(ModelMap modelMap,@RequestParam(value = "logId") String logId){
+        Logs logs = logsService.getById(logId);
+        return logs;
+    }
 }

@@ -26,6 +26,7 @@ $(function () {
         $(this).removeClass('mouseover');
     });
     /* 菜单栏 end */
+
     // var items = $('#countrySelection-items').width();
     // var itemSelected = document.getElementsByClassName('countrySelection-item');
     // var backgroundColours = ["rgb(133, 105, 156)", "rgb(175, 140, 115)","rgb(151, 167, 109)","rgb(171, 100, 122)","rgb(105, 134, 156)","rgb(152, 189, 169)"]
@@ -101,11 +102,38 @@ $(function () {
     //     })
     // }
 
+    // var count = $("#count").val();
+    // for (var i =0 ; i<count;i++){
+    //     var contentshow = $('.logContent').val();
+    //     $('.contentshow').html(marked(contentshow));
+    // }
 
-    var count = $("#count").val();
-    for (var i =0 ; i<count;i++){
-        var contentshow = $('.logContent').eq(i).val();
-        $('.contentshow').eq(i).html(marked(contentshow));
-    }
+
+    $("#ajshow").on('click','.logTitle',function () {
+        var _index = $(this).index();
+        var logId = $("#logId-"+_index).val();
+        var data = {logId:logId};;;;;;;;;;;;;;;;;;;;;;;;;
+        $.ajax({
+            url:"logshow",
+            type:"post",
+            data:data,
+            dataType:"json",
+            success:function (resp) {
+                var $tr=  '<div class="panel-heading"><strong>'+resp.logTitle+'</strong></div>'+
+                        '<div class="panel-body"><div class="panel-body">关键字：'+resp.logSummary+'</div></div>'+
+                        '<div  class="contentshow"></div>'+
+                        '<input type="hidden" class="logContent" value="'+resp.logContent+'"/>';
+                document.getElementById("logshow").innerHTML=$tr;
+                var contentshow = $('.logContent').val();
+                $('.contentshow').html(marked(contentshow));
+                setTimeout("hljs.initHighlightingOnLoad();",300);
+            },
+            error:function () {
+                alert("sb");
+            }
+        })
+    })
+
 
 });
+

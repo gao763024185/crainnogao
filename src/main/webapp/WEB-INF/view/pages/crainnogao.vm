@@ -25,19 +25,27 @@
                 <div class="col-lg-3">
                 <div id="smoothmenu1">
                     <ul id="tab-menu" class="ddsmoothmenu">
-
                         <p class="yinxiang">crainnogao 印象</p>
-
-                        #foreach($log in $logs.getDataList())
-                            <li>$!{log.logTitle}</li>
-                        #end
+                        <div id="ajshow">
+                            #foreach($log in $logs.getDataList())
+                                #set($count = $foreach.count*2 - 1)
+                                <input type="hidden" name="logId-$count" id="logId-$count" value="$!{log.logId}">
+                                <li class="logTitle">$!{log.logTitle}</li>
+                            #end
+                        </div>
                     </ul>
                     <div class="fenye">
                         <div class="tcdPageCode"></div>
                     </div>
                 </div>
                 </div>
-                #parse("pages/p/logshow.vm")
+                <div class="col-lg-8">
+                    <div class="board">
+                        <div class="panel panel-default wenben">
+                            <div id="logshow"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
