@@ -65,23 +65,10 @@
 					if(typeof(args.backFn)=="function"){
 						args.backFn(current);
 					}
-					// var data = {
-                     //    pageNum:current
-					// }
-                    location.href='/crainnogao?pageNum='+current;
-					// $.ajax({
-					// 	url:"fenye",
-					// 	type:"post",
-					// 	data:data,
-					// 	dataType:"json",
-					// 	success:function (resp) {
-                     //        // alert(JSON.stringify(resp.data));
-                     //        $("#tabshow").html(resp.data);
-                     //    },
-					// 	error:function () {
-					// 		alert("网络连接失败！");
-                     //    }
-					// })
+					var data = {
+                        pageNum:current
+                    };;;;;;;;;;;;;;;;;;;;;;;;;;;
+                    ajaxShow(data);
 				});
 				//上一页
 				obj.on("click","a.prevPage",function(){
@@ -90,6 +77,10 @@
 					if(typeof(args.backFn)=="function"){
 						args.backFn(current-1);
 					}
+                    var data = {
+                        pageNum:current-1
+                    };;;;;;;;;;;;;;;;;;;;;;;;;;;
+                    ajaxShow(data);
 				});
 				//下一页
 				obj.on("click","a.nextPage",function(){
@@ -98,10 +89,34 @@
 					if(typeof(args.backFn)=="function"){
 						args.backFn(current+1);
 					}
+                    var data = {
+                        pageNum:current+1
+                    };;;;;;;;;;;;;;;;;;;;;;;;;;;
+                    ajaxShow(data);
 				});
+				function ajaxShow(data){
+                    $.ajax({
+                        url:"fenye",
+                        type:"post",
+                        data:data,
+                        dataType:"json",
+                        success:function (resp) {
+                            var $tr ="";;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            for (var i = 1;i<=resp.length;i++){
+                                var j = 2*i-1;
+                                $tr += '<input type="hidden" name="logId-'+j+'" id="logId-'+j+'"  value="'+resp[i-1].logId+'">' +
+                                    '<li  class="logTitle">'+resp[i-1].logTitle+'</li>';
+                            }
+                            document.getElementById("ajshow").innerHTML=$tr;
+                        },
+                        error:function () {
+                            alert("网络连接失败！");
+                        }
+                    })
+				}
 			})();
 		}
-	};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	};;;;;;;;;;;;;;;;;;;;;;;;;;;
 	$.fn.createPage = function(options){
 		var args = $.extend({
 			pageCount : totalPage,
