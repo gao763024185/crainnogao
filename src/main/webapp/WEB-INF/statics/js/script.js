@@ -120,7 +120,7 @@ $(function () {
             dataType:"json",
             success:function (resp) {
                 var $tr=  '<div class="panel-heading"><strong>'+resp.logTitle+'</strong></div>'+
-                        '<div class="panel-body"><div class="panel-body">关键字：'+resp.logSummary+'</div></div>'+
+                        '<div class="panel-body">关键字：'+resp.logSummary+'</div>'+
                         '<div  class="contentshow"></div>'+
                         '<input type="hidden" class="logContent" value="'+resp.logContent+'"/>';
                 document.getElementById("logshow").innerHTML=$tr;
@@ -133,12 +133,11 @@ $(function () {
                 alert("失败");
             }
         })
-    });;;;;;;;;;;;;;;;;;;;;;;;;;
+    });
 
     $(document).on('click','#crainnogao_ad',function () {
         window.location.href="/crainnogao/admin/crainnogao_ad";
-    });;;;;;;;;;;;;;;;;;;;;;;;;;
-
+    });
     var contentshow = $('#logcontentfir').val();
     $('#firstlog').html(marked(contentshow));
 });

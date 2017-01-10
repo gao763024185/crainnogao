@@ -39,7 +39,7 @@
                     <div class="col-lg-3">
                         <div id="smoothmenu1">
                             <ul id="tab-menu" class="ddsmoothmenu">
-                                <p class="yinxiang">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;crainnogao 印象</p>
+                                <p class="yinxiang">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;印象笔记</p>
                                 <div id="ajshow">
                                     #foreach($log in $logs.getDataList())
                                         #set($count = $foreach.count*2 - 1)
