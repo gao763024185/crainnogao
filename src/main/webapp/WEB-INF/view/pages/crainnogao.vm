@@ -8,9 +8,8 @@
         <nav class="index-nav">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a style="font-size: 3em" href="">
-##                        <img src="/images/bussiss.jpeg" alt="" width="80px;" height="80px;">
-                        crainnogao
+                    <a href="">
+                        <img src="/images/crainnogao.png" alt="" width=";" height=";">
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="">首页</a></li>

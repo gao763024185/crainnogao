@@ -6,6 +6,9 @@
         <nav class="index-nav">
             <div class="container">
                 <div class="nav-wrapper">
+                    <a href="">
+                        <img src="/images/crainnogao.png" alt="" width=";" height=";">
+                    </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/crainnogao">首页</a></li>
                         <li><a href="">关于</a></li>
