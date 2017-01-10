@@ -26,7 +26,7 @@
     <mvc:resources mapping="/js/**" location="/WEB-INF/statics/js/"/>
     <mvc:resources mapping="/images/**" location="/WEB-INF/statics/images/"/>
     <mvc:resources mapping="/editormd/**" location="/WEB-INF/statics/editormd/"/>
-    <mvc:resources mapping="/marked/**" location="/WEB-INF/statics/marked/"/>
+    <!--<mvc:resources mapping="/marked/**" location="/WEB-INF/statics/marked/"/>-->
     <!-- velocity 配置start -->
     <!-- 视图模式配置,velocity配置文件-->
     <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
@@ -50,7 +50,8 @@
         <property name="toolboxConfigLocation" value="/WEB-INF/toolbox.xml"/> <!--toolbox配置文件路径-->
         <property name="prefix" value="pages/"/> <!-- 视图文件的前缀，即存放的路径 -->
         <property name="suffix" value=".vm" /> <!-- 视图文件的后缀名 -->
-        <property name="layoutUrl" value="layout/default.vm" /> <!--指定layout文件-->
+        <property name="layoutUrl" value="layout/layout.vm" /> <!--指定layout文件-->
+        <!--<property name="layoutUrl" value="layout/default.vm" /> 指定layout文件-->
         <property name="contentType" value="text/html;charset=UTF-8" /> <!--指定编码-->
         <property name="exposeSpringMacroHelpers" value="true" /> <!--是否使用spring对宏定义的支持-->
         <property name="layoutKey" value="layout"></property>
