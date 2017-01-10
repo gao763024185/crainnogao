@@ -7,52 +7,31 @@
             <ul id="toggle">
                 <li>
                     <div class="active border">
-                        <span></span>   <a class="active1" href="#">用户管理&nbsp;&nbsp;&nbsp;</a>
+                        <span></span>   <a class="active1" href="#">发表日志&nbsp;&nbsp;&nbsp;</a>
                     </div>
                 </li>
                 <li>
-                    <div>
-                        <span class=""></span>   <a class="" href="#">日志管理</a>
-                        <span class="the-btn fa fa-plus"></span>
+                    <div class="border">
+                        <span></span>   <a class="" href="#">查看日志</a>
                     </div>
-                    <ul>
-                        <li>
-                            <a class="" href="#">发表日志</a>
-                        </li>
-                        <li>
-                            <a class="" href="#">查看日志</a>
-                        </li>
-                    </ul>
+                </li>
+                <li>
+                    <div class="border">
+                        <span></span>   <a class="" href="#">用户管理</a>
+                    </div>
                 </li>
             </ul>
         </div>
         <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
-
-##       <div class="libiao listmenu">
-##           #parse("pages/admin/userInfo.vm")
-##       </div>
-##        <div class="libiao listmenu" id="dairys">
-##            #parse("pages/admin/dairys.vm")
-##        </div>
-##            <div class="libiao1 listmenu1">
-##                #parse("pages/admin/issuedairys.vm")
-##            </div>
-##            <div class="libiao1 listmenu1">
-##                #parse("pages/admin/dairys.vm")
-##            </div>
-
-
-##        <div class="libiao listmenu">
-##            #parse("pages/admin/userInfo.vm")
-##        </div>
-##        <div class="libiao listmenu">
-##            #parse("pages/admin/dairys.vm")
-##        </div>
-        <div class="libiao listmenu col-lg-12">
+        <div class="libiao listmenu col-lg-12 issuedairys">
             #parse("pages/admin/issuedairys.vm")
         </div>
-##        <div class="libiao listmenu">
-##            #parse("pages/admin/dairys.vm")
-##        </div>
+        <div class="libiao listmenu">
+            #parse("pages/admin/dairys.vm")
+        </div>
+
+        <div class="libiao listmenu">
+            #parse("pages/admin/userInfo.vm")
+        </div>
     </div>
 </div>

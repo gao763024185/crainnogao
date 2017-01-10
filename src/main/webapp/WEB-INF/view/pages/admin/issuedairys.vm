@@ -3,18 +3,18 @@
 <div class="col-lg-12">
     <div class="container_issue" xmlns="http://www.w3.org/1999/html">
         <ul>
-            <li><a href="">新建日志</a></li>
-            <li><a href="">编辑日志</a></li>
+            <li><a href="">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+            <li><a href="">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
         </ul>
     </div>
     <div class="container_issue1">
-        <form action="/issue" method="post">
+##        <form action="/issue" method="post">
     <table class="tablepannel">
-        <tr><td><p>标题</p><hr></td></tr>
+        <tr><td><p class="ptitlt">标题</p><hr></td></tr>
         <tr><td><input type="text" name="logTitle" id="logTitle"></td></tr>
-        <tr><td><p>摘要</p><hr></td></tr>
+        <tr><td><p class="ptitlt">摘要</p><hr></td></tr>
         <tr><td><input type="text" name="logSummary" id="logSummary"></td></tr>
-        <tr><td><p>内容</p><hr></td></tr>
+        <tr><td><p class="ptitlt">内容</pptitlt><hr></td></tr>
         <tr>
             <td>
                 <!--编辑器-->
@@ -30,8 +30,8 @@
                 <a class="noclear">看不清点我</a>
             </td>
         </tr>
-        <tr><td><input type="submit" value="发表"></td></tr>
+        <tr><td><input type="submit" class="issuesubmit" value="发表"></td></tr>
     </table>
-        </form>
+##        </form>
     </div>
 </div>

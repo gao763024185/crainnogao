@@ -14,10 +14,10 @@
         #foreach($logs in $listlogs)
         <tr>
             <td>$!{logs.logId}</td>
-            <td>$!{logs.logName}</td>
+            <td>$!{logs.logTitle}</td>
             <td>$!{logs.logSummary}</td>
-            <td>#dateTimeText($!{logs.logCreated},'yyyy-MM-dd HH:mm:ss')</td>
-            <td>#dateTimeText($!{logs.logUpdate},'yyyy-MM-dd HH:mm:ss')</td>
+            <td>#dateTimeText($!{logs.logCreated},'yyyy-MM-dd HH:mm')</td>
+            <td>#dateTimeText($!{logs.logUpdate},'yyyy-MM-dd HH:mm')</td>
             <td>操作</td>
         </tr>
         #end
