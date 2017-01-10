@@ -37,35 +37,12 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-html{
-    height: 100%;
-}
 a {
     outline: none;
     text-decoration: none;
     color:#f1ecec;
 }
 
-/** header那一块start **/
-#containerauto {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-}
-img.logo {
-    float: left;
-    width:248px;
-    height:134px;
-    alt:"";
-    position: relative;
-    top: -87px;
-    left: 176px;
-}
-#strip {
-    width: 100%;
-    background: transparent url(../images/strip/check_strip.png) repeat-x 0px -15px;
-    height: 83px;
-}
 .more{
     float: right;
     margin-top: 82px;
@@ -142,15 +119,6 @@ img.logo {
     display:block;
     width:100%
 }
-/** header那一块start **/
-#wrapper {
-    /*height: 1900px;*/
-}
-/** 左边导航栏 start **/
-.board{
-    width: 90%;
-    height: 100%;
-}
 #smoothmenu1 p{
     font-size: 21px;
     font-family: Arial;
@@ -200,25 +168,6 @@ ul#tab-menu li:hover {
     height: 100% !important;
 }
 
-/*.next a{*/
-    /*display: block;*/
-    /*height: 32px;*/
-    /*width: 62px;*/
-    /*float: right;*/
-    /*text-align: center;*/
-    /*font-size: 21px;*/
-/*}*/
-/*.prevous a{*/
-    /*display: block;*/
-    /*height: 32px;*/
-    /*width: 62px;*/
-    /*float: left;*/
-    /*margin-left: 10px;*/
-    /*text-align: center;*/
-    /*font-size: 21px;*/
-/*}*/
-
-
 .tcdPageCode{padding: 15px 20px;text-align: left;color: #ccc;}
 .tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
 .tcdPageCode a:hover{text-decoration: none;border: 1px solid #428bca;}
@@ -235,11 +184,41 @@ ul#tab-menu li:hover {
     vertical-align: middle;
 }
 .tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
-
-
 pre{
     background-color: #211b1b !important;
     color: #f3f1e7!important;
+}
+
+.navbar-fixed nav{
+    background-color: #f4f5ef;
+}
+.nav-wrapper ul li a{
+    color: black;
+}
+header .container{
+    width: 80% !important;
+}
+main .container{
+    width:90% !important;
+
+}
+main .container .row{
+    width: 100%!important;
+    margin-top: 5em!important;
+}
+
+footer {
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    height: 100px;
+    background-color: #1b1a1a;
+    text-align: center;
+    font-size: 17px;
+    color: ghostwhite;
+}
+
+
+.about ul li{
+   padding: 2em;
 }
 
 

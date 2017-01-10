@@ -9,12 +9,6 @@ body{
 a{
     cursor: pointer;
 }
-.admin_login{
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    margin-top: 7em;
-}
 .container{
     width: 80%;
     height: 80%;
@@ -25,62 +19,60 @@ a{
     width: 80%;
     height: 80%;
 }
+.col-lg-8{
+    margin-top: 8em!important;
+}
 .stitle span{
     color: black;
     font-family: "微软雅黑";
     font-size: 30px;
     padding-left: 30%;
 }
-.content ul{
+.col-lg-8 ul{
     text-align: center;
     margin-top: 3em;
 }
-.content ul li label{
-    font-size: 1.2em;
-    color: black;
-    font-family: "微软雅黑";
-}
-.content ul li{
+.col-lg-8 ul li{
     list-style-type: none;
     line-height: 5em;
 }
-.content ul li span{
+.col-lg-8 ul li span{
     display: block;
 }
 input{
     width: 600px;
     height: 35px;
 }
-
-
+input[type=submit] {
+}
 .login_txtbx{
     padding: 0.85em 0.5em;
     width: 100%;
     background: transparent;
-    color: #DDE2E2;
+    color: #009688;
+    font-size: 1.5em;
     opacity: 50;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
-    border: 1px solid royalblue;
+    border: 3px solid rgba(66, 61, 59, 0.37);
     border-left-style: none;
     border-right-style: none;
 }
 #codetext{
-    width: 590px;
+    width: 565px;
     float: left;
 }
 .valpic{
     margin-left: 2em;
-    float: left;
+    float: right;
 }
 img {
     margin-bottom: 2em;
 }
 .noclear{
-    font-size: 12px;
-    bottom: 1em;
-    left: -7em;
+    top: -6px;
     position: relative;
+    cursor: pointer;
 }
 
 ::-webkit-input-placeholder { /* WebKit browsers */
@@ -126,7 +118,7 @@ img {
 }
 #nav {
     width: 300px;
-    height: 100%;
+    height: 150%;
     background: #38935f;
     position: absolute;
     left: -300px;
@@ -349,7 +341,15 @@ span.the-btn {
 .tablepannel{
     width: 60%;
 }
-
+.ptitlt{
+    font-size: 20px;
+}
+.libiao{
+    display: none;
+}
+.issuedairys{
+    display: block;
+}
 
 
 
