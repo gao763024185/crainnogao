@@ -67,7 +67,7 @@
 					}
 					var data = {
                         pageNum:current
-                    };;;;;;;;;;;;;;;;;;;;;;;;;;;
+                    };
                     ajaxShow(data);
 				});
 				//上一页
@@ -79,7 +79,7 @@
 					}
                     var data = {
                         pageNum:current-1
-                    };;;;;;;;;;;;;;;;;;;;;;;;;;;
+                    };
                     ajaxShow(data);
 				});
 				//下一页
@@ -91,7 +91,7 @@
 					}
                     var data = {
                         pageNum:current+1
-                    };;;;;;;;;;;;;;;;;;;;;;;;;;;
+                    };
                     ajaxShow(data);
 				});
 				function ajaxShow(data){
@@ -101,7 +101,7 @@
                         data:data,
                         dataType:"json",
                         success:function (resp) {
-                            var $tr ="";;;;;;;;;;;;;;;;;;;;;;;;;;;
+                            var $tr = "";
                             for (var i = 1;i<=resp.length;i++){
                                 var j = 2*i-1;
                                 $tr += '<input type="hidden" name="logId-'+j+'" id="logId-'+j+'"  value="'+resp[i-1].logId+'">' +
@@ -116,7 +116,7 @@
 				}
 			})();
 		}
-	};;;;;;;;;;;;;;;;;;;;;;;;;;;
+	};
 	$.fn.createPage = function(options){
 		var args = $.extend({
 			pageCount : totalPage,
