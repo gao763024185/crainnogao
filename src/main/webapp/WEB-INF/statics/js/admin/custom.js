@@ -46,9 +46,9 @@ $("#toggle > li > div").click(function () {
      $('.listmenu').eq(_index).show().siblings('.libiao').hide();
  });
 
- //tab切换 日志管理
- $("#toggle ul li").click(function () {
-     var _index = $(this).index();
-     $(this).find('a').addClass('active2').parent().siblings('li').find('a').removeClass('active2');
-     $('.listmenu1').eq(_index).show().siblings('.libiao1').hide();
- });
+ // //tab切换 日志管理
+ // $("#toggle ul li").click(function () {
+ //     var _index = $(this).index();
+ //     $(this).find('a').addClass('active2').parent().siblings('li').find('a').removeClass('active2');
+ //     $('.listmenu1').eq(_index).show().siblings('.libiao1').hide();
+ // });

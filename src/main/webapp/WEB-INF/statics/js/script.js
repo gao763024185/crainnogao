@@ -112,7 +112,7 @@ $(function () {
     $("#ajshow").on('click','.logTitle',function () {
         var _index = $(this).index();
         var logId = $("#logId-"+_index).val();
-        var data = {logId:logId};;;;;;;;;;;;;;;;;;;;;;;;;
+        var data = {logId:logId};
         $.ajax({
             url:"logshow",
             type:"post",
@@ -124,16 +124,22 @@ $(function () {
                         '<div  class="contentshow"></div>'+
                         '<input type="hidden" class="logContent" value="'+resp.logContent+'"/>';
                 document.getElementById("logshow").innerHTML=$tr;
+                $("#firstshow").hide();
                 var contentshow = $('.logContent').val();
                 $('.contentshow').html(marked(contentshow));
-                setTimeout("hljs.initHighlightingOnLoad();",300);
+                // setTimeout("hljs.initHighlightingOnLoad();",300);
             },
             error:function () {
-                alert("sb");
+                alert("失败");
             }
         })
-    })
+    });;;;;;;;;;;;;;;;;;;;;;;;;;
 
+    $(document).on('click','#crainnogao_ad',function () {
+        window.location.href="/crainnogao/admin/crainnogao_ad";
+    });;;;;;;;;;;;;;;;;;;;;;;;;;
 
+    var contentshow = $('#logcontentfir').val();
+    $('#firstlog').html(marked(contentshow));
 });
 
