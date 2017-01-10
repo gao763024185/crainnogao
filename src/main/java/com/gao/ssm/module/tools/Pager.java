@@ -24,7 +24,7 @@ public class Pager<T> {
         this.totalRecord = sourceList.size();
         this.pageSize = pageSize;
         this.totalPage = totalRecord/pageSize;
-        if (totalPage%pageSize == 0){
+        if (totalPage%pageSize != 0){
             this.totalPage = this.totalPage+1;
         }
 

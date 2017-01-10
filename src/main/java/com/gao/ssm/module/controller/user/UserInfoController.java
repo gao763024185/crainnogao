@@ -53,4 +53,11 @@ public class UserInfoController {
         Logs logs = logsService.getById(logId);
         return logs;
     }
+
+    @RequestMapping("/about")
+    public String about(){
+        return "about";
+    }
+
+
 }

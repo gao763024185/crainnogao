@@ -22,6 +22,7 @@ public class LogsInfoController {
 
     @Resource
     private LogsService logsService;
+    String view_base="/admin/";
     //日志提交
     @RequestMapping(value = "/issue")
     @ResponseBody
@@ -36,7 +37,7 @@ public class LogsInfoController {
         logs.setLogCreated(new Date());
         logs.setLogUpdate(new Date());
         logsService.insert(logs);
-        return "redirect:crainnogao_ad";
+        return new JsonResp(JsonResp.Result_Success,null,null,null);
     }
 
 }
