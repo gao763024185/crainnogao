@@ -1,20 +1,13 @@
 
 
-<div class="col-lg-12">
-    <div class="container_issue" xmlns="http://www.w3.org/1999/html">
-        <ul>
-            <li><a href="">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-            <li><a href="">&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-        </ul>
-    </div>
-    <div class="container_issue1">
+<div class="tp">
 ##        <form action="/issue" method="post">
     <table class="tablepannel">
-        <tr><td><p class="ptitlt">标题</p><hr></td></tr>
-        <tr><td><input type="text" name="logTitle" id="logTitle"></td></tr>
-        <tr><td><p class="ptitlt">摘要</p><hr></td></tr>
-        <tr><td><input type="text" name="logSummary" id="logSummary"></td></tr>
-        <tr><td><p class="ptitlt">内容</pptitlt><hr></td></tr>
+        <tr><td><p class="ptitlt">标题</p></td></tr>
+        <tr><td><input type="text" name="logTitle" id="logTitle"><hr></td></tr>
+        <tr><td><p class="ptitlt">摘要</p></td></tr>
+        <tr><td><input type="text" name="logSummary" id="logSummary"><hr></td></tr>
+        <tr><td><p class="ptitlt">内容</p></td></tr>
         <tr>
             <td>
                 <!--编辑器-->
@@ -33,5 +26,4 @@
         <tr><td><input type="submit" class="issuesubmit" value="发表"></td></tr>
     </table>
 ##        </form>
-    </div>
 </div>

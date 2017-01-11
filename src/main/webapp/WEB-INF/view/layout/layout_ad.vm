@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/editormd/css/editormd.min.css"/>
+    <link rel="stylesheet" href="//cdn.bootcss.com/materialize/0.97.8/css/materialize.min.css">
 </head>
 <body>
     $screen_content
@@ -18,6 +19,7 @@
 <script src='/js/jQuery-core/jquery-ui.min.js'></script>
 <script src="/js/bootstrap/bootstrap.min.js"></script>
 <script src="/editormd/editormd.min.js"></script>
+<script src="/js/jQuery-core/jquery.pagead.js"></script>
 <script src="/js/admin/script.js"></script>
 <script src="/js/admin/custom.js"></script>
 <script>
@@ -30,6 +32,14 @@
             syncScrolling : "single",
             path    : "/editormd/lib/"
         });
+    });
+    var totalPage = $("#totalPage").val();
+    $(".tcdPageCode").createPage({
+        pageCount:totalPage,
+        current:1,
+        backFn:function(p){
+            console.log(p);
+        }
     });
 </script>
 </body>

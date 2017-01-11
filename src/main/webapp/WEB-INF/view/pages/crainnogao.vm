@@ -9,7 +9,7 @@
             <div class="container">
                 <div class="nav-wrapper">
                     <a href="">
-                        <img src="/images/crainnogao.png" alt="" width=";" height=";">
+                        <img src="/images/crainnogao.png" alt="">
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="">首页</a></li>
@@ -81,6 +81,7 @@
     <div class="footer-copyright">
         <div class="container">
             <span>Copyright © crainnogao2016</span>
+            <span><a href="/crainnogao/admin/crainnogao_ad">后台登录</a></span>
         </div>
     </div>
 </footer>

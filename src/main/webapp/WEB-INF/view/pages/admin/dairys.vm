@@ -1,4 +1,8 @@
+
+<input type="hidden" name="totalPage" id="totalPage" value="$listlogs.getTotalPage()"/>
+<input type="hidden" name="totalRecord" id="totalRecord" value="$listlogs.getTotalRecord()"/>
 <div class="tab-container">
+    <div id="ajshow0">
     <table class="table table-hover">
         <thead>
         <tr>
@@ -11,16 +15,22 @@
         </tr>
         </thead>
         <tbody>
-        #foreach($logs in $listlogs)
-        <tr>
-            <td>$!{logs.logId}</td>
-            <td>$!{logs.logTitle}</td>
-            <td>$!{logs.logSummary}</td>
-            <td>#dateTimeText($!{logs.logCreated},'yyyy-MM-dd HH:mm')</td>
-            <td>#dateTimeText($!{logs.logUpdate},'yyyy-MM-dd HH:mm')</td>
-            <td>操作</td>
-        </tr>
-        #end
+
+                #foreach($logs in $listlogs.getDataList())
+                <tr>
+                    <td>$!{logs.logId}</td>
+                    <td>$!{logs.logTitle}</td>
+                    <td>$!{logs.logSummary}</td>
+                    <td>#dateTimeText($!{logs.logCreated},'yyyy-MM-dd HH:mm')</td>
+                    <td>#dateTimeText($!{logs.logUpdate},'yyyy-MM-dd HH:mm')</td>
+                    <td>操作</td>
+                </tr>
+                #end
+
         </tbody>
     </table>
+    </div>
+    <div class="fenye">
+        <div class="tcdPageCode"></div>
+    </div>
 </div>
