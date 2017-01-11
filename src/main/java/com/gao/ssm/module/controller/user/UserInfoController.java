@@ -29,7 +29,7 @@ public class UserInfoController {
         if (pageNum == null){
             pageNum=1;
         }
-        int pageSize=5;
+        int pageSize=10;
         List<Logs> logsList = logsService.findAll();
         Pager<Logs> pager = new Pager<Logs>(pageNum,pageSize,logsList);
         modelMap.addAttribute("logs",pager);
@@ -42,9 +42,14 @@ public class UserInfoController {
     public Object fenye(@RequestParam(value = "pageNum",required = false) Integer pageNum,
         @RequestParam(value = "pageSize",required = false) Integer pageSize){
 
-        pageSize=5;
+        pageSize=10;
         List<Logs> logsList = logsService.findAll();
+        for (Logs logs:logsList){
+            logs.setLogCreatedStr(logs.getLogCreated(),"yyyy-MM-dd HH:mm");
+            logs.setLogUpdateStr(logs.getLogUpdate(),"yyyy-MM-dd HH:mm");
+        }
         Pager<Logs> logs = new Pager<Logs>(pageNum,pageSize,logsList);
+        System.out.println(logs.getDataList().get(0).getLogCreatedStr());
         return logs.getDataList();
     }
     @RequestMapping("/logshow")

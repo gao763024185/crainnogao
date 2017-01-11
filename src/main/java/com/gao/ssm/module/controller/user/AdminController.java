@@ -5,6 +5,7 @@ import com.gao.ssm.module.pojo.logs.Logs;
 import com.gao.ssm.module.pojo.user.BaseUser;
 import com.gao.ssm.module.service.logs.LogsService;
 import com.gao.ssm.module.service.user.UserInfoService;
+import com.gao.ssm.module.tools.Pager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,13 +50,19 @@ public class AdminController {
     }
 
     @RequestMapping("/crainnogao_ad")
-    public String crainnogao_ad(ModelMap model){
+    public String crainnogao_ad(ModelMap model,@RequestParam(value = "pageNum",required = false) Integer pageNum){
+
+        if (pageNum == null){
+            pageNum = 1;
+        }
+        int pageSize = 10;
         //用户信息显示
         List<BaseUser> user = userInfoService.findAll();
         model.addAttribute("list",user);
         //logs信息显示
         List<Logs> logs = logsService.findAll();
-        model.addAttribute("listlogs",logs);
+        Pager<Logs> logsPager = new Pager<Logs>(pageNum,pageSize,logs);
+        model.addAttribute("listlogs",logsPager);
         return view_base+"crainnogao_ad";
     }
 }
