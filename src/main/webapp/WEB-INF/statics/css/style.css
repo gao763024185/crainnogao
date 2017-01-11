@@ -168,7 +168,7 @@ ul#tab-menu li:hover {
     height: 100% !important;
 }
 
-.tcdPageCode{padding: 15px 20px;text-align: left;color: #ccc;}
+.tcdPageCode{padding: 15px 20px;text-align: center;color: #ccc;}
 .tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
 .tcdPageCode a:hover{text-decoration: none;border: 1px solid #428bca;}
 .tcdPageCode span.current {
@@ -200,7 +200,7 @@ header .container{
 }
 main .container{
     width:90% !important;
-
+    min-height: 600px;
 }
 main .container .row{
     width: 100%!important;
