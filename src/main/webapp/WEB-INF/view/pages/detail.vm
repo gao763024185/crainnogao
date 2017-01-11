@@ -1,0 +1,103 @@
+#set($layout="layout/layout.vm")
+#set( $page_title = "detail")
+
+<header>
+    <div class="navbar-fixed">
+        <nav class="index-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="">
+                        <img src="/images/crainnogao.png" alt="">
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="/crainnogao">首页</a></li>
+                        <li><a href="/about">关于</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div class="panel-default">
+                        <div class="panel-heading">
+                            <div><strong>$!{logs.logTitle}</strong></div>
+                        </div>
+                        <div class="panel-body">关键字：$!{logs.logSummary}</div>
+                        <div id="firstlog"></div>
+                        <input type="hidden" name="logcontentfir" id="logcontentfir" value="$!{logs.logContent}">
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+                    <div class="comment-texarea">
+                        <textarea placeholder="我也来说两句"></textarea>
+                    </div>
+                    <span class="express"><a href="">表情</a></span>
+                    <input type="button" value="评论">
+                    <hr>
+                    <div class="sort-order">
+                        <ul class="list-inline">
+                            <li>全部</li>
+                            <li>最新</li>
+                            <li>最热</li>
+                        </ul>
+                    </div>
+                    <div class="usercomm">
+                        <img src="/images/bussiss.jpeg" alt="" height="50px;" width="50px;">
+                        <span class="uname">用户名</span>
+                        <span class="time">五分钟前</span>
+                        <span class="content">见覅偶尔文件佛IER级我跑酷都碰见无法</span>
+                        <span class="feed">回复</span>
+                    </div>
+                    <hr>
+                    <div class="usercomm">
+                        <img src="/images/bussiss.jpeg" alt="" height="50px;" width="50px;">
+                        <span class="uname">用户名</span>
+                        <span class="time">五分钟前</span>
+                        <span class="content">见覅偶尔文件佛IER级我跑酷都碰见无法</span>
+                        <span class="feed">回复</span>
+                    </div>
+                    <hr>
+                    <div class="usercomm">
+                        <img src="/images/bussiss.jpeg" alt="" height="50px;" width="50px;">
+                        <span class="uname">用户名</span>
+                        <span class="time">五分钟前</span>
+                        <span class="content">见覅偶尔文件佛IER级我跑酷都碰见无法</span>
+                        <span class="feed">回复</span>
+                    </div>
+                    <hr>
+                    <div class="usercomm">
+                        <img src="/images/bussiss.jpeg" alt="" height="50px;" width="50px;">
+                        <span class="uname">用户名</span>
+                        <span class="time">五分钟前</span>
+                        <span class="content">见覅偶尔文件佛IER级我跑酷都碰见无法</span>
+                        <span class="feed">回复</span>
+                    </div>
+                    <hr>
+                </div>
+                <div class="col-lg-1"></div>
+            </div>
+        </div>
+</main>
+
+
+
+<footer>
+    <div class="footer-copyright">
+        <div class="container">
+            <span>Copyright © crainnogao2016</span>
+            <span><a href="/crainnogao/admin/crainnogao_ad">后台登录</a></span>
+        </div>
+    </div>
+</footer>

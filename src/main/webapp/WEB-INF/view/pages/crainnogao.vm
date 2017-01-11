@@ -63,7 +63,7 @@
                                 <div class="panel panel-default wenben">
                                     <div id="firstshow">
                                         <div class="panel-heading">
-                                            <strong>$logs.getDataList().get(0).logTitle</strong>
+                                            <a href="/detail?logId=$logs.getDataList().get(0).logId"><strong>$logs.getDataList().get(0).logTitle</strong></a>
                                         </div>
                                         <div class="panel-body">关键字：$logs.getDataList().get(0).logSummary</div>
                                         <div id="firstlog"></div>

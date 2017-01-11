@@ -1,0 +1,23 @@
+ .uname{
+    /*display: block;*/
+    position: relative;
+     top: -10px;
+}
+ .time{
+     position: relative;
+     top: 17px;
+     left: -45px;
+ }
+ .content{
+     position: relative;
+     top: -10px;
+ }
+ .feed{
+     float: right;
+     position: relative;
+     top: 40px;
+ }
+ .usercomm span{
+     color: #7f807a;
+     font-family: 正楷;
+ }

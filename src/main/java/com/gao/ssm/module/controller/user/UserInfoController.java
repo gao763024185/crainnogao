@@ -59,6 +59,12 @@ public class UserInfoController {
         return logs;
     }
 
+    @RequestMapping("/detail")
+    public String detail(ModelMap modelMap,@RequestParam(value = "logId") String logId){
+        Logs logs = logsService.getById(logId);
+        modelMap.addAttribute("logs",logs);
+        return "detail";
+    }
     @RequestMapping("/about")
     public String about(){
         return "about";
