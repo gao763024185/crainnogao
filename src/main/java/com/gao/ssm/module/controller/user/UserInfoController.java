@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by 孙皓 on 2016/12/13.
+ * Created by gaobh on 2016/12/13.
  */
 @Controller
 public class UserInfoController {

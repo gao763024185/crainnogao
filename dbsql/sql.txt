@@ -17,3 +17,21 @@ CHANGE COLUMN `log_url` `log_content`  varchar(3000) CHARACTER SET utf8 COLLATE 
 
 ALTER TABLE `logs`
 MODIFY COLUMN `log_id`  varchar(15) NOT NULL FIRST ;
+
+2017/01/12
+CREATE TABLE `feed` (
+`id`  int(11) NOT NULL ,
+`log_id`  varchar(15) NULL ,
+`uid`  int(11) NULL ,
+`feed_content`  varchar(500) NULL ,
+`feed_time`  datetime NULL ,
+`status`  varchar(2) NULL COMMENT '状态:0无效1有效' ,
+PRIMARY KEY (`id`)
+)
+;
+ALTER TABLE `base_user`
+ADD COLUMN `avatar`  varchar(100) NULL AFTER `created`,
+ADD COLUMN `avatarThumbnail`  varchar(100) NULL AFTER `avatar`;
+
+
+

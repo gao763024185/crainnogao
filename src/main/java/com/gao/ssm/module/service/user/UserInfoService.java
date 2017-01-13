@@ -6,7 +6,7 @@ import com.gao.ssm.module.pojo.user.BaseUser;
 import java.util.List;
 
 /**
- * Created by 孙皓 on 2016/12/14.
+ * Created by gaobh on 2016/12/14.
  */
 public interface UserInfoService {
     //验证用户登录

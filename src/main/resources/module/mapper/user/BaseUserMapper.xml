@@ -8,9 +8,11 @@
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="avatarThumbnail" property="avatarthumbnail" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    uid, user_name, password, login_time, created
+    uid, user_name, password, login_time, created, avatar, avatarThumbnail
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
@@ -26,7 +28,8 @@
     insert into base_user (uid, user_name, password,
       login_time, created)
     values (#{uid,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{loginTime,jdbcType=TIMESTAMP}, #{created,jdbcType=TIMESTAMP})
+      #{loginTime,jdbcType=TIMESTAMP}, #{created,jdbcType=TIMESTAMP}, #{avatar,jdbcType=VARCHAR},
+      #{avatarthumbnail,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.gao.ssm.module.pojo.user.BaseUser" >
     insert into base_user
@@ -46,6 +49,12 @@
       <if test="created != null" >
         created,
       </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="avatarthumbnail != null" >
+        avatarThumbnail,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="uid != null" >
@@ -62,6 +71,12 @@
       </if>
       <if test="created != null" >
         #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarthumbnail != null" >
+        #{avatarthumbnail,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -80,6 +95,12 @@
       <if test="created != null" >
         created = #{created,jdbcType=TIMESTAMP},
       </if>
+      <if test="avatar != null" >
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="avatarthumbnail != null" >
+        avatarThumbnail = #{avatarthumbnail,jdbcType=VARCHAR},
+      </if>
     </set>
     where uid = #{uid,jdbcType=INTEGER}
   </update>
@@ -88,7 +109,9 @@
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       login_time = #{loginTime,jdbcType=TIMESTAMP},
-      created = #{created,jdbcType=TIMESTAMP}
+      created = #{created,jdbcType=TIMESTAMP},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      avatarThumbnail = #{avatarthumbnail,jdbcType=VARCHAR}
     where uid = #{uid,jdbcType=INTEGER}
   </update>
   <!--do not modify end-->

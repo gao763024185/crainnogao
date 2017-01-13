@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by 孙皓 on 2016/12/22.
+ * Created by gaobh on 2016/12/22.
  */
 @Service
 public class LogsServiceImpl implements LogsService{

@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by 孙皓 on 2016/12/22.
+ * Created by gaobh on 2016/12/22.
  */
 public class DateUtil {
     public static String format(Date date, String pattern){
