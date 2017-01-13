@@ -16,17 +16,6 @@
                         <li><a href="/about">关于</a></li>
                     </ul>
                 </div>
-##                <span class="more">
-##                    <a href="javascript:" class="toggle right" id="menu-toggle2">
-##                        <i class="material-icons">more_vert</i>
-##                    </a>
-##                    <ul class="menu" data-menu data-menu-toggle="#menu-toggle2">
-##                        <li><a href="javascript:" id="crainnogao_ad" >哈哈啦</a></li>
-##                        <li class="menu-separator"></li>
-##                        <li><a href="#">呵呵哒</a></li>
-##                        <li><a href="#">噜啦啦</a></li>
-##                    </ul>
-##                </span>
             </div>
         </nav>
     </div>
@@ -36,47 +25,53 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                    <div class="col-lg-3">
-                        <div id="smoothmenu1">
-                            <ul id="tab-menu" class="ddsmoothmenu">
-                                <p class="yinxiang">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;印象笔记</p>
-                                <div id="ajshow">
-                                    #foreach($log in $logs.getDataList())
-                                        #set($count = $foreach.count*2 - 1)
-                                        <input type="hidden" name="logId-$count" id="logId-$count" value="$!{log.logId}">
-                                        <li class="logTitle">$!{log.logTitle}</li>
-                                    #end
-                                </div>
-                            </ul>
-                            <div class="fenye">
-                                <div class="tcdPageCode"></div>
+                <div class="col-lg-3">
+                    <div id="smoothmenu1">
+                    #if($logs.getDataList().size()!=0)
+                        <ul id="tab-menu" class="ddsmoothmenu">
+                            <p class="yinxiang">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;印象笔记</p>
+                            <div id="ajshow">
+                            #foreach($log in $logs.getDataList())
+                                #set($count = $foreach.count*2 - 1)
+                                <input type="hidden" name="logId-$count" id="logId-$count" value="$!{log.logId}">
+                                <li class="logTitle">$!{log.logTitle}</li>
+                            #end
                             </div>
+                        </ul>
+                        <div class="fenye">
+                            <div class="tcdPageCode"></div>
                         </div>
+                    #end
                     </div>
-                    <div class="col-lg-9">
-                                #if($logs.getDataList().size()==0)
-                                    <div>
-                                        对不起主人尚未有任何动态.....
+                </div>
+                <div class="col-lg-9">
+                    #if($logs.getDataList().size()==0)
+                        <div>
+                            对不起主人尚未有任何动态.....<br>感谢您的关注~~~
+                        </div>
+                    #end
+                    #if($logs.getDataList().size()>0)
+                        <div class="panel panel-default wenben">
+                            <div id="firstshow">
+                                <div class="panel-heading">
+                                    <div class="col-lg-12">
+                                    <span class="col-lg-8"><a href="/detail?logId=$logs.getDataList().get(0).logId"><blockquote>$logs.getDataList().get(0).logTitle</blockquote></a></span>
+                                    <span class="col-lg-4">#dateTimeText($logs.getDataList().get(0).logCreated,'yyyy-MM-dd HH:mm')</span>
                                     </div>
-                                #end
-                                #if($logs.getDataList().size()>0)
-                                <div class="panel panel-default wenben">
-                                    <div id="firstshow">
-                                        <div class="panel-heading">
-                                            <a href="/detail?logId=$logs.getDataList().get(0).logId"><strong>$logs.getDataList().get(0).logTitle</strong></a>
-                                        </div>
-                                        <div class="panel-body">关键字：$logs.getDataList().get(0).logSummary</div>
-                                        <div id="firstlog"></div>
-                                    </div>
-                                    <input type="hidden" name="logcontentfir" id="logcontentfir" value="$logs.getDataList().get(0).logContent">
-                                    <div id="logshow"></div>
                                 </div>
-                                #end
-                    </div>
+                                <div class="panel-body">关键字：$logs.getDataList().get(0).logSummary</div>
+                                <div id="firstlog"></div>
+                            </div>
+                            <input type="hidden" name="logcontentfir" id="logcontentfir" value="$logs.getDataList().get(0).logContent">
+                            <div id="logshow"></div>
+                        </div>
+                    #end
+                </div>
             </div>
         </div>
     </div>
 </main>
+
 <footer>
     <div class="footer-copyright">
         <div class="container">

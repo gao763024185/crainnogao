@@ -184,7 +184,9 @@ img {
     color: #9b9c96;
     font-family: "华文楷体";
 }
-
+.editormd-code-toolbar select {
+    display: block!important;
+}
 /*后台登录界面样式 end*/
 
 

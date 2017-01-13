@@ -42,6 +42,9 @@ a {
     text-decoration: none;
     color:#f1ecec;
 }
+a:hover{
+    text-decoration: none!important;
+}
 
 .more{
     float: right;
@@ -220,4 +223,41 @@ footer {
    padding: 2em;
 }
 
+.panel{
+    /*background-color: #f1f1f1!important;*/
+    /*filter:Alpha(opacity=0);*/
+    background-color: rgba(245, 245, 245,0)!important;
+}
+#firstshow #firstlog{
+    margin-left: 2.5%;
+    width: 95%;
+    margin-bottom: 2em;
+}
 
+#logshow .contentshow{
+    margin-left: 2.5%;
+    width: 95%;
+    margin-bottom: 2em;
+}
+
+#firstshow blockquote{
+    font-size: 26px;
+}
+
+
+#logshow blockquote{
+    font-size: 26px;
+}
+
+#firstshow .panel-heading .col-lg-4{
+    margin-top: 1.6em;
+    text-align: right;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+}
+#logshow .panel-heading .col-lg-4{
+    margin-top: 1.6em;
+    text-align: right;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+}

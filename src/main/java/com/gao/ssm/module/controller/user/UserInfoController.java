@@ -56,6 +56,8 @@ public class UserInfoController {
     @ResponseBody
     public Object logshow(ModelMap modelMap,@RequestParam(value = "logId") String logId){
         Logs logs = logsService.getById(logId);
+        logs.setLogCreatedStr(logs.getLogCreated(),"yyyy-MM-dd HH:mm");
+        logs.setLogUpdateStr(logs.getLogUpdate(),"yyyy-MM-dd HH:mm");
         return logs;
     }
 
