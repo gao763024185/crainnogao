@@ -17,6 +17,7 @@ import java.util.List;
  * Created by gaobh on 2016/12/13.
  */
 @Controller
+@RequestMapping("/crainnogao")
 public class UserInfoController {
     @Resource
     private UserInfoService userInfoService;
@@ -24,7 +25,7 @@ public class UserInfoController {
     private LogsService logsService;
 
     private String view_base = "/p/";
-    @RequestMapping("/crainnogao")
+    @RequestMapping("/")
     public String showTest(ModelMap modelMap,@RequestParam(value = "pageNum",required = false) Integer pageNum){
         if (pageNum == null){
             pageNum=1;
@@ -72,5 +73,9 @@ public class UserInfoController {
         return "about";
     }
 
+    @RequestMapping("/userinfo/edit")
+    public String userinfoedit(@RequestParam(value = "id",required = false) Integer id){
 
+        return "userinfoedit";
+    }
 }
