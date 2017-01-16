@@ -13,11 +13,12 @@
         <tbody>
         #foreach($user in $list)
         <tr>
+            <input type="hidden" name="uid" id="uid" value="$!{user.uid}"/>
             <td>$!{user.uid}</td>
             <td>$!{user.userName}</td>
             <td>#dateTimeText($!{user.loginTime},'yyyy-MM-dd HH:mm:ss')</td>
             <td>#dateTimeText($!{user.created},'yyyy-MM-dd HH:mm:ss')</td>
-            <td>操作</td>
+            <td><a class="edit">编辑</a></td>
         </tr>
         #end
 

@@ -13,7 +13,7 @@
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="">首页</a></li>
-                        <li><a href="/about">关于</a></li>
+                        <li><a href="/crainnogao/about">关于</a></li>
                     </ul>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                             <div id="firstshow">
                                 <div class="panel-heading">
                                     <div class="col-lg-12">
-                                    <span class="col-lg-8"><a href="/detail?logId=$logs.getDataList().get(0).logId"><blockquote>$logs.getDataList().get(0).logTitle</blockquote></a></span>
+                                    <span class="col-lg-8"><a href="/crainnogao/detail?logId=$logs.getDataList().get(0).logId"><blockquote>$logs.getDataList().get(0).logTitle</blockquote></a></span>
                                     <span class="col-lg-4">#dateTimeText($logs.getDataList().get(0).logCreated,'yyyy-MM-dd HH:mm')</span>
                                     </div>
                                 </div>

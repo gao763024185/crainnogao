@@ -6,12 +6,12 @@
         <nav class="index-nav">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="/crainnogao">
+                    <a href="/crainnogao/">
                         <img src="/images/crainnogao.png" alt="">
                     </a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="/crainnogao">首页</a></li>
-                        <li><a href="/about">关于</a></li>
+                        <li><a href="/crainnogao/">首页</a></li>
+                        <li><a href="/crainnogao/about">关于</a></li>
                     </ul>
                 </div>
             </div>

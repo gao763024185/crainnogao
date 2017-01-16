@@ -10,20 +10,22 @@
             <th>主题</th>
             <th>概要</th>
             <th>上传时间</th>
-            <th>时间</th>
+            <th>更新时间</th>
             <th>操作</th>
         </tr>
         </thead>
-        <tbody>
-
+        <tbody class="abc">
                 #foreach($logs in $listlogs.getDataList())
-                <tr>
+                <tr data-id="$!{logs.logId}" class="logId">
                     <td>$!{logs.logId}</td>
                     <td>$!{logs.logTitle}</td>
                     <td>$!{logs.logSummary}</td>
                     <td>#dateTimeText($!{logs.logCreated},'yyyy-MM-dd HH:mm')</td>
                     <td>#dateTimeText($!{logs.logUpdate},'yyyy-MM-dd HH:mm')</td>
-                    <td>操作</td>
+                    <td>
+                        <a class="delete-$foreach.index">删除</a>
+                        <a class="edit-$foreach.index">编辑</a>
+                    </td>
                 </tr>
                 #end
 
