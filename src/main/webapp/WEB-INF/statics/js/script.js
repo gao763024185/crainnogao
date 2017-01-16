@@ -119,7 +119,7 @@ $(function () {
             data:data,
             dataType:"json",
             success:function (resp) {
-                var $tr=  '<div class="panel-heading"><div class="col-lg-12"><span class="col-lg-8"><a href="/detail?logId='+resp.logId+'"><blockquote>'+resp.logTitle+'</blockquote></a></span><span class="col-lg-4">'+resp.logCreatedStr+'</span></div></div>'+
+                var $tr=  '<div class="panel-heading"><div class="col-lg-12"><span class="col-lg-8"><a href="/crainnogao/detail?logId='+resp.logId+'"><blockquote>'+resp.logTitle+'</blockquote></a></span><span class="col-lg-4">'+resp.logCreatedStr+'</span></div></div>'+
                         '<div class="panel-body">关键字：'+resp.logSummary+'</div>'+
                         '<div  class="contentshow"></div>'+
                         '<input type="hidden" class="logContent" value="'+resp.logContent+'"/>';

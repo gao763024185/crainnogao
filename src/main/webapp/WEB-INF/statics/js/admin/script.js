@@ -52,7 +52,7 @@ $(function () {
     $(".noclear").click(function () {
         var time = new Date().getTime();
        document.getElementById("verPic").src="/VerifyCodeServlet?time="+time;
-    });;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    });
 
     $(document).on('click','.issuesubmit',function () {
         var codetext = $("#codetext").val();
@@ -64,7 +64,7 @@ $(function () {
             logTitle:logTitle,
             logSummary:logSummary,
             logContent:logContent
-        };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+        };
         $.ajax({
             url:"/issue",
             type:"post",
@@ -72,7 +72,7 @@ $(function () {
             dateType:"json",
             success:function (data) {
                 if(data.result==0){
-                    alert("发表成功!");;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+                    alert("发表成功!");
                     window.location.href='/crainnogao/admin/crainnogao_ad'
                 }else{
                     alert("发表失败!")
@@ -82,5 +82,17 @@ $(function () {
                 alert("网络连接失败!");
             }
         })
+    });;;
+    //删除日志
+
+    //编辑用户
+    $(document).on('click','.edit',function () {
+        var id = $("#uid").val();
+        layer.open({
+            type: 2,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['500px', '300px'], //宽高
+            content: ['/crainnogao/userinfo/edit?id='+id,'no']
+        });
     })
 });
