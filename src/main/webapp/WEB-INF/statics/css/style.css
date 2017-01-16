@@ -203,7 +203,7 @@ header .container{
 }
 main .container{
     width:90% !important;
-    min-height: 600px;
+    min-height: 900px;
 }
 main .container .row{
     width: 100%!important;
