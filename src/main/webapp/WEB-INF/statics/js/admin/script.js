@@ -29,13 +29,14 @@ $(function () {
             };
             $.ajax({
                 type: 'POST',
-                url: "/crainnogao/admin/login",
+                url: "/crainnogao/admin/loginVal",
                 data: data,
                 dataType: "json",
-                success: function (data) {
-                    //var resp=eval("("+resp+")"); 两种jQuery解析json数据的方法
-                    // var resp = JSON.parse(data);
-                    if (data.result == 0) {
+                success: function (resp) {
+                    if (resp.result == 0) {
+                        // alert(JSON.stringify(resp.data));
+                        document.cookie = "uid="+resp.data.uid;
+                        document.cookie = "name="+resp.data.userName;
                         window.location.href='/crainnogao/admin/crainnogao_ad'
                     } else {
                         alert(resp.msg);
@@ -82,16 +83,43 @@ $(function () {
                 alert("网络连接失败!");
             }
         })
-    });;;
+    });
     //删除日志
-
+    var abcSort = document.getElementById('abc');
+    var deleteSort = abcSort.getElementsByClassName('delete');
+    var editSort = abcSort.getElementsByClassName('update');
+    for (var i = 0;i<deleteSort.length;i++){
+        deleteSort[i].index = i;
+        deleteSort[i].onclick=function () {
+            var logId = $(this).parent().parent().data('id');
+            var data = {logId:logId};
+            $.post('/delete',data,function (resp) {
+                if (resp.result==0){
+                    window.location.href='/crainnogao/admin/crainnogao_ad';
+                    alert("删除成功!")
+                }else {
+                    alert("删除失败!")
+                }
+            })
+        };;;;;;;
+        editSort[i].onclick=function () {
+            var logId = $(this).parent().parent().data('id');
+            var data = {logId:logId};
+            layer.open({
+                type: 1,
+                skin: 'layui-layer-rim', //加上边框
+                area: ['600px', '400px'], //宽高
+                content: 'logId='+logId
+            });
+        }
+    }
     //编辑用户
     $(document).on('click','.edit',function () {
         var id = $("#uid").val();
         layer.open({
             type: 2,
             skin: 'layui-layer-rim', //加上边框
-            area: ['500px', '300px'], //宽高
+            area: ['600px', '400px'], //宽高
             content: ['/crainnogao/userinfo/edit?id='+id,'no']
         });
     })
