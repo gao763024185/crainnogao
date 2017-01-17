@@ -191,15 +191,17 @@ img {
 
 
 /*用户信息界面 start*/
-
+.userinfoedit .container{
+    width: 100%;
+}
 .site-demo-upload {
     position: relative;
     background: #e2e2e2;
 }
 
 .site-demo-upload, .site-demo-upload img {
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     border-radius: 100%;
 }
 demo-upload img {

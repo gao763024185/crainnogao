@@ -1,21 +1,31 @@
 #set($layout="layout/layout_ad.vm")
 #set( $page_title = "userinfoedit")
-
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="col-lg-2">上传头像:</div>
-                <div class="col-lg-10">
+<div class="userinfoedit">
+    <div class="container">
+        <form action="/crainnogao/admin/userinfoSubmit" method="post">
+        <table>
+            <tr>
+                <td>上传头像:</td>
+                <td>
                     <div class="site-demo-upload">
                         <img id="LAY_demo_upload" src="/images/admin.png">
                         <div class="site-demo-upbar">
                             <div class="layui-box layui-upload-button">
-                                <form target="layui-upload-iframe" method="get" key="set-mine" enctype="multipart/form-data" action="/test/upload.json">
                                     <input type="file" name="file" class="layui-upload-file" id="test">
-                                </form>
-                                <span class="layui-upload-icon"><i class="layui-icon"></i>上传图片</span>
+                                <span class="layui-upload-icon">上传图片</span>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </td>
+            </tr>
+            <tr>
+                <td>用户名:</td>
+                <td><input type="text" name="userName" id="userName"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" style="width: 50px;float: right" value="提交"></td>
+            </tr>
+        </table>
+        </form>
+    </div>
+</div>

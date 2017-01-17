@@ -14,7 +14,7 @@
             <th>操作</th>
         </tr>
         </thead>
-        <tbody class="abc">
+        <tbody id="abc">
                 #foreach($logs in $listlogs.getDataList())
                 <tr data-id="$!{logs.logId}" class="logId">
                     <td>$!{logs.logId}</td>
@@ -23,8 +23,8 @@
                     <td>#dateTimeText($!{logs.logCreated},'yyyy-MM-dd HH:mm')</td>
                     <td>#dateTimeText($!{logs.logUpdate},'yyyy-MM-dd HH:mm')</td>
                     <td>
-                        <a class="delete-$foreach.index">删除</a>
-                        <a class="edit-$foreach.index">编辑</a>
+                        <a class="delete">删除</a>
+                        <a class="update">编辑</a>
                     </td>
                 </tr>
                 #end
