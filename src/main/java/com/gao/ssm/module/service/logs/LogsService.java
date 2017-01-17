@@ -14,4 +14,5 @@ public interface LogsService {
     List<Logs> findAll();
 
 //     Pager<Logs> findAll (List<Logs> logs,int pageNum,int pageSize);
+    int deleteByPrimaryKey(String logId);
 }

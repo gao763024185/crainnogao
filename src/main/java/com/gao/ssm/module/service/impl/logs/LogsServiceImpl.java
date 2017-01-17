@@ -21,6 +21,8 @@ public class LogsServiceImpl implements LogsService{
     public int insert(Logs logs){return logsMapper.insert(logs);}
 
     public Logs getById(String logId){return logsMapper.selectByPrimaryKey(logId);}
+
+    public int deleteByPrimaryKey(String logId){return logsMapper.deleteByPrimaryKey(logId);}
 //    public Pager<Logs> findAll (List<Logs> logs, int pageNum, int pageSize){
 //        return logsMapper.findAll(logs,pageNum,pageSize);
 //    }

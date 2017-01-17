@@ -39,5 +39,18 @@ public class LogsInfoController {
         logsService.insert(logs);
         return new JsonResp(JsonResp.Result_Success,null,null,null);
     }
-
+    /*删除日志*/
+    @RequestMapping("/delete")
+    @ResponseBody
+    public Object delete(@RequestParam(value = "logId",required = false) String logId){
+        logsService.deleteByPrimaryKey(logId);
+        return new JsonResp(JsonResp.Result_Success,null,null,null);
+    }
+    /*更新日志*/
+//    @RequestMapping("/edit")
+//    @ResponseBody
+//    public Object edit(@RequestParam(value = "logId",required = false) String logId){
+//        logsService.deleteByPrimaryKey(logId);
+//        return new JsonResp(JsonResp.Result_Success,null,null,null);
+//    }
 }

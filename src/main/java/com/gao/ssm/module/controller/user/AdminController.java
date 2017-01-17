@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by gaobh on 2016/12/16.
@@ -36,22 +38,30 @@ public class AdminController {
     public String loginPage(){
         return view_base+"login";
     }
-    @RequestMapping(value = "/login" ,method = RequestMethod.POST)
+    @RequestMapping(value = "/loginVal" ,method = RequestMethod.POST)
     @ResponseBody
-    public Object login(BaseUser user, @RequestParam(value = "codetext",required = false) String codetext,HttpServletRequest request){
+    public Object loginVal(BaseUser user, @RequestParam(value = "codetext",required = false) String codetext,HttpServletRequest request){
 
         HttpSession session = request.getSession();
         String validateCode = session.getAttribute("validateCode").toString();
+        if (validateCode==null || validateCode==""){
+            return new JsonResp(JsonResp.Result_Fail,null,"验证码信息过期,请重新刷新输入",null);
+        }
         if (!(codetext.equalsIgnoreCase(validateCode))){
             return new JsonResp(JsonResp.Result_Fail,null,"验证码输入错误",null);
         }
         BaseUser baseUser = userInfoService.loginValid(user);
-        return new JsonResp(JsonResp.Result_Success,null,null,null);
+        if (baseUser == null){
+            return new JsonResp(JsonResp.Result_Fail,null,"用户名或密码输入错误",null);
+        }
+        Map<String,String> map = new HashMap<String,String>();
+        map.put("uid",String.valueOf(baseUser.getUid()));
+        map.put("userName",baseUser.getUserName());
+        return new JsonResp(JsonResp.Result_Success,null,null,map);
     }
-
+    /*后台主界面*/
     @RequestMapping("/crainnogao_ad")
     public String crainnogao_ad(ModelMap model,@RequestParam(value = "pageNum",required = false) Integer pageNum){
-
         if (pageNum == null){
             pageNum = 1;
         }
@@ -64,5 +74,13 @@ public class AdminController {
         Pager<Logs> logsPager = new Pager<Logs>(pageNum,pageSize,logs);
         model.addAttribute("listlogs",logsPager);
         return view_base+"crainnogao_ad";
+    }
+
+    /*用户信息提交*/
+    @RequestMapping("/userinfoSubmit")
+    @ResponseBody
+    public Object userinfoSubmit(BaseUser user){
+
+        return new JsonResp(JsonResp.Result_Success,null,null, null);
     }
 }
