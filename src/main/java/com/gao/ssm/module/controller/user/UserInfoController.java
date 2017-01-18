@@ -73,9 +73,4 @@ public class UserInfoController {
         return "about";
     }
 
-    @RequestMapping("/userinfo/edit")
-    public String userinfoedit(@RequestParam(value = "id",required = false) Integer id){
-
-        return "userinfoedit";
-    }
 }
