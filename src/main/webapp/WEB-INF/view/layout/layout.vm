@@ -11,11 +11,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="title">$!page_title</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
-    <link rel="stylesheet" type="text/css" href="/css/comment.css" media="all" />
     <link rel='stylesheet' href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css">
     <link rel="stylesheet" href="//cdn.bootcss.com/materialize/0.97.8/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/monokai_sublime.min.css">
+    <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
+
 </head>
 <body>
     $screen_content
@@ -24,8 +24,10 @@
     <script src="/js/jQuery-core/jquery.page.js"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
     <script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>
-    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/highlight.min.js"></script>
+    <script>
+         hljs.initHighlightingOnLoad();
+    </script>
     <script src="/js/script.js"></script>
     <script src="/js/menu.js"></script>
     <script>$('[data-menu]').menu();</script>

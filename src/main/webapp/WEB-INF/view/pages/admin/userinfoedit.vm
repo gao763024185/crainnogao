@@ -2,7 +2,7 @@
 #set( $page_title = "userinfoedit")
 <div class="userinfoedit">
     <div class="container">
-        <form action="/crainnogao/admin/userinfoSubmit" method="post">
+        <form action="/crainnogao/admin/userinfoSubmit" method="post" enctype=”multipart/form-data”>
         <table>
             <tr>
                 <td>上传头像:</td>
@@ -11,7 +11,7 @@
                         <img id="LAY_demo_upload" src="/images/admin.png">
                         <div class="site-demo-upbar">
                             <div class="layui-box layui-upload-button">
-                                    <input type="file" name="file" class="layui-upload-file" id="test">
+                                    <input type="file" name="avatar" class="layui-upload-file" id="test" multiple="multiple">
                                 <span class="layui-upload-icon">上传图片</span>
                             </div>
                         </div>
