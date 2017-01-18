@@ -1,4 +1,8 @@
 $(function () {
+    setTimeout( hljs.initHighlightingOnLoad(),1000);
+    $(document).ready(function() {
+        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+    });
     /* 菜单栏 start */
     // var offset = $("#tab-menu").offset();
     // var topPadding = 15;
@@ -127,7 +131,7 @@ $(function () {
                 $("#firstshow").hide();
                 var contentshow = $('.logContent').val();
                 $('.contentshow').html(marked(contentshow));
-                // setTimeout("hljs.initHighlightingOnLoad();",300);
+                hljs.initHighlightingOnLoad();
             },
             error:function () {
                 alert("失败");

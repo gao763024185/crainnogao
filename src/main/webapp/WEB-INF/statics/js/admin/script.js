@@ -93,15 +93,17 @@ $(function () {
         deleteSort[i].onclick=function () {
             var logId = $(this).parent().parent().data('id');
             var data = {logId:logId};
-            $.post('/delete',data,function (resp) {
-                if (resp.result==0){
-                    window.location.href='/crainnogao/admin/crainnogao_ad';
-                    alert("删除成功!")
-                }else {
-                    alert("删除失败!")
-                }
-            })
-        };;;;;;;
+            var r=confirm("您真的要删了我嘛?");
+            if(r==true){
+                $.post('/delete',data,function (resp) {
+                    if (resp.result==0){
+                        window.location.href='/crainnogao/admin/crainnogao_ad';
+                    }else {
+                        alert("删除失败!")
+                    }
+                })
+            }
+        };
         editSort[i].onclick=function () {
             var logId = $(this).parent().parent().data('id');
             var data = {logId:logId};
@@ -120,7 +122,7 @@ $(function () {
             type: 2,
             skin: 'layui-layer-rim', //加上边框
             area: ['600px', '400px'], //宽高
-            content: ['/crainnogao/userinfo/edit?id='+id,'no']
+            content: ['userEdit?id='+id]
         });
     })
 });
