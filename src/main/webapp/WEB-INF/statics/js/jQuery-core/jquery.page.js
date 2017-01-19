@@ -13,10 +13,10 @@
 				obj.empty();
 				//上一页
 				if(args.current > 1){
-					obj.append('<a href="javascript:;" class="prevPage">上一页</a>');
+					obj.append('<a href="javascript:;" class="prevPage"><i class="material-icons">navigate_before</i></a>');
 				}else{
 					obj.remove('.prevPage');
-					obj.append('<span class="disabled">上一页</span>');
+					obj.append('<span class="disabled"><i class="material-icons">navigate_before</i></span>');
 				}
 				//中间页码
 				if(args.current != 1 && args.current >= 4 && args.pageCount != 4){
@@ -49,10 +49,10 @@
 				}
 				//下一页
 				if(args.current < args.pageCount){
-					obj.append('<a href="javascript:;" class="nextPage">下一页</a>');
+					obj.append('<a href="javascript:;" class="nextPage"><i class="material-icons">navigate_next</i></a>');
 				}else{
 					obj.remove('.nextPage');
-					obj.append('<span class="disabled">下一页</span>');
+					obj.append('<span class="disabled"><i class="material-icons">navigate_next</i></span>');
 				}
 			})();
 		},

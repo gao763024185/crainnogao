@@ -1,8 +1,4 @@
 $(function () {
-    setTimeout( hljs.initHighlightingOnLoad(),1000);
-    $(document).ready(function() {
-        $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-    });
     /* 菜单栏 start */
     // var offset = $("#tab-menu").offset();
     // var topPadding = 15;
@@ -29,91 +25,10 @@ $(function () {
         $(this).addClass('mouseout');
         $(this).removeClass('mouseover');
     });
-    /* 菜单栏 end */
-
-    // var items = $('#countrySelection-items').width();
-    // var itemSelected = document.getElementsByClassName('countrySelection-item');
-    // var backgroundColours = ["rgb(133, 105, 156)", "rgb(175, 140, 115)","rgb(151, 167, 109)","rgb(171, 100, 122)","rgb(105, 134, 156)","rgb(152, 189, 169)"]
-    // countriesPointerScroll($(itemSelected));
-    // $("#countrySelection-items").scrollLeft(200).delay(200).animate({
-    //     scrollLeft: "-=200"
-    // }, 2000, "easeOutQuad");
-    //
-    // $('.countrySelection-paddle-right').click(function () {
-    //     $("#countrySelection-items").animate({
-    //         scrollLeft: '+='+items
-    //     });
-    // });
-    // $('.countrySelection-paddle-left').click(function () {
-    //     $( "#countrySelection-items" ).animate({
-    //         scrollLeft: "-="+items
-    //     });
-    // });
-    //
-    // if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    //     var scrolling = false;
-    //
-    //     $(".countrySelection-paddle-right").bind("mouseover", function(event) {
-    //         scrolling = true;
-    //         scrollContent("right");
-    //     }).bind("mouseout", function(event) {
-    //         scrolling = false;
-    //     });
-    //
-    //     $(".countrySelection-paddle-left").bind("mouseover", function(event) {
-    //         scrolling = true;
-    //         scrollContent("left");
-    //     }).bind("mouseout", function(event) {
-    //         scrolling = false;
-    //     });
-    //
-    //     function scrollContent(direction) {
-    //         var amount = (direction === "left" ? "-=3px" : "+=3px");
-    //         $("#countrySelection-items").animate({
-    //             scrollLeft: amount
-    //         }, 1, function() {
-    //             if (scrolling) {
-    //                 scrollContent(direction);
-    //             }
-    //         });
-    //     }
-    // }
-    //
-    // $('.countrySelection-item').click(function () {
-    //     $('#countrySelection').find('.active').removeClass('active');
-    //     $(this).addClass("active");
-    //     countriesPointerScroll($(this));
-    //     newBackgroundColour(backgroundColours)
-    // });
-    // var newBackgroundColour = function(backgroundColours){
-    //     var newBackground = backgroundColours[Math.floor(Math.random()*backgroundColours.length)];
-    //     if(newBackground != $("html").css("background-color")){
-    //         $("html").css("background",newBackground);
-    //     }else{
-    //         newBackgroundColour(backgroundColours);
-    //     }
-    // }
-
-    // function countriesPointerScroll(ele) {
-    //
-    //     var parentScroll = $("#countrySelection-items").scrollLeft();
-    //     var offset = ($(ele).offset().left - $('#countrySelection-items').offset().left);
-    //     var totalelement = offset + $(ele).outerWidth()/2;
-    //
-    //     var rt = (($(ele).offset().left) - ($('#countrySelection-wrapper').offset().left) + ($(ele).outerWidth())/2);
-    //     $('#countrySelector').animate({
-    //         left: totalelement + parentScroll
-    //     })
-    // }
-
-    // var count = $("#count").val();
-    // for (var i =0 ; i<count;i++){
-    //     var contentshow = $('.logContent').val();
-    //     $('.contentshow').html(marked(contentshow));
-    // }
-
 
     $("#ajshow").on('click','.logTitle',function () {
+        hljs.initHighlightingOnLoad();
+        var oLogTitle = document.getElementsByClassName('logTitle');
         var _index = $(this).index();
         var logId = $("#logId-"+_index).val();
         var data = {logId:logId};
@@ -124,14 +39,15 @@ $(function () {
             dataType:"json",
             success:function (resp) {
                 var $tr=  '<div class="panel-heading"><div class="col-lg-12"><span class="col-lg-8"><a href="/crainnogao/detail?logId='+resp.logId+'"><blockquote>'+resp.logTitle+'</blockquote></a></span><span class="col-lg-4">'+resp.logCreatedStr+'</span></div></div>'+
-                        '<div class="panel-body">关键字：'+resp.logSummary+'</div>'+
                         '<div  class="contentshow"></div>'+
+                        '<div class="panel-footer"><span>关键字：'+resp.logSummary+'</span></div>'+
                         '<input type="hidden" class="logContent" value="'+resp.logContent+'"/>';
                 document.getElementById("logshow").innerHTML=$tr;
                 $("#firstshow").hide();
+                // oLogTitle[_index].css('color','#2a6496');
                 var contentshow = $('.logContent').val();
                 $('.contentshow').html(marked(contentshow));
-                hljs.initHighlightingOnLoad();
+
             },
             error:function () {
                 alert("失败");
