@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/css/admin/default.css">
         <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
         <link rel="stylesheet" href="/editormd/css/editormd.min.css"/>
+        <link rel='stylesheet' href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
         <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" href="//cdn.bootcss.com/materialize/0.97.8/css/materialize.min.css">
     </head>

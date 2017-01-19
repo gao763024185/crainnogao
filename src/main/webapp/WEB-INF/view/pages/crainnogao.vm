@@ -59,11 +59,12 @@
                                     <span class="col-lg-4">#dateTimeText($logs.getDataList().get(0).logCreated,'yyyy-MM-dd HH:mm')</span>
                                     </div>
                                 </div>
-                                <div class="panel-body">关键字：$logs.getDataList().get(0).logSummary</div>
                                 <div id="firstlog"></div>
+                                <div class="panel-footer"><span>关键字：$logs.getDataList().get(0).logSummary</span></div>
                             </div>
                             <input type="hidden" name="logcontentfir" id="logcontentfir" value="$logs.getDataList().get(0).logContent">
                             <div id="logshow"></div>
+
                         </div>
                     #end
                 </div>

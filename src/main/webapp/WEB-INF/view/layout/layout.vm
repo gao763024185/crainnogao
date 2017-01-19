@@ -13,21 +13,18 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" media="all" />
     <link rel='stylesheet' href="http://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="//cdn.bootcss.com/materialize/0.97.8/css/materialize.min.css">
+##  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
     <link rel="stylesheet" href="/css/monokai_sublime.min.css">
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
-
 </head>
 <body>
     $screen_content
     <script src="/js/jQuery-core/jquery-2.0.3.min.js"></script>
-    <script src='/js/jQuery-core/jquery-ui.min.js'></script>
     <script src="/js/jQuery-core/jquery.page.js"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
     <script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
     <script src="/js/highlight.min.js"></script>
-    <script>
-         hljs.initHighlightingOnLoad();
-    </script>
     <script src="/js/script.js"></script>
     <script src="/js/menu.js"></script>
     <script>$('[data-menu]').menu();</script>
@@ -41,17 +38,17 @@
             }
         });
     </script>
-<script type="text/javascript">
-    var duoshuoQuery = {short_name:"crainnogao"};
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-        || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name:"crainnogao"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    </script>
 </div>
 </body>
 

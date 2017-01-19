@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -76,11 +78,20 @@ public class AdminController {
         return view_base+"crainnogao_ad";
     }
 
+    /*用户信息编辑*/
+    @RequestMapping("/userEdit")
+    public String userEdit(@RequestParam(value = "id",required = false) Integer id){
+
+        return view_base+"userinfoedit";
+    }
     /*用户信息提交*/
-    @RequestMapping("/userinfoSubmit")
+    @RequestMapping(value = "/userinfoSubmit", method = RequestMethod.POST)
     @ResponseBody
-    public Object userinfoSubmit(BaseUser user){
+    public Object userinfoSubmit(BaseUser user,
+                                 @RequestParam(value = "avatar",required = false) MultipartFile avatar)  throws IllegalStateException, IOException{
+        String name = avatar.getOriginalFilename();
 
         return new JsonResp(JsonResp.Result_Success,null,null, null);
     }
+
 }

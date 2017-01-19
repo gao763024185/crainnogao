@@ -22,7 +22,7 @@ a{
     font-family: "YaHei Consolas Hybrid", Consolas, "Meiryo UI", "Malgun Gothic", "Segoe UI", "Trebuchet MS", Helvetica, monospace, monospace;
 }
 header .container{
-    width: 80% !important;
+    width: 75% !important;
     height: 120px!important;
 }
 .avatar {
@@ -48,7 +48,7 @@ nav ul li {
 /*header 样式 end*/
 /*main 样式 start*/
 main .container{
-    width:90% !important;
+    width:77% !important;
     min-height: 900px;
 }
 main .container .row{
@@ -56,11 +56,6 @@ main .container .row{
     margin-top: 8em!important;
 }
 
-/*.table {*/
-    /*width: 80% !important;*/
-    /*margin-left: 1% !important;*/
-    /*height: 100%;*/
-/*}*/
 .tablepannel{
     width: 80%;
     margin: auto;
@@ -92,7 +87,7 @@ footer {
     color: ghostwhite;
 }
 .tcdPageCode{padding: 15px 20px;text-align: center;color: #ccc;}
-.tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;border: 1px solid #ddd;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode a{display: inline-block;color: #428bca;display: inline-block;height: 25px;	line-height: 25px;	padding: 0 10px;	margin: 0 2px;border-radius: 4px;vertical-align: middle;}
 .tcdPageCode a:hover{text-decoration: none;border: 1px solid #428bca;}
 .tcdPageCode span.current {
     display: inline-block;
@@ -106,7 +101,7 @@ footer {
     border-radius: 4px;
     vertical-align: middle;
 }
-.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;background: #f2f2f2;border: 1px solid #bfbfbf;border-radius: 4px;vertical-align: middle;}
+.tcdPageCode span.disabled{	display: inline-block;height: 25px;line-height: 25px;padding: 0 10px;margin: 0 2px;	color: #bfbfbf;border-radius: 4px;vertical-align: middle;}
 /*管理界面样式 end*/
 
 /*后台登录界面样式 start*/
