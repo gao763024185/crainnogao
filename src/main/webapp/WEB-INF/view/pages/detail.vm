@@ -1,6 +1,5 @@
 #set($layout="layout/layout.vm")
 #set( $page_title = "detail")
-
 <header>
     <div class="navbar-fixed">
         <nav class="index-nav">
@@ -11,6 +10,7 @@
                     </a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/crainnogao/">首页</a></li>
+                        <li><a href="/crainnogao/documents">归档</a></li>
                         <li><a href="/crainnogao/about">关于</a></li>
                     </ul>
                 </div>
@@ -29,8 +29,8 @@
                             <div><strong>$!{logs.logTitle}</strong></div>
                         </div>
                         <div class="panel-body">关键字：$!{logs.logSummary}</div>
-                        <div id="firstlog"></div>
-                        <input type="hidden" name="logcontentfir" id="logcontentfir" value="$!{logs.logContent}">
+                        <div id="detaillog"></div>
+                        <input type="hidden" name="detaillogcontentfir" id="detaillogcontentfir" value="$!{logs.logContent}">
                     </div>
                 </div>
                 <div class="col-lg-1"></div>

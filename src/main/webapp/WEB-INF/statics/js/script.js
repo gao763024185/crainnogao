@@ -26,39 +26,71 @@ $(function () {
         $(this).removeClass('mouseover');
     });
 
-    $("#ajshow").on('click','.logTitle',function () {
-        hljs.initHighlightingOnLoad();
-        var oLogTitle = document.getElementsByClassName('logTitle');
-        var _index = $(this).index();
-        var logId = $("#logId-"+_index).val();
-        var data = {logId:logId};
-        $.ajax({
-            url:"logshow",
-            type:"post",
-            data:data,
-            dataType:"json",
-            success:function (resp) {
-                var $tr=  '<div class="panel-heading"><div class="col-lg-12"><span class="col-lg-8"><a href="/crainnogao/detail?logId='+resp.logId+'"><blockquote>'+resp.logTitle+'</blockquote></a></span><span class="col-lg-4">'+resp.logCreatedStr+'</span></div></div>'+
-                        '<div  class="contentshow"></div>'+
-                        '<div class="panel-footer"><span>关键字：'+resp.logSummary+'</span></div>'+
-                        '<input type="hidden" class="logContent" value="'+resp.logContent+'"/>';
-                document.getElementById("logshow").innerHTML=$tr;
-                $("#firstshow").hide();
-                // oLogTitle[_index].css('color','#2a6496');
-                var contentshow = $('.logContent').val();
-                $('.contentshow').html(marked(contentshow));
-
-            },
-            error:function () {
-                alert("失败");
-            }
-        })
-    });
+    // $("#ajshow").on('click','.logTitle',function () {
+    //     hljs.initHighlightingOnLoad();
+    //     var oLogTitle = document.getElementsByClassName('logTitle');
+    //     var _index = $(this).index();
+    //     var logId = $("#logId-"+_index).val();
+    //     var data = {logId:logId};
+    //     $.ajax({
+    //         url:"logshow",
+    //         type:"post",
+    //         data:data,
+    //         dataType:"json",
+    //         success:function (resp) {
+    //             var $tr=  '<div class="panel-heading"><div class="col-lg-12"><span class="col-lg-8"><a href="/crainnogao/detail?logId='+resp.logId+'"><blockquote>'+resp.logTitle+'</blockquote></a></span><span class="col-lg-4">'+resp.logCreatedStr+'</span></div></div>'+
+    //                     '<div  class="contentshow"></div>'+
+    //                     '<div class="panel-footer"><span>关键字：'+resp.logSummary+'</span></div>'+
+    //                     '<input type="hidden" class="logContent" value="'+resp.logContent+'"/>';
+    //             document.getElementById("logshow").innerHTML=$tr;
+    //             $("#firstshow").hide();
+    //             // oLogTitle[_index].css('color','#2a6496');
+    //             var contentshow = $('.logContent').val();
+    //             $('.contentshow').html(marked(contentshow));
+    //
+    //         },
+    //         error:function () {
+    //             alert("失败");
+    //         }
+    //     })
+    // });
 
     $(document).on('click','#crainnogao_ad',function () {
         window.location.href="/crainnogao/admin/crainnogao_ad";
     });
-    var contentshow = $('#logcontentfir').val();
-    $('#firstlog').html(marked(contentshow));
+
+    if ($('#detaillogcontentfir').val()!=undefined){
+        var detailcontentshow = $('#detaillogcontentfir').val();
+        $('#detaillog').html(marked(detailcontentshow));
+    }
+    for (var i=1;i<=5;i++){
+        var contentshow = $('#logcontentfir-'+i).val();
+        $('#firstlog-'+i).html(marked(contentshow));
+    }
+
+    //分页js
+    var pageNum = $('#pageNum').val();
+    var totalPage = $('#totalPage').val();
+    if(pageNum==1){
+        $('.prevPage').addClass('disabled');
+        $('.prevPage').removeAttr("href");
+    }
+    if(pageNum==totalPage){
+        $('.nextPage').addClass('disabled');
+        $('.nextPage').removeAttr("href");
+    }
+    var pagination = document.getElementById('pagination');
+    var tcdNumber = pagination.getElementsByClassName('tcdNumber');
+    for (var i=0 ; i<tcdNumber.length;i++){
+        tcdNumber[i].index = i;
+        tcdNumber[i].onclick=function () {
+            // $(this).style.color="red";
+            // alert(i);
+            // document.getElementsById('tcdNumber-'+i).style.color='red';
+            // href="/crainnogao/?pageNum=$i"
+        }
+    }
+
+
 });
 

@@ -125,6 +125,10 @@ a:hover{
     display:block;
     width:100%
 }
+#smoothmenu1{
+    background-color: #f4f5ef;
+    padding: 10px;
+}
 #smoothmenu1 p{
     font-size: 21px;
     font-family: Arial;
@@ -211,9 +215,7 @@ ul#tab-menu li:hover {
     line-height: 25px;
     padding: 0 10px;
     margin: 0 2px;
-    color: #bfbfbf;
-    /*background: #f2f2f2;*/
-    /*border: 1px solid #bfbfbf;*/
+    color: #bfbfbf!important;
     border-radius: 4px;
     vertical-align: middle;
 }
@@ -259,9 +261,11 @@ footer {
 .panel{
     /*background-color: #f1f1f1!important;*/
     /*filter:Alpha(opacity=0);*/
-    background-color: rgba(245, 245, 245,0)!important;
+    /*background-color: rgba(245, 245, 245,0)!important;*/
+    background-color: #f4f5ef!important;
+    margin-bottom: 50px!important;
 }
-#firstshow #firstlog{
+#firstshow .firstlog{
     margin-left: 2.5%;
     width: 95%;
     margin-bottom: 2em;
@@ -297,4 +301,16 @@ footer {
 pre{
     font-size: 1.2em!important;
     line-height: 2em!important;
+}
+
+.col-lg-12 .card{
+    padding: 10px 4px 4px 0px;
+    background-color: #f4f5ef!important;
+}
+.collection .collection-item {
+    background-color: #f4f5ef!important;
+    line-height: 2.5em!important;
+}
+.collection-item a:hover{
+    background-color:red;
 }
