@@ -109,7 +109,7 @@
   <!--自定义 start-->
   <select id="findAll" parameterType="List" resultMap="BaseResultMap">
     SELECT *FROM logs
-order by log_id ASC ;
+order by log_id DESC ;
   </select>
 
   <!--自定义 start-->

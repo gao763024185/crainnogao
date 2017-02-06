@@ -30,11 +30,16 @@ public class UserInfoController {
         if (pageNum == null){
             pageNum=1;
         }
-        int pageSize=10;
+        int pageSize=5;
         List<Logs> logsList = logsService.findAll();
-        Pager<Logs> pager = new Pager<Logs>(pageNum,pageSize,logsList);
+        //最新笔记
+        Pager<Logs> pager = new Pager<Logs>(pageNum,8,logsList);
         modelMap.addAttribute("logs",pager);
         modelMap.addAttribute("logsCount",pager.getDataList().size());
+        //分页显示的笔记
+        Pager<Logs> pager1 = new Pager<Logs>(pageNum,pageSize,logsList);
+        modelMap.addAttribute("logs1",pager1);
+        modelMap.addAttribute("pageNum",pageNum);
         return "crainnogao";
     }
 
@@ -68,9 +73,18 @@ public class UserInfoController {
         modelMap.addAttribute("logs",logs);
         return "detail";
     }
+//    进入about页面
     @RequestMapping("/about")
     public String about(){
         return "about";
+    }
+
+//    进入归档页面
+    @RequestMapping("/documents")
+    public String documents(ModelMap modelMap){
+        List<Logs> logsList = logsService.findAll();
+        modelMap.addAttribute("logsList",logsList);
+        return "documents";
     }
 
 }

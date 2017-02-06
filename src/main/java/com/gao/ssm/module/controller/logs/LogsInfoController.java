@@ -33,7 +33,7 @@ public class LogsInfoController {
         if (!(codetext.equalsIgnoreCase(validateCode))){
             return new JsonResp(JsonResp.Result_Fail,null,"验证码输入错误",null);
         }
-        logs.setLogId(DateUtil.format(new Date(),"yyMMddHHmmss"));
+        logs.setLogId(DateUtil.format(new Date(),"yyMMddHHmm"));
         logs.setLogCreated(new Date());
         logs.setLogUpdate(new Date());
         logsService.insert(logs);
@@ -46,6 +46,7 @@ public class LogsInfoController {
         logsService.deleteByPrimaryKey(logId);
         return new JsonResp(JsonResp.Result_Success,null,null,null);
     }
+
     /*更新日志*/
 //    @RequestMapping("/edit")
 //    @ResponseBody
