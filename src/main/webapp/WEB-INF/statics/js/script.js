@@ -74,23 +74,20 @@ $(function () {
     if(pageNum==1){
         $('.prevPage').addClass('disabled');
         $('.prevPage').removeAttr("href");
+        document.getElementById('prevPage').style.backgroundColor="#f4f5ef";
     }
     if(pageNum==totalPage){
         $('.nextPage').addClass('disabled');
         $('.nextPage').removeAttr("href");
+        document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
     }
-    var pagination = document.getElementById('pagination');
-    var tcdNumber = pagination.getElementsByClassName('tcdNumber');
-    for (var i=0 ; i<tcdNumber.length;i++){
-        tcdNumber[i].index = i;
-        tcdNumber[i].onclick=function () {
-            // $(this).style.color="red";
-            // alert(i);
-            // document.getElementsById('tcdNumber-'+i).style.color='red';
-            // href="/crainnogao/?pageNum=$i"
+    for (var i =1;i<=totalPage;i++){
+       var number = $("#number-"+i).val();
+        if (number==pageNum){
+            $('.tcdNumber-'+i).addClass('disabled');
+            $('.tcdNumber-'+i).removeAttr("href");
+            document.getElementById('tcdNumber-'+i).style.backgroundColor="#f4f5ef";
         }
     }
-
-
 });
 

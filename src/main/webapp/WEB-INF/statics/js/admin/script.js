@@ -124,5 +124,85 @@ $(function () {
             area: ['600px', '400px'], //宽高
             content: ['userEdit?id='+id]
         });
-    })
+    });;;
+
+    //搜索日志
+    $(document).on('click','.search-bt',function () {
+        var logTitle = $('#inlogTitle') .val();
+        var data={logTitle:logTitle,pageNum:1};
+        ajaxFenye(data);
+    });;;
+
+    //分页
+    var pageNuminit = $('#pageNuminit').val();
+    // // var pageNum = $('#pageNum').val();
+    var totalPage = $('#totalPage').val();
+    //上一页初始化
+    if(pageNuminit==1){
+        $('.prevPage').addClass('disabled');
+        $('.prevPage').removeAttr("href");
+        document.getElementById('prevPage').style.backgroundColor="#f4f5ef";
+    }
+    if(pageNuminit==totalPage){
+        $('.nextPage').addClass('disabled');
+        $('.nextPage').removeAttr("href");
+        document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
+    }
+
+    // if(pageNum==totalPage){
+    //     $('.nextPage').addClass('disabled');
+    //     $('.nextPage').removeAttr("href");
+    //     document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
+    // }
+
+    // $(document).on('click','.midPage a',function () {
+    //     var _index = $(this).index();
+    //     $(this).addClass('current').siblings('a').removeClass('current');
+        // $(this).addClass('disabled');
+        // $(this).removeAttr("href");
+    // })
+
+
+        $(document).on('click','.tcdNumber',function () {
+            var logTitle = $('#inlogTitle').val();
+            var data = {
+                pageNum:$(this).index(),
+                item:2,
+                logTitle:logTitle
+            };
+            ajaxFenye(data);
+        });;;
+
+    function ajaxFenye(data) {
+        $.ajax({
+            url:"/crainnogao/fenye",
+            type:"post",
+            data:data,
+            dataType:"json",
+            success:function (resp) {
+                var $str = '<table class="table table-hover"><thead><tr><th>日志ID</th><th>主题</th>'+
+                    '<th>概要</th><th>上传时间</th><th>更新时间</th><th>操作</th></tr></thead><tbody>';
+                for (var i=1;i<=resp.len;i++){
+                    $str += '<tr><td>'+resp.logs2[i-1].logId+'</td><td>'+resp.logs2[i-1].logTitle+'</td>'+
+                        '<td>'+resp.logs2[i-1].logSummary+'</td><td>'+resp.logs2[i-1].logCreatedStr+'</td>'+
+                        '<td>'+resp.logs2[i-1].logUpdateStr+'</td><td><a class="delete">删除</a>&nbsp;<a class="update">编辑</a></td></tr>';
+                }
+                document.getElementById("ajshow0").innerHTML=$str;
+                var $str1 = '<div class="tcdPageCode">'+
+                    '<a href="javascript:;" class="prevPage"><i class="material-icons">navigate_before</i></a>';
+                for(var i=1 ;i<=resp.toPage;i++){
+                    if (i==data.pageNum){
+                        $str1 += '<a href="javascript:;" class="tcdNumber current">'+i+'</a>';
+                    }else{
+                        $str1 += '<a href="javascript:;" class="tcdNumber">'+i+'</a>';
+                    }
+                }
+                $str1 += '<a href="javascript:;" class="nextPage"><i class="material-icons">navigate_next</i></a></div>';
+                document.getElementById("fenye").innerHTML=$str1;
+            },
+            error:function () {
+                alert("网络连接失败！");
+            }
+        })
+    }
 });
