@@ -1,6 +1,6 @@
 #set($layout="layout/layout_ad.vm")
 #set( $page_title = "crainnogao后台管理首页")
-
+<input type="hidden" name="item" id="item" value="$item"/>
 <header>
     <div class="navbar-fixed">
         <nav class="index-nav">
@@ -35,16 +35,23 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="libiao listmenu col-lg-12 issuedairys">
+                #if($item == 1)
                     #parse("pages/admin/issuedairys.vm")
-                </div>
-                <div class="libiao listmenu">
+                #elseif($item == 2)
                     #parse("pages/admin/dairys.vm")
-                </div>
-
-                <div class="libiao listmenu">
+                #elseif($item == 3)
                     #parse("pages/admin/userInfo.vm")
-                </div>
+                #end
+##                <div class="libiao listmenu col-lg-12 issuedairys">
+##                    #parse("pages/admin/issuedairys.vm")
+##                </div>
+##                <div class="libiao listmenu">
+##                    #parse("pages/admin/dairys.vm")
+##                </div>
+##
+##                <div class="libiao listmenu">
+##                    #parse("pages/admin/userInfo.vm")
+##                </div>
             </div>
         </div>
     </div>

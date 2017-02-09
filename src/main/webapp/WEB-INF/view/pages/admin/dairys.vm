@@ -1,6 +1,13 @@
 
 <input type="hidden" name="totalPage" id="totalPage" value="$listlogs.getTotalPage()"/>
 <input type="hidden" name="totalRecord" id="totalRecord" value="$listlogs.getTotalRecord()"/>
+<input type="hidden" name="pageNuminit" id="pageNuminit" value="${pageNum}"/>
+<div class="search-group">
+    <label for="inlogTitle">标题</label>
+    <input type="text" name="inlogTitle" id="inlogTitle"/>
+    <input type="button" name="search" class="search-bt" value="搜搜搜"/>
+</div>
+
 <div class="tab-container">
     <div id="ajshow0">
     <table class="table table-hover">
@@ -28,11 +35,20 @@
                     </td>
                 </tr>
                 #end
-
         </tbody>
     </table>
     </div>
-    <div class="fenye">
-        <div class="tcdPageCode"></div>
+    <div class="fenye" id="fenye">
+        <div class="tcdPageCode">
+            <a href="javascript:" class="prevPage" id="prevPage"><i class="material-icons">navigate_before</i></a>
+            #foreach($i in [1..$listlogs.getTotalPage()])
+                #if($i==1)
+                    <a href="javascript:" class="tcdNumber current">$i</a>
+                #else
+                    <a href="javascript:" class="tcdNumber">$i</a>
+                #end
+            #end
+            <a href="javascript:" class="nextPage" id="nextPage"><i class="material-icons">navigate_next</i></a>
+        </div>
     </div>
 </div>

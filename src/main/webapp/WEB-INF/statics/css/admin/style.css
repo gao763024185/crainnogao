@@ -4,9 +4,9 @@ body{
     overflow-y: scroll;
     overflow-x: hidden;
 }
-a{
-    cursor: pointer;
-}
+/*a{*/
+    /*cursor: pointer;*/
+/*}*/
 /*管理界面样式start*/
 
 /*header 样式 start*/
@@ -123,11 +123,9 @@ footer {
 .col-lg-8 ul li span{
     display: block;
 }
-input{
+.login input{
     width: 600px;
     height: 35px;
-}
-input[type=submit] {
 }
 .login_txtbx{
     padding: 0.85em 0.5em;
@@ -337,3 +335,13 @@ Inherited from div.layui-box.layui-upload-button
 
 /*用户信息界面 end*/
 
+/*日志信息管理界面 start*/
+.search-group input{
+    width: 20%!important;
+
+}
+.current{
+    color: red!important;
+    background-color: #f4f5ef!important;
+}
+/*日志信息管理界面 end*/

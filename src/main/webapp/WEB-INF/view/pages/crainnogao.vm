@@ -52,7 +52,8 @@
                         <ul id="pagination" class="pagination">
                             <li><a href="/crainnogao/?pageNum=1"  id="prevPage" class="prevPage"><i class="material-icons">navigate_before</i></a></li>
                             #foreach($i in [1..$logs.getTotalPage()])
-                            <li class="tcdNumber" id="tcdNumber-$foreach.index"><a href="/crainnogao/?pageNum=$i">$i</a></li>
+                                <input type="hidden" name="number" id="number-$foreach.count" value="$foreach.count"/>
+                                <li><a href="/crainnogao/?pageNum=$i"  class="tcdNumber-$foreach.count" id="tcdNumber-$foreach.count">$i</a></li>
                             #end
                             <li><a href="/crainnogao/?pageNum=$logs.getTotalPage()"  class="nextPage" id="nextPage"><i class="material-icons">navigate_next</i></a></li>
                         </ul>

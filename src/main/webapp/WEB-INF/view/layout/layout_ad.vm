@@ -20,7 +20,7 @@
         <script src='/js/jQuery-core/jquery-ui.min.js'></script>
         <script src="/js/bootstrap/bootstrap.min.js"></script>
         <script src="/editormd/editormd.min.js"></script>
-        <script src="/js/jQuery-core/jquery.pagead.js"></script>
+##        <script src="/js/jQuery-core/jquery.pagead.js"></script>
         <script src="/js/admin/script.js"></script>
         <script src="/js/admin/custom.js"></script>
         <script src="/js/layer/layer.js"></script>
@@ -35,14 +35,14 @@
                     path    : "/editormd/lib/"
                 });
             });
-            var totalPage = $("#totalPage").val();
-            $(".tcdPageCode").createPage({
-                pageCount:totalPage,
-                current:1,
-                backFn:function(p){
-                    console.log(p);
-                }
-            });
+//            var totalPage = $("#totalPage").val();
+//            $(".tcdPageCode").createPage({
+//                pageCount:totalPage,
+//                current:1,
+//                backFn:function(p){
+//                    console.log(p);
+//                }
+//            });
         </script>
     </body>
 </html>
