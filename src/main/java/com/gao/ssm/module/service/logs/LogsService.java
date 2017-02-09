@@ -1,6 +1,7 @@
 package com.gao.ssm.module.service.logs;
 
 import com.gao.ssm.module.pojo.logs.Logs;
+import com.gao.ssm.module.pojo.logs.LogsExample;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface LogsService {
 
 //     Pager<Logs> findAll (List<Logs> logs,int pageNum,int pageSize);
     int deleteByPrimaryKey(String logId);
+
+    List<Logs> selectByExample(LogsExample example);
 }

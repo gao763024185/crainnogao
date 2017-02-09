@@ -10,9 +10,81 @@
     <result column="log_created" property="logCreated" jdbcType="TIMESTAMP" />
     <result column="log_update" property="logUpdate" jdbcType="TIMESTAMP" />
   </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
   <sql id="Base_Column_List" >
     log_id, log_title, log_summary, log_content, log_created, log_update
   </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gao.ssm.module.pojo.logs.LogsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
@@ -22,6 +94,12 @@
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from logs
     where log_id = #{logId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.gao.ssm.module.pojo.logs.LogsExample" >
+    delete from logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
   </delete>
   <insert id="insert" parameterType="com.gao.ssm.module.pojo.logs.Logs" >
     insert into logs (log_id, log_title, log_summary,
@@ -74,6 +152,50 @@
       </if>
     </trim>
   </insert>
+  <select id="countByExample" parameterType="com.gao.ssm.module.pojo.logs.LogsExample" resultType="java.lang.Integer" >
+    select count(*) from logs
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update logs
+    <set >
+      <if test="record.logId != null" >
+        log_id = #{record.logId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logTitle != null" >
+        log_title = #{record.logTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logSummary != null" >
+        log_summary = #{record.logSummary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logContent != null" >
+        log_content = #{record.logContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logCreated != null" >
+        log_created = #{record.logCreated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logUpdate != null" >
+        log_update = #{record.logUpdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update logs
+    set log_id = #{record.logId,jdbcType=VARCHAR},
+    log_title = #{record.logTitle,jdbcType=VARCHAR},
+    log_summary = #{record.logSummary,jdbcType=VARCHAR},
+    log_content = #{record.logContent,jdbcType=VARCHAR},
+    log_created = #{record.logCreated,jdbcType=TIMESTAMP},
+    log_update = #{record.logUpdate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.gao.ssm.module.pojo.logs.Logs" >
     update logs
     <set >

@@ -2,6 +2,7 @@ package com.gao.ssm.module.service.impl.logs;
 
 import com.gao.ssm.module.mapper.logs.LogsMapper;
 import com.gao.ssm.module.pojo.logs.Logs;
+import com.gao.ssm.module.pojo.logs.LogsExample;
 import com.gao.ssm.module.service.logs.LogsService;
 import org.springframework.stereotype.Service;
 
@@ -26,4 +27,7 @@ public class LogsServiceImpl implements LogsService{
 //    public Pager<Logs> findAll (List<Logs> logs, int pageNum, int pageSize){
 //        return logsMapper.findAll(logs,pageNum,pageSize);
 //    }
+    public List<Logs> selectByExample(LogsExample example){
+        return logsMapper.selectByExample(example);
+    }
 }

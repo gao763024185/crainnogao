@@ -2,6 +2,7 @@ package com.gao.ssm.module.controller.logs;
 
 import com.gao.ssm.module.json.JsonResp;
 import com.gao.ssm.module.pojo.logs.Logs;
+import com.gao.ssm.module.pojo.logs.LogsExample;
 import com.gao.ssm.module.service.logs.LogsService;
 import com.gao.ssm.module.tools.DateUtil;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by gaobh on 2016/12/22.
@@ -54,4 +56,16 @@ public class LogsInfoController {
 //        logsService.deleteByPrimaryKey(logId);
 //        return new JsonResp(JsonResp.Result_Success,null,null,null);
 //    }
+
+    /*搜索日志*/
+    @RequestMapping("/search")
+    @ResponseBody
+    public Object search(Logs logs){
+
+        LogsExample logsExample = new LogsExample();
+        logsExample.or().andLogTitleLike("%"+logs.getLogTitle()+"%");
+        List<Logs> example = logsService.selectByExample(logsExample);
+
+        return example;
+    }
 }

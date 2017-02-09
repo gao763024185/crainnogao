@@ -63,7 +63,8 @@ public class AdminController {
     }
     /*后台主界面*/
     @RequestMapping("/crainnogao_ad")
-    public String crainnogao_ad(ModelMap model,@RequestParam(value = "pageNum",required = false) Integer pageNum){
+    public String crainnogao_ad(ModelMap model,Logs logs1,@RequestParam(value = "pageNum",required = false) Integer pageNum,
+                                @RequestParam(value = "item" ,required = false) String item){
         if (pageNum == null){
             pageNum = 1;
         }
@@ -75,6 +76,10 @@ public class AdminController {
         List<Logs> logs = logsService.findAll();
         Pager<Logs> logsPager = new Pager<Logs>(pageNum,pageSize,logs);
         model.addAttribute("listlogs",logsPager);
+        model.addAttribute("item",item);
+        model.addAttribute("pageNum",pageNum);
+        //筛选
+
         return view_base+"crainnogao_ad";
     }
 
