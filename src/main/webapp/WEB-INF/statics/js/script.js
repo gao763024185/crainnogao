@@ -81,13 +81,23 @@ $(function () {
         $('.nextPage').removeAttr("href");
         document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
     }
+    var current ="";
     for (var i =1;i<=totalPage;i++){
        var number = $("#number-"+i).val();
         if (number==pageNum){
-            $('.tcdNumber-'+i).addClass('disabled');
+            current = i;
+            $('.tcdNumber-'+i).addClass('disabled current');
             $('.tcdNumber-'+i).removeAttr("href");
             document.getElementById('tcdNumber-'+i).style.backgroundColor="#f4f5ef";
         }
     }
+    $(document).on('click','.prevPage',function () {
+        location.href='/crainnogao/?pageNum='+ --current;
+        current = current+1;
+    });;;;;;;
+    $(document).on('click','.nextPage',function () {
+        location.href='/crainnogao/?pageNum='+ ++current;
+        current = current-1;
+    })
 });
 

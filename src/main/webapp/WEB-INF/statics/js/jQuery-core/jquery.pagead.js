@@ -65,10 +65,10 @@
 					if(typeof(args.backFn)=="function"){
 						args.backFn(current);
 					}
-					var data = {
-                        pageNum:current
-                    };
-                    ajaxShow(data);
+                    // var data = {
+                    //     pageNum:current
+                    // };
+                    ajaxShow(current);
 				});
 				//上一页
 				obj.on("click","a.prevPage",function(){
@@ -77,10 +77,10 @@
 					if(typeof(args.backFn)=="function"){
 						args.backFn(current-1);
 					}
-                    var data = {
-                        pageNum:current-1
-                    };
-                    ajaxShow(data);
+                    // var data = {
+                    //     pageNum:current-1
+                    // };
+                    ajaxShow(current-1);
 				});
 				//下一页
 				obj.on("click","a.nextPage",function(){
@@ -89,12 +89,19 @@
 					if(typeof(args.backFn)=="function"){
 						args.backFn(current+1);
 					}
-                    var data = {
-                        pageNum:current+1
-                    };
-                    ajaxShow(data);
+                    // var data = {
+                    //     pageNum:current+1
+                    // };
+                    ajaxShow(current+1);
 				});
-				function ajaxShow(data){
+				function ajaxShow(data1){
+					var item = $('#item').val();
+                    var logTitle = $('#inlogTitle') .val();
+                    var data = {
+                        pageNum:data1,
+						item:item,
+                        logTitle:logTitle
+                    };
                     $.ajax({
                         url:"/crainnogao/fenye",
                         type:"post",
