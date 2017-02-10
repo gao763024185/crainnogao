@@ -85,13 +85,9 @@ $(function () {
         })
     });
     //删除日志
-    var abcSort = document.getElementById('abc');
-    var deleteSort = abcSort.getElementsByClassName('delete');
-    var editSort = abcSort.getElementsByClassName('update');
-    for (var i = 0;i<deleteSort.length;i++){
-        deleteSort[i].index = i;
-        deleteSort[i].onclick=function () {
+        $(document).on('click','.delete',function () {
             var logId = $(this).parent().parent().data('id');
+            alert(logId);
             var data = {logId:logId};
             var r=confirm("您真的要删了我嘛?");
             if(r==true){
@@ -103,18 +99,17 @@ $(function () {
                     }
                 })
             }
-        };
-        editSort[i].onclick=function () {
-            var logId = $(this).parent().parent().data('id');
-            var data = {logId:logId};
-            layer.open({
-                type: 1,
-                skin: 'layui-layer-rim', //加上边框
-                area: ['600px', '400px'], //宽高
-                content: 'logId='+logId
-            });
-        }
-    }
+        });;;;;;;;;
+    $(document).on('click','.update',function () {
+        var logId = $(this).parent().parent().data('id');
+        var data = {logId:logId};
+        layer.open({
+            type: 1,
+            skin: 'layui-layer-rim', //加上边框
+            area: ['600px', '400px'], //宽高
+            content: 'logId='+logId
+        });
+    });;;;;;;;;
     //编辑用户
     $(document).on('click','.edit',function () {
         var id = $("#uid").val();
@@ -124,45 +119,61 @@ $(function () {
             area: ['600px', '400px'], //宽高
             content: ['userEdit?id='+id]
         });
-    });;;
-
+    });
+    /** 日志分页 start **/
+    var current = 1;
+    setTimeout(
+        function () {
+            var pageNuminit = $('#pageNuminit').val();
+            var totalPage = $('#totalPage').val();
+            if(pageNuminit==1){
+                $('.prevPage').addClass('disabled');
+                $('.prevPage').removeAttr("href");
+                document.getElementById('prevPage').style.backgroundColor="#f4f5ef";
+            }
+            // if(pageNuminit==totalPage){
+            //     $('.nextPage').addClass('disabled');
+            //     $('.nextPage').removeAttr("href");
+            //     document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
+            // }
+        }
+    ,1000
+    );;;;;;;;;
+    $(document).on('click','.prevPage',function () {
+        var logTitle = $('#inlogTitle') .val();
+        var data = {
+            pageNum:current-1,
+            item:2,
+            logTitle:logTitle
+        };
+        ajaxFenye(data);
+        if(current-1 == 1){
+            $('.prevPage').addClass('disabled');
+            document.getElementById('prevPage').style.backgroundColor="#f4f5ef";
+        }
+        current = current-1;
+    });;;;;;;;;
+    $(document).on('click','.nextPage',function () {
+        var logTitle = $('#inlogTitle') .val();
+        var totalPage = $('#totalPage').val();
+        var data = {
+            pageNum:current+1,
+            item:2,
+            logTitle:logTitle
+        };
+        ajaxFenye(data);
+        if(current+1 == totalPage){
+            $('.nextPage').addClass('disabled');
+            document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
+        }
+        current = current+1;
+    });;;;;;;;;
     //搜索日志
     $(document).on('click','.search-bt',function () {
         var logTitle = $('#inlogTitle') .val();
         var data={logTitle:logTitle,pageNum:1};
         ajaxFenye(data);
-    });;;
-
-    //分页
-    var pageNuminit = $('#pageNuminit').val();
-    // // var pageNum = $('#pageNum').val();
-    var totalPage = $('#totalPage').val();
-    //上一页初始化
-    if(pageNuminit==1){
-        $('.prevPage').addClass('disabled');
-        $('.prevPage').removeAttr("href");
-        document.getElementById('prevPage').style.backgroundColor="#f4f5ef";
-    }
-    if(pageNuminit==totalPage){
-        $('.nextPage').addClass('disabled');
-        $('.nextPage').removeAttr("href");
-        document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
-    }
-
-    // if(pageNum==totalPage){
-    //     $('.nextPage').addClass('disabled');
-    //     $('.nextPage').removeAttr("href");
-    //     document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
-    // }
-
-    // $(document).on('click','.midPage a',function () {
-    //     var _index = $(this).index();
-    //     $(this).addClass('current').siblings('a').removeClass('current');
-        // $(this).addClass('disabled');
-        // $(this).removeAttr("href");
-    // })
-
-
+    });
         $(document).on('click','.tcdNumber',function () {
             var logTitle = $('#inlogTitle').val();
             var data = {
@@ -170,8 +181,9 @@ $(function () {
                 item:2,
                 logTitle:logTitle
             };
+            current = $(this).index();
             ajaxFenye(data);
-        });;;
+        });
 
     function ajaxFenye(data) {
         $.ajax({
@@ -183,13 +195,13 @@ $(function () {
                 var $str = '<table class="table table-hover"><thead><tr><th>日志ID</th><th>主题</th>'+
                     '<th>概要</th><th>上传时间</th><th>更新时间</th><th>操作</th></tr></thead><tbody>';
                 for (var i=1;i<=resp.len;i++){
-                    $str += '<tr><td>'+resp.logs2[i-1].logId+'</td><td>'+resp.logs2[i-1].logTitle+'</td>'+
+                    $str += '<tr  data-id="'+resp.logs2[i-1].logId+'" class="logId"><td>'+resp.logs2[i-1].logId+'</td><td>'+resp.logs2[i-1].logTitle+'</td>'+
                         '<td>'+resp.logs2[i-1].logSummary+'</td><td>'+resp.logs2[i-1].logCreatedStr+'</td>'+
                         '<td>'+resp.logs2[i-1].logUpdateStr+'</td><td><a class="delete">删除</a>&nbsp;<a class="update">编辑</a></td></tr>';
                 }
                 document.getElementById("ajshow0").innerHTML=$str;
                 var $str1 = '<div class="tcdPageCode">'+
-                    '<a href="javascript:;" class="prevPage"><i class="material-icons">navigate_before</i></a>';
+                    '<a href="javascript:;" class="prevPage" id="prevPage"><i class="material-icons">navigate_before</i></a>';
                 for(var i=1 ;i<=resp.toPage;i++){
                     if (i==data.pageNum){
                         $str1 += '<a href="javascript:;" class="tcdNumber current">'+i+'</a>';
@@ -197,7 +209,7 @@ $(function () {
                         $str1 += '<a href="javascript:;" class="tcdNumber">'+i+'</a>';
                     }
                 }
-                $str1 += '<a href="javascript:;" class="nextPage"><i class="material-icons">navigate_next</i></a></div>';
+                $str1 += '<a href="javascript:;" class="nextPage" id="nextPage"><i class="material-icons">navigate_next</i></a></div>';
                 document.getElementById("fenye").innerHTML=$str1;
             },
             error:function () {
@@ -205,4 +217,5 @@ $(function () {
             }
         })
     }
+    /** 日志分页 end **/
 });
