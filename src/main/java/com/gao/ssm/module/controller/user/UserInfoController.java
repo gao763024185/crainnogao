@@ -36,13 +36,14 @@ public class UserInfoController {
         int pageSize=5;
         List<Logs> logsList = logsService.findAll();
         //最新笔记
-        Pager<Logs> pager = new Pager<Logs>(pageNum,8,logsList);
+        Pager<Logs> pager = new Pager<Logs>(1,8,logsList);
         modelMap.addAttribute("logs",pager);
         modelMap.addAttribute("logsCount",pager.getDataList().size());
         //分页显示的笔记
         Pager<Logs> pager1 = new Pager<Logs>(pageNum,pageSize,logsList);
         modelMap.addAttribute("logs1",pager1);
         modelMap.addAttribute("pageNum",pageNum);
+        System.out.print(pager1.getTotalPage());
         return "crainnogao";
     }
 
