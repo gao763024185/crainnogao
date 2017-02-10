@@ -21,7 +21,7 @@
                     </ul>
                     </div>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="/crainnogao/">首页</a></li>
+                        <li><a href="/crainnogao/?pageNum=1">首页</a></li>
                         <li><a href="/crainnogao/documents">归档</a></li>
                         <li><a href="/crainnogao/about">关于</a></li>
                     </ul>
@@ -35,23 +35,25 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                #if($item == 1)
+                <div id="defaultShow">
+                    #if($item == 1)
+                        #parse("pages/admin/issuedairys.vm")
+                    #elseif($item == 2)
+                        #parse("pages/admin/dairys.vm")
+                    #elseif($item == 3)
+                        #parse("pages/admin/userInfo.vm")
+                    #end
+                </div>
+                <div class="libiao listmenu col-lg-12 issuedairys">
                     #parse("pages/admin/issuedairys.vm")
-                #elseif($item == 2)
+                </div>
+                <div class="libiao listmenu">
                     #parse("pages/admin/dairys.vm")
-                #elseif($item == 3)
+                </div>
+
+                <div class="libiao listmenu">
                     #parse("pages/admin/userInfo.vm")
-                #end
-##                <div class="libiao listmenu col-lg-12 issuedairys">
-##                    #parse("pages/admin/issuedairys.vm")
-##                </div>
-##                <div class="libiao listmenu">
-##                    #parse("pages/admin/dairys.vm")
-##                </div>
-##
-##                <div class="libiao listmenu">
-##                    #parse("pages/admin/userInfo.vm")
-##                </div>
+                </div>
             </div>
         </div>
     </div>

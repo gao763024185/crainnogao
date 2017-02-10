@@ -1,8 +1,8 @@
 #set($layout="layout/layout.vm")
 #set( $page_title = "crainnogao")
 
-<input type="hidden" name="totalPage" id="totalPage" value="$logs.getTotalPage()"/>
-<input type="hidden" name="totalRecord" id="totalRecord" value="$logs.getTotalRecord()"/>
+<input type="hidden" name="totalPage" id="totalPage" value="$logs1.getTotalPage()"/>
+<input type="hidden" name="totalRecord" id="totalRecord" value="$logs1.getTotalRecord()"/>
 <input type="hidden" name="pageNum" id="pageNum" value="$pageNum"/>
 <header>
     <div class="navbar-fixed">
@@ -13,7 +13,7 @@
                         <img src="/images/crainnogao.png" alt="">
                     </a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="">首页</a></li>
+                        <li><a href="/crainnogao/?pageNum=1">首页</a></li>
                         <li><a href="/crainnogao/documents">归档</a></li>
                         <li><a href="/crainnogao/about">关于</a></li>
                     </ul>
@@ -28,12 +28,12 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="col s12 m9" style="width: 70%!important;">
-                    #if($logs.getDataList().size()==0)
+                    #if($logs1.getDataList().size()==0)
                         <div>
                             对不起主人尚未有任何动态.....<br>感谢您的关注~~~
                         </div>
                     #end
-                    #if($logs.getDataList().size()>0)
+                    #if($logs1.getDataList().size()>0)
                         #foreach($logs in $logs1.getDataList())
                             <div class="panel panel-default wenben">
                                 <div id="firstshow">
@@ -50,12 +50,12 @@
                             </div>
                         #end
                         <ul id="pagination" class="pagination">
-                            <li><a href="/crainnogao/?pageNum=1"  id="prevPage" class="prevPage"><i class="material-icons">navigate_before</i></a></li>
-                            #foreach($i in [1..$logs.getTotalPage()])
+                            <li class="num"><a href="javascript:" id="prevPage" class="prevPage"><i class="material-icons">navigate_before</i></a></li>
+                            #foreach($i in [1..$logs1.getTotalPage()])
                                 <input type="hidden" name="number" id="number-$foreach.count" value="$foreach.count"/>
                                 <li><a href="/crainnogao/?pageNum=$i"  class="tcdNumber-$foreach.count" id="tcdNumber-$foreach.count">$i</a></li>
                             #end
-                            <li><a href="/crainnogao/?pageNum=$logs.getTotalPage()"  class="nextPage" id="nextPage"><i class="material-icons">navigate_next</i></a></li>
+                            <li><a href="javascript:" class="nextPage" id="nextPage"><i class="material-icons">navigate_next</i></a></li>
                         </ul>
                     #end
                 </div>
