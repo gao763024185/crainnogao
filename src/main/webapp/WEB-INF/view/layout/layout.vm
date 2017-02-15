@@ -20,24 +20,11 @@
 <body>
     $screen_content
     <script src="/js/jQuery-core/jquery-2.0.3.min.js"></script>
-    <script src="/js/jQuery-core/jquery.page.js"></script>
     <script src="/js/bootstrap/bootstrap.min.js"></script>
     <script src="//cdn.bootcss.com/marked/0.3.6/marked.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
     <script src="/js/highlight.min.js"></script>
     <script src="/js/script.js"></script>
-    <script src="/js/menu.js"></script>
-    <script>$('[data-menu]').menu();</script>
-##    <script>
-##        var totalPage = $("#totalPage").val();
-##        $(".tcdPageCode").createPage({
-##            pageCount:totalPage,
-##            current:1,
-##            backFn:function(p){
-##                console.log(p);
-##            }
-##        });
-##    </script>
     <script type="text/javascript">
         var duoshuoQuery = {short_name:"crainnogao"};
         (function() {

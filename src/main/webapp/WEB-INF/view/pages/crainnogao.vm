@@ -34,6 +34,7 @@
                         </div>
                     #end
                     #if($logs1.getDataList().size()>0)
+                        <input type="hidden" name="count" id="count" value="$logs1.getDataList().size()"/>
                         #foreach($logs in $logs1.getDataList())
                             <div class="panel panel-default wenben">
                                 <div id="firstshow">
