@@ -7,8 +7,8 @@ $(function () {
         var detailcontentshow = $('#detaillogcontentfir').val();
         $('#detaillog').html(marked(detailcontentshow));
     }
-    var count = $('#count').val();
-    for (var i=1;i<=count;i++){
+    var pageCount = $('#pageCount').val();
+    for (var i=1;i<=pageCount;i++){
         var contentshow = $('#logcontentfir-'+i).val();
         var partContentArry = contentshow.split("\n");
         if (partContentArry.length<6){
