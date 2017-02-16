@@ -1,7 +1,4 @@
 /**
- * Created by 孙皓 on 2017/2/15.
- */
-/**
  * Created by gaobh on 2017/2/15.
  */
 
@@ -9,20 +6,20 @@ var container;
 var camera, scene, projector, renderer;
 var PI2 = Math.PI * 2;
 var width = document.getElementById('gaobh').clientWidth;
-var height= document.getElementById('gaobh').clientHeight;
+var height= document.getElementById('main').clientHeight;
 var programFill = function ( context ) {
     context.beginPath();
     context.arc( 0, 0, 1, 0, PI2, true );
     context.closePath();
     context.fill();
-};;;;;;;;;;
+};
 var programStroke = function ( context ) {
     context.lineWidth = 0.02;
     context.beginPath();
     context.arc( 0, 0, 1, 0, PI2, true );
     context.closePath();
     context.stroke();
-};;;;;;;;;;
+};
 var mouse = { x: 0, y: 0 }, INTERSECTED;
 init();
 animate();
@@ -33,7 +30,7 @@ function init() {
     container.style.zIndex = '0';
     document.body.appendChild( container );
     camera = new THREE.PerspectiveCamera( 50, width / height, 1, 10000 );
-    camera.position.set( 0, 800, 1600 );
+    camera.position.set( 0, 0, 0 );
     scene = new THREE.Scene();
     for ( var i = 0; i < 100; i ++ ) {
         var particle = new THREE.Particle( new THREE.ParticleCanvasMaterial( { color: Math.random() * 0x808080 + 0x808080, program: programStroke } ) );

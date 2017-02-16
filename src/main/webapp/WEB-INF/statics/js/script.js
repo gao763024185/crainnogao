@@ -10,7 +10,31 @@ $(function () {
     var count = $('#count').val();
     for (var i=1;i<=count;i++){
         var contentshow = $('#logcontentfir-'+i).val();
-        $('#firstlog-'+i).html(marked(contentshow));
+        var partContentArry = contentshow.split("\n");
+        if (partContentArry.length<6){
+            $('#firstlog-'+i).html(marked(contentshow));
+        }
+        else {
+            var count =0;
+            var num=0;
+            var partStr = "";
+            for (var j=0;j<partContentArry.length;j++){
+                if(!partContentArry[j].includes('```')){
+                    count++;
+                }else{
+                    num++;
+                }
+                if(count<=6){
+                    partStr+=partContentArry[j]+'\n';
+                }else{
+                    if(num % 2 != 0){
+                        partStr+='```';
+                        break;
+                    }
+                }
+            }
+            $('#firstlog-'+i).html(marked(partStr));
+        }
     }
 
     //分页js
