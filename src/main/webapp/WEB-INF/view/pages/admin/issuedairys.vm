@@ -3,16 +3,21 @@
 <div class="tp">
 ##        <form action="/issue" method="post">
     <table class="tablepannel">
+        <input type="hidden" name="logId" id="logId" value="$!{logDairy.logId}"/>
         <tr><td><p class="ptitlt">标题</p></td></tr>
-        <tr><td><input type="text" name="logTitle" id="logTitle"><hr></td></tr>
+        <tr><td><input type="text" name="logTitle" id="logTitle" value="$!{logDairy.logTitle}"><hr></td></tr>
         <tr><td><p class="ptitlt">摘要</p></td></tr>
-        <tr><td><input type="text" name="logSummary" id="logSummary"><hr></td></tr>
+        <tr><td><input type="text" name="logSummary" id="logSummary" value="$!{logDairy.logSummary}"><hr></td></tr>
         <tr><td><p class="ptitlt">内容</p></td></tr>
         <tr>
             <td>
                 <!--编辑器-->
                 <div id="test-editormd">
-                    <textarea  data-provide="markdown" style="display:none;" id="ts" name="logContent"></textarea>
+                    <textarea  data-provide="markdown" style="display:none;" id="ts" name="logContent"  value="$!{logDairy.logContent}">
+                        #if($!{logDairy.logContent})
+                            $!{logDairy.logContent}
+                        #end
+                    </textarea>
                 </div>
             </td>
         </tr>

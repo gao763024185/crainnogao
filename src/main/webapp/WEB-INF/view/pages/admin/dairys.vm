@@ -15,7 +15,7 @@
         <tr>
             <th>日志ID</th>
             <th>主题</th>
-            <th>概要</th>
+##            <th>概要</th>
             <th>上传时间</th>
             <th>更新时间</th>
             <th>操作</th>
@@ -26,7 +26,7 @@
                 <tr data-id="$!{logs.logId}" class="logId">
                     <td>$!{logs.logId}</td>
                     <td>$!{logs.logTitle}</td>
-                    <td>$!{logs.logSummary}</td>
+##                    <td>$!{logs.logSummary}</td>
                     <td>#dateTimeText($!{logs.logCreated},'yyyy-MM-dd HH:mm')</td>
                     <td>#dateTimeText($!{logs.logUpdate},'yyyy-MM-dd HH:mm')</td>
                     <td>

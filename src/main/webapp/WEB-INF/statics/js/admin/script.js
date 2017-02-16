@@ -56,11 +56,13 @@ $(function () {
     });
 
     $(document).on('click','.issuesubmit',function () {
+        var logId = $("#logId").val();
         var codetext = $("#codetext").val();
         var logTitle = $("#logTitle").val();
         var logSummary = $("#logSummary").val();
         var logContent = $("#ts").val();
         var data = {
+            logId:logId,
             codetext:codetext,
             logTitle:logTitle,
             logSummary:logSummary,
@@ -99,17 +101,11 @@ $(function () {
                     }
                 })
             }
-        });;;;;;;;;
+        });
     $(document).on('click','.update',function () {
         var logId = $(this).parent().parent().data('id');
-        var data = {logId:logId};
-        layer.open({
-            type: 1,
-            skin: 'layui-layer-rim', //加上边框
-            area: ['600px', '400px'], //宽高
-            content: 'logId='+logId
-        });
-    });;;;;;;;;
+        location.href="/crainnogao/admin/crainnogao_ad?logId="+logId;
+    });
     //编辑用户
     $(document).on('click','.edit',function () {
         var id = $("#uid").val();
@@ -138,7 +134,7 @@ $(function () {
             // }
         }
     ,1000
-    );;;;;;;;;
+    );
     $(document).on('click','.prevPage',function () {
         var logTitle = $('#inlogTitle') .val();
         var data = {
@@ -152,7 +148,7 @@ $(function () {
             document.getElementById('prevPage').style.backgroundColor="#f4f5ef";
         }
         current = current-1;
-    });;;;;;;;;
+    });
     $(document).on('click','.nextPage',function () {
         var logTitle = $('#inlogTitle') .val();
         var totalPage = $('#totalPage').val();
@@ -167,7 +163,7 @@ $(function () {
             document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
         }
         current = current+1;
-    });;;;;;;;;
+    });
     //搜索日志
     $(document).on('click','.search-bt',function () {
         var logTitle = $('#inlogTitle') .val();
