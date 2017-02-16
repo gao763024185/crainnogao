@@ -23,7 +23,7 @@
     </div>
 </header>
 
-<main>
+<main id="main">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
                                     <div id="firstlog-$foreach.count" class="firstlog"></div>
-                                    <div class="panel-footer"><span>关键字：$logs.logSummary</span></div>
+                                    <div class="panel-footer"><span><a style="font-size: 20px;!important;" href="/crainnogao/detail?logId=$logs.logId">More</a></span></div>
                                 </div>
                                 <input type="hidden" name="logcontentfir" id="logcontentfir-$foreach.count" value="$logs.logContent">
                             </div>
