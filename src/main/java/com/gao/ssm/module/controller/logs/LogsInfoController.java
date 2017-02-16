@@ -35,10 +35,20 @@ public class LogsInfoController {
         if (!(codetext.equalsIgnoreCase(validateCode))){
             return new JsonResp(JsonResp.Result_Fail,null,"验证码输入错误",null);
         }
-        logs.setLogId(DateUtil.format(new Date(),"yyMMddHHmm"));
-        logs.setLogCreated(new Date());
-        logs.setLogUpdate(new Date());
-        logsService.insert(logs);
+        if (logs.getLogId()!=null){
+            Logs logsUpdate = new Logs();
+            logsUpdate.setLogId(logs.getLogId());
+            logsUpdate.setLogTitle(logs.getLogTitle());
+            logsUpdate.setLogSummary(logs.getLogSummary());
+            logsUpdate.setLogUpdate(new Date());
+            logsService.updateByPrimaryKeySelective(logsUpdate);
+        }
+        else{
+            logs.setLogId(DateUtil.format(new Date(),"yyMMddHHmm"));
+            logs.setLogCreated(new Date());
+            logs.setLogUpdate(new Date());
+            logsService.insert(logs);
+        }
         return new JsonResp(JsonResp.Result_Success,null,null,null);
     }
     /*删除日志*/
@@ -48,14 +58,6 @@ public class LogsInfoController {
         logsService.deleteByPrimaryKey(logId);
         return new JsonResp(JsonResp.Result_Success,null,null,null);
     }
-
-    /*更新日志*/
-//    @RequestMapping("/edit")
-//    @ResponseBody
-//    public Object edit(@RequestParam(value = "logId",required = false) String logId){
-//        logsService.deleteByPrimaryKey(logId);
-//        return new JsonResp(JsonResp.Result_Success,null,null,null);
-//    }
 
     /*搜索日志*/
     @RequestMapping("/search")

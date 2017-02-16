@@ -30,4 +30,7 @@ public class LogsServiceImpl implements LogsService{
     public List<Logs> selectByExample(LogsExample example){
         return logsMapper.selectByExample(example);
     }
+    public int updateByPrimaryKeySelective(Logs logs){
+        return logsMapper.updateByPrimaryKeySelective(logs);
+    }
 }

@@ -18,4 +18,6 @@ public interface LogsService {
     int deleteByPrimaryKey(String logId);
 
     List<Logs> selectByExample(LogsExample example);
+
+    int updateByPrimaryKeySelective(Logs logs);
 }

@@ -65,6 +65,11 @@ public class AdminController {
     @RequestMapping("/crainnogao_ad")
     public String crainnogao_ad(ModelMap model,Logs logs1,@RequestParam(value = "pageNum",required = false) Integer pageNum,
                                 @RequestParam(value = "item" ,required = false) String item){
+        //编辑dairy
+        if (logs1!=null){
+            Logs logDairy = logsService.getById(logs1.getLogId());
+            model.addAttribute("logDairy",logDairy);
+        }
         if (pageNum == null){
             pageNum = 1;
         }
@@ -88,6 +93,12 @@ public class AdminController {
     public String userEdit(@RequestParam(value = "id",required = false) Integer id){
 
         return view_base+"userinfoedit";
+    }
+    /*日志编辑*/
+    @RequestMapping("/dairyEdit")
+    public String dairyEdit(@RequestParam(value = "id",required = false) Integer id){
+
+        return view_base+"dairyedit";
     }
     /*用户信息提交*/
     @RequestMapping(value = "/userinfoSubmit", method = RequestMethod.POST)
