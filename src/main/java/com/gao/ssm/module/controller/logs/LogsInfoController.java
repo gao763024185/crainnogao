@@ -35,7 +35,7 @@ public class LogsInfoController {
         if (!(codetext.equalsIgnoreCase(validateCode))){
             return new JsonResp(JsonResp.Result_Fail,null,"验证码输入错误",null);
         }
-        if (logs.getLogId()!=null){
+        if (logs.getLogId()!=null&&logs.getLogId()!=""){
             Logs logsUpdate = new Logs();
             logsUpdate.setLogId(logs.getLogId());
             logsUpdate.setLogTitle(logs.getLogTitle());

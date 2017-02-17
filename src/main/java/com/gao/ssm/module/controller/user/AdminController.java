@@ -66,7 +66,7 @@ public class AdminController {
     public String crainnogao_ad(ModelMap model,Logs logs1,@RequestParam(value = "pageNum",required = false) Integer pageNum,
                                 @RequestParam(value = "item" ,required = false) String item){
         //编辑dairy
-        if (logs1!=null){
+        if (logs1.getLogId()!=null){
             Logs logDairy = logsService.getById(logs1.getLogId());
             model.addAttribute("logDairy",logDairy);
         }
