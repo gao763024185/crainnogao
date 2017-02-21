@@ -1,17 +1,16 @@
 package com.gao.ssm.module.controller.user;
 
 import com.gao.ssm.module.json.JsonResp;
+import com.gao.ssm.module.pojo.FileResult;
 import com.gao.ssm.module.pojo.logs.Logs;
 import com.gao.ssm.module.pojo.user.BaseUser;
 import com.gao.ssm.module.service.logs.LogsService;
 import com.gao.ssm.module.service.user.UserInfoService;
+import com.gao.ssm.module.tools.FileUploadService;
 import com.gao.ssm.module.tools.Pager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -33,6 +32,7 @@ public class AdminController {
 
     @Resource
     private LogsService logsService;
+
     String view_base="/admin/";
 
     /*后台登录页*/
@@ -84,14 +84,16 @@ public class AdminController {
         model.addAttribute("item",item);
         model.addAttribute("pageNum",pageNum);
         //筛选
-
         return view_base+"crainnogao_ad";
     }
 
     /*用户信息编辑*/
     @RequestMapping("/userEdit")
-    public String userEdit(@RequestParam(value = "id",required = false) Integer id){
+    public String userEdit(ModelMap modelMap,@RequestParam(value = "id",required = false) Integer id){
 
+        modelMap.addAttribute("id",id);
+        BaseUser user = userInfoService.selectByPrimaryKey(id);
+        modelMap.addAttribute("user",user);
         return view_base+"userinfoedit";
     }
     /*日志编辑*/
@@ -100,14 +102,26 @@ public class AdminController {
 
         return view_base+"dairyedit";
     }
+
     /*用户信息提交*/
     @RequestMapping(value = "/userinfoSubmit", method = RequestMethod.POST)
-    @ResponseBody
-    public Object userinfoSubmit(BaseUser user,
-                                 @RequestParam(value = "avatar",required = false) MultipartFile avatar)  throws IllegalStateException, IOException{
-        String name = avatar.getOriginalFilename();
-
-        return new JsonResp(JsonResp.Result_Success,null,null, null);
+    public String userinfoSubmit(@ModelAttribute BaseUser user,HttpServletRequest request,
+                                 @RequestParam(value = "avatarSub",required = false) MultipartFile avatar
+                                )throws IOException{
+        String cate = "avatar-user";
+        FileResult fileResult = null;
+        BaseUser baseUser = new BaseUser();
+        if (avatar.getOriginalFilename()!=null && avatar.getOriginalFilename()!=""){
+            fileResult = FileUploadService.picSubmit(request,cate,avatar,user.getUid());
+            baseUser.setUid(user.getUid());
+            baseUser.setUserName(user.getUserName());
+            baseUser.setAvatar(fileResult.getAvatarUrl());
+        }else{
+            baseUser.setUid(user.getUid());
+            baseUser.setUserName(user.getUserName());
+        }
+        userInfoService.updateByPrimaryKeySelective(baseUser);
+        return null;
     }
 
 }
