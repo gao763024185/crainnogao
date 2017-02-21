@@ -116,6 +116,11 @@ $(function () {
             content: ['userEdit?id='+id]
         });
     });
+    $(document).on('click','.avatarSubTn',function () {
+
+        // window.close();
+        // window.location.href='/crainnogao/admin/crainnogao_ad';
+    });;;;;;;;;;;;
     /** 日志分页 start **/
     var current = 1;
     setTimeout(
@@ -127,11 +132,6 @@ $(function () {
                 $('.prevPage').removeAttr("href");
                 document.getElementById('prevPage').style.backgroundColor="#f4f5ef";
             }
-            // if(pageNuminit==totalPage){
-            //     $('.nextPage').addClass('disabled');
-            //     $('.nextPage').removeAttr("href");
-            //     document.getElementById('nextPage').style.backgroundColor="#f4f5ef";
-            // }
         }
     ,1000
     );
