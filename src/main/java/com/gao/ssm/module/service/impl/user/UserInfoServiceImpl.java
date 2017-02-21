@@ -21,4 +21,8 @@ public class UserInfoServiceImpl implements UserInfoService{
     }
 
     public List<BaseUser> findAll(){ return baseUserMapper.findAll();}
+
+    public  int updateByPrimaryKeySelective(BaseUser user){return baseUserMapper.updateByPrimaryKeySelective(user);}
+
+    public  BaseUser selectByPrimaryKey(Integer id){return baseUserMapper.selectByPrimaryKey(id);}
 }

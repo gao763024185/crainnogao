@@ -13,4 +13,8 @@ public interface UserInfoService {
     BaseUser loginValid(BaseUser user);
     //输出所有用户（哈哈 就我一人儿）
     List<BaseUser> findAll();
+
+    int updateByPrimaryKeySelective(BaseUser user);
+
+    BaseUser selectByPrimaryKey(Integer id);
 }
