@@ -120,7 +120,7 @@ $(function () {
 
         // window.close();
         // window.location.href='/crainnogao/admin/crainnogao_ad';
-    });;;;;;;;;;;;
+    });
     /** 日志分页 start **/
     var current = 1;
     setTimeout(
@@ -214,4 +214,37 @@ $(function () {
         })
     }
     /** 日志分页 end **/
+
+    /**  上传头像 **/
+    $(".photobtn").change(function(e){
+        var that = $(this);
+        if(window.FileReader) {
+            var file  = e.target.files[0];
+            var reader = new FileReader();
+            if(file && file.size > 5242880){
+                alert("图片大小不能超过5M,您选择的文件太大，请重试");
+            }else if(file && file.type.match("image.*") && file.size < 5242880) {
+                reader.readAsDataURL(file);
+                reader.onload=function(){
+                    that.parent().parent().parent().find("img").attr("src",this.result);
+                }
+            }else{
+                alert("请选择小于5M的jpg、png格式的图片");
+                that.val('');
+                that.parent().find("img").attr("src", "/images/admin.png");
+            }
+        }else { // 降级处理
+            if( !/\.jpg$|\.png$|\.jpeg/i.test($(this).val()) ) {
+                alert("请选择小于5M的jpg、png格式的图片");
+                $(this).val('');
+            }else{
+                $(this).parent().find("img").attr("src",$(this).val());
+            }
+        }
+    });
+    $(document).on('click','.avatarSubTn',function () {
+        // parent.window.location.reload();
+        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+        parent.layer.close(index);
+    })
 });
