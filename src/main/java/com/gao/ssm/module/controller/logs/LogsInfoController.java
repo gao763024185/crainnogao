@@ -40,6 +40,7 @@ public class LogsInfoController {
             logsUpdate.setLogId(logs.getLogId());
             logsUpdate.setLogTitle(logs.getLogTitle());
             logsUpdate.setLogSummary(logs.getLogSummary());
+            logsUpdate.setLogContent(logs.getLogContent());
             logsUpdate.setLogUpdate(new Date());
             logsService.updateByPrimaryKeySelective(logsUpdate);
         }
