@@ -15,10 +15,9 @@
                         #else
                             <img id="LAY_demo_upload" src="/images/admin.png">
                         #end
-
                         <div class="site-demo-upbar">
                             <div class="layui-box layui-upload-button">
-                                    <input type="file" name="avatarSub" class="layui-upload-file"/>
+                                    <input type="file" name="avatarSub" class="layui-upload-file photobtn"/>
                                 <span class="layui-upload-icon">上传图片</span>
                             </div>
                         </div>

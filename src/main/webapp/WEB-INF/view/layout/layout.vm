@@ -52,7 +52,6 @@
             || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
     </script>
-</div>
 </body>
 
 </html>
