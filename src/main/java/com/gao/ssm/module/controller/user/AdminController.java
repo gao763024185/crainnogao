@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
@@ -42,7 +44,8 @@ public class AdminController {
     }
     @RequestMapping(value = "/loginVal" ,method = RequestMethod.POST)
     @ResponseBody
-    public Object loginVal(BaseUser user, @RequestParam(value = "codetext",required = false) String codetext,HttpServletRequest request){
+    public Object loginVal(BaseUser user, @RequestParam(value = "codetext",required = false) String codetext,
+                           HttpServletResponse response,HttpServletRequest request){
 
         HttpSession session = request.getSession();
         String validateCode = session.getAttribute("validateCode").toString();
@@ -59,12 +62,35 @@ public class AdminController {
         Map<String,String> map = new HashMap<String,String>();
         map.put("uid",String.valueOf(baseUser.getUid()));
         map.put("userName",baseUser.getUserName());
+        //写入cookie
+//        UserAgent userAgent = new UserAgent();
+//        userAgent.setUid(String.valueOf(baseUser.getUid()));
+//        userAgent.setUserName(baseUser.getUserName());
+//        userAgent.setPassword(baseUser.getPassword());
+        // Cookie
+
+        Cookie cookieuid = new Cookie("uid",String.valueOf(baseUser.getUid()));
+        cookieuid.setMaxAge(60*60);
+        response.addCookie(cookieuid);
+
+        Cookie cookieuserName = new Cookie("userName",baseUser.getUserName());
+        cookieuserName.setMaxAge(60*60);
+        response.addCookie(cookieuserName);
+
+        Cookie cookiepsw = new Cookie("password",baseUser.getPassword());
+        cookiepsw.setMaxAge(60*60);
+        response.addCookie(cookiepsw);
+
         return new JsonResp(JsonResp.Result_Success,null,null,map);
     }
     /*后台主界面*/
     @RequestMapping("/crainnogao_ad")
     public String crainnogao_ad(ModelMap model,Logs logs1,@RequestParam(value = "pageNum",required = false) Integer pageNum,
-                                @RequestParam(value = "item" ,required = false) String item){
+                                @CookieValue(value = "uid",required = false) String uid,@RequestParam(value = "item" ,required = false) String item){
+
+        if (uid==null){
+            return view_base+"login";
+        }
         //编辑dairy
         if (logs1.getLogId()!=null){
             Logs logDairy = logsService.getById(logs1.getLogId());
@@ -85,6 +111,7 @@ public class AdminController {
         model.addAttribute("pageNum",pageNum);
         //筛选
         return view_base+"crainnogao_ad";
+
     }
 
     /*用户信息编辑*/

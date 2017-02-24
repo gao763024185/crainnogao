@@ -35,8 +35,8 @@ $(function () {
                 success: function (resp) {
                     if (resp.result == 0) {
                         // alert(JSON.stringify(resp.data));
-                        document.cookie = "uid="+resp.data.uid;
-                        document.cookie = "name="+resp.data.userName;
+                        // document.cookie = "uid="+resp.data.uid;
+                        // document.cookie = "name="+resp.data.userName;
                         window.location.href='/crainnogao/admin/crainnogao_ad'
                     } else {
                         alert(resp.msg);
