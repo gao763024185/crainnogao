@@ -38,9 +38,18 @@ public class AdminController {
     String view_base="/admin/";
 
     /*后台登录页*/
-    @RequestMapping("/login")
-    public String loginPage(){
-        return view_base+"login";
+    @RequestMapping("/")
+    public String loginPage(ModelMap model,@CookieValue(value = "uid",required = false) String uid){
+        if (uid == null){
+            return view_base+"login";
+        }
+        else{
+            String returnurl = "crainnogao_ad";
+            int flag = 1 ;
+            return crainnogao_ad(model,null,1, flag,returnurl,uid,null);
+        }
+
+
     }
     @RequestMapping(value = "/loginVal" ,method = RequestMethod.POST)
     @ResponseBody
@@ -70,15 +79,15 @@ public class AdminController {
         // Cookie
 
         Cookie cookieuid = new Cookie("uid",String.valueOf(baseUser.getUid()));
-        cookieuid.setMaxAge(60*60);
+        cookieuid.setMaxAge(60);
         response.addCookie(cookieuid);
 
         Cookie cookieuserName = new Cookie("userName",baseUser.getUserName());
-        cookieuserName.setMaxAge(60*60);
+        cookieuserName.setMaxAge(60);
         response.addCookie(cookieuserName);
 
         Cookie cookiepsw = new Cookie("password",baseUser.getPassword());
-        cookiepsw.setMaxAge(60*60);
+        cookiepsw.setMaxAge(60);
         response.addCookie(cookiepsw);
 
         return new JsonResp(JsonResp.Result_Success,null,null,map);
@@ -86,13 +95,14 @@ public class AdminController {
     /*后台主界面*/
     @RequestMapping("/crainnogao_ad")
     public String crainnogao_ad(ModelMap model,Logs logs1,@RequestParam(value = "pageNum",required = false) Integer pageNum,
-                                @CookieValue(value = "uid",required = false) String uid,@RequestParam(value = "item" ,required = false) String item){
+                                @RequestParam(value = "flag",required = false) Integer flag,@RequestParam(value = "returnurl" ,required = false) String returnurl,@CookieValue(value = "uid",required = false) String uid,
+                                @RequestParam(value = "item" ,required = false) String item){
 
         if (uid==null){
             return view_base+"login";
         }
         //编辑dairy
-        if (logs1.getLogId()!=null){
+        if (logs1 != null){
             Logs logDairy = logsService.getById(logs1.getLogId());
             model.addAttribute("logDairy",logDairy);
         }
@@ -110,7 +120,13 @@ public class AdminController {
         model.addAttribute("item",item);
         model.addAttribute("pageNum",pageNum);
         //筛选
-        return view_base+"crainnogao_ad";
+        if (flag!=null && flag ==1){
+            return "redirect:" + returnurl;
+        }else{
+            return view_base+"crainnogao_ad";
+        }
+
+
 
     }
 
