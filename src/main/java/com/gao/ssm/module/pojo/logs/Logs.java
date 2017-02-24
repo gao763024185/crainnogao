@@ -20,6 +20,9 @@ public class Logs {
     private Date logUpdate;
     private String logUpdateStr;
 
+    private String year;
+    private String month;
+
     public String getLogId() {
         return logId;
     }
@@ -82,6 +85,22 @@ public class Logs {
 
     public void setLogUpdateStr(Date logCreated,String pattern) {
         this.logUpdateStr = DateUtil.format(logCreated,pattern);
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     @Override

@@ -103,6 +103,16 @@ public class UserInfoController {
     @RequestMapping("/documents")
     public String documents(ModelMap modelMap){
         List<Logs> logsList = logsService.findAll();
+//        Set<Map<String,Logs>> set = new HashSet<>();
+//        for (Logs logs : logsList){
+//            logs.setLogCreatedStr(logs.getLogCreated(),"yyyy-MM-dd");
+//            logs.setLogCreatedStr(logs.getLogCreated(),"yyyy-MM-dd");
+//            logs.setYear(DateUtil.format(logs.getLogCreated(), "yyyy").toString());
+//            logs.setMonth(DateUtil.format(logs.getLogCreated(),"MM").toString());
+//            Map<String,Logs> map = new HashedMap();
+//            map.put(logs.getYear(),logs);
+//            set.add(map);
+//        }
         modelMap.addAttribute("logsList",logsList);
         return "documents";
     }

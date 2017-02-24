@@ -4,25 +4,6 @@
 <input type="hidden" name="totalPage" id="totalPage" value="$logs1.getTotalPage()"/>
 <input type="hidden" name="totalRecord" id="totalRecord" value="$logs1.getTotalRecord()"/>
 <input type="hidden" name="pageNum" id="pageNum" value="$pageNum"/>
-<header>
-    <div class="navbar-fixed">
-        <nav class="index-nav">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a href="">
-                        <img src="/images/crainnogao.png" alt="">
-                    </a>
-                    <ul class="right hide-on-med-and-down">
-                        <li><a href="/crainnogao/?pageNum=1">首页</a></li>
-                        <li><a href="/crainnogao/documents">归档</a></li>
-                        <li><a href="/crainnogao/about">关于</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </div>
-</header>
-
 <main id="main">
     <div class="container">
         <div class="row">
@@ -94,11 +75,3 @@
     </div>
 </main>
 
-<footer>
-    <div class="footer-copyright">
-        <div class="container">
-            <span>Copyright © crainnogao2016</span>
-            <span><a href="/crainnogao/admin/crainnogao_ad">后台登录</a></span>
-        </div>
-    </div>
-</footer>

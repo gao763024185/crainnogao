@@ -28,9 +28,13 @@
     </style>
 </head>
 <body>
+
 <div id="gaobh">
+    #parse("pages/common/header.vm")
     $screen_content
+    #parse("pages/common/footer.vm")
 </div>
+
     <script src="/js/canvas.js"></script>
     <script src="/js/jQuery-core/jquery-2.0.3.min.js"></script>
 
@@ -39,7 +43,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
     <script src="/js/highlight.min.js"></script>
     <script src="/js/script.js"></script>
-
 
     <script type="text/javascript">
         var duoshuoQuery = {short_name:"crainnogao"};
