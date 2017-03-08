@@ -79,15 +79,15 @@ public class AdminController {
         // Cookie
 
         Cookie cookieuid = new Cookie("uid",String.valueOf(baseUser.getUid()));
-        cookieuid.setMaxAge(60);
+        cookieuid.setMaxAge(24*60*60);
         response.addCookie(cookieuid);
 
         Cookie cookieuserName = new Cookie("userName",baseUser.getUserName());
-        cookieuserName.setMaxAge(60);
+        cookieuserName.setMaxAge(24*60*60);
         response.addCookie(cookieuserName);
 
         Cookie cookiepsw = new Cookie("password",baseUser.getPassword());
-        cookiepsw.setMaxAge(60);
+        cookiepsw.setMaxAge(24*60*60);
         response.addCookie(cookiepsw);
 
         return new JsonResp(JsonResp.Result_Success,null,null,map);

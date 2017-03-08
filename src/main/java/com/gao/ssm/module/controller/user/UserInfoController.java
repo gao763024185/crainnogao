@@ -117,4 +117,14 @@ public class UserInfoController {
         return "documents";
     }
 
+    //进入微博页面
+    @RequestMapping("/weibo")
+    public String weibo(){
+        return "weibo";
+    }
+    //进入微博页面
+    @RequestMapping("/album")
+    public String album(){
+        return "album";
+    }
 }
