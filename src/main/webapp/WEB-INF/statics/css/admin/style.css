@@ -40,7 +40,7 @@ header .container{
 }
 .avatar div img {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 nav ul li {
     margin-top: 58px;

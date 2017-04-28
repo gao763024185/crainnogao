@@ -27,7 +27,7 @@ public class FileUploadService {
         String orginName = oriFile.getOriginalFilename();
         int len = orginName.lastIndexOf(".");
         String suffix = orginName.substring(len,orginName.length());
-        String avatar = "files/picture/"+ DateUtil.format(new Date(),"yyyyMMdd/HH/")+cate+"/";
+        String avatar = "files/picture/"+ DateUtil.format(new Date(),"yyyyMMdd/")+cate+"/";
 
         String realPath = request.getSession().getServletContext().getRealPath("/");
         String fileName = getRandomFileName()+suffix;

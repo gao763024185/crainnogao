@@ -31,7 +31,7 @@
         </javaTypeResolver>
 
         <!--要生成的 pojo 模块位置com.generator.pojo com.gao.ssm.module.pojo.feed-->
-        <javaModelGenerator targetPackage="com.generator.pojo" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
+        <javaModelGenerator targetPackage="com.gao.ssm.module.pojo.menu" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -42,15 +42,15 @@
         </sqlMapGenerator>
 
         <!--要生成的 Mapper 接口类com.generator.mapper com.gao.ssm.module.mapper.feed-->
-        <javaClientGenerator targetPackage="com.generator.mapper" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="com.gao.ssm.module.mapper.menu" targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED" type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
         
         <!--要根据哪张表生成，要在这里配置-->
         <!--用百分号表示生成所有表,可以直接省去一个一个写 <table tableName="%" /> -->
-        <table tableName="logs" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"/>
-        
+        <!--<table tableName="logs" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"/>-->
+        <table tableName="base_menu" enableCountByExample="true" enableDeleteByExample="true" enableSelectByExample="true" enableUpdateByExample="true"/>
         
     </context>
 </generatorConfiguration>

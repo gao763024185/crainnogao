@@ -3,8 +3,10 @@ package com.gao.ssm.module.controller.user;
 import com.gao.ssm.module.json.JsonResp;
 import com.gao.ssm.module.pojo.FileResult;
 import com.gao.ssm.module.pojo.logs.Logs;
+import com.gao.ssm.module.pojo.menu.BaseMenu;
 import com.gao.ssm.module.pojo.user.BaseUser;
 import com.gao.ssm.module.service.logs.LogsService;
+import com.gao.ssm.module.service.menu.BaseMenuService;
 import com.gao.ssm.module.service.user.UserInfoService;
 import com.gao.ssm.module.tools.FileUploadService;
 import com.gao.ssm.module.tools.Pager;
@@ -34,7 +36,8 @@ public class AdminController {
 
     @Resource
     private LogsService logsService;
-
+    @Resource
+    private BaseMenuService baseMenuService;
     String view_base="/admin/";
 
     /*后台登录页*/
@@ -113,12 +116,16 @@ public class AdminController {
         //用户信息显示
         List<BaseUser> user = userInfoService.findAll();
         model.addAttribute("list",user);
+        model.addAttribute("userAvatar",user.get(0).getAvatar());
         //logs信息显示
         List<Logs> logs = logsService.findAll();
         Pager<Logs> logsPager = new Pager<Logs>(pageNum,pageSize,logs);
         model.addAttribute("listlogs",logsPager);
         model.addAttribute("item",item);
         model.addAttribute("pageNum",pageNum);
+        //菜单列表
+        List<BaseMenu> list = baseMenuService.findAll();
+        model.addAttribute("list",list);
         //筛选
         if (flag!=null && flag ==1){
             return "redirect:" + returnurl;

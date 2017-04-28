@@ -9,21 +9,25 @@
                     <div class="avatar">
                         <div>
                             <a href="" >
-                                <img src="/images/admin.png" alt="">
+                                <img src="/${userAvatar}" alt="">
                             </a>
                         </div>
                     </div>
                     <div id="nav">
                     <ul class="left hide-on-med-and-down">
-                        <li><a >发表日志</a></li>
-                        <li><a >查看日志</a></li>
-                        <li><a >用户管理</a></li>
+                        #foreach($list in $list)
+                            #if($!{list.menuType}==1)
+                                <li><a >$!{list.menuName}</a></li>
+                            #end
+                        #end
                     </ul>
                     </div>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="/crainnogao/?pageNum=1">首页</a></li>
-                        <li><a href="/crainnogao/documents">归档</a></li>
-                        <li><a href="/crainnogao/about">关于</a></li>
+                        #foreach($list in $list)
+                            #if($!{list.menuType}==2)
+                                <li><a href=$!{list.menuUrl}>$!{list.menuName}</a></li>
+                            #end
+                        #end
                     </ul>
                 </div>
             </div>

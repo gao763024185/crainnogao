@@ -2,7 +2,9 @@ package com.gao.ssm.module.controller.user;
 
 import com.gao.ssm.module.pojo.logs.Logs;
 import com.gao.ssm.module.pojo.logs.LogsExample;
+import com.gao.ssm.module.pojo.menu.BaseMenu;
 import com.gao.ssm.module.service.logs.LogsService;
+import com.gao.ssm.module.service.menu.BaseMenuService;
 import com.gao.ssm.module.service.user.UserInfoService;
 import com.gao.ssm.module.tools.Pager;
 import org.apache.commons.collections.map.HashedMap;
@@ -26,7 +28,8 @@ public class UserInfoController {
     private UserInfoService userInfoService;
     @Resource
     private LogsService logsService;
-
+    @Resource
+    private BaseMenuService baseMenuService;
     private String view_base = "/p/";
     @RequestMapping("/")
     public String showTest(ModelMap modelMap,@RequestParam(value = "pageNum",required = false) Integer pageNum){
@@ -43,7 +46,8 @@ public class UserInfoController {
         Pager<Logs> pager1 = new Pager<Logs>(pageNum,pageSize,logsList);
         modelMap.addAttribute("logs1",pager1);
         modelMap.addAttribute("pageNum",pageNum);
-        System.out.print(pager1.getTotalPage());
+        List<BaseMenu> list = baseMenuService.findAll();
+        modelMap.addAttribute("list",list);
         return "crainnogao";
     }
 
@@ -122,9 +126,14 @@ public class UserInfoController {
     public String weibo(){
         return "weibo";
     }
-    //进入微博页面
+    //进入相册页面
     @RequestMapping("/album")
     public String album(){
         return "album";
+    }
+    //进入统计页面
+    @RequestMapping("/statistics")
+    public String statistics(){
+        return "statistics";
     }
 }

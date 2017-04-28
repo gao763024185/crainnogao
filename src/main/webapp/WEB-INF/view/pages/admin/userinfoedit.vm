@@ -11,7 +11,7 @@
                 <td>
                     <div class="site-demo-upload">
                         #if($!{user.avatar})
-                            <img id="LAY_demo_upload" src="$!{user.avatar}">
+                            <img id="LAY_demo_upload" src="/$!{user.avatar}">
                         #else
                             <img id="LAY_demo_upload" src="/images/admin.png">
                         #end

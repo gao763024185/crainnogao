@@ -10,6 +10,7 @@ http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
 http://www.springframework.org/schema/aop 
 http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
 
+    <!-- 此文件相当于对service层进行配置 -->
     <!--上面的xsd最好和当前使用的Spring版本号一致,如果换了Spring版本,这个最好也跟着改-->
 
     <!-- Druid 和 Spring 关联监控配置 start-->
@@ -32,14 +33,16 @@ http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
     <!-- Druid 和 Spring 关联监控配置 end-->
 
 
-    <!-- (事务管理器)transaction manager, use JtaTransactionManager for global tx -->
+    <!-- 配置事务管理器 -->
     <!--http://www.mybatis.org/spring/zh/transactions.html-->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- 注入数据库连接池 -->
         <property name="dataSource" ref="dataSource" />
     </bean>
     
     
-    <!-- 一种方式:注解方式配置事物,扫描@Transactional注解的类定义事务，配置上service实现类(下面还有一个方法名拦截方式,两个同时配置也是可以使用的，但是不建议两者一起使用) -->
+    <!-- 基于注解的什么式事务
+    一种方式:注解方式配置事物,扫描@Transactional注解的类定义事务，配置上service实现类(下面还有一个方法名拦截方式,两个同时配置也是可以使用的，但是不建议两者一起使用) -->
     <!--<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>-->
 
     <!-- 一种方式:拦截器方式配置事物start 配置了该方式之后,在方法里面使用注解方式配置事务也是没有作用的 -->
