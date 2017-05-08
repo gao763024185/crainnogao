@@ -51,6 +51,7 @@
     <filter>
         <filter-name>DruidWebStatFilter</filter-name>
         <filter-class>com.alibaba.druid.support.http.WebStatFilter</filter-class>
+        <!-- 经常需要排除一些不必要的url，比如.js,/jslib/等等。配置在init-param中 -->
         <init-param>
             <param-name>exclusions</param-name>
             <param-value>*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*</param-value>
@@ -58,6 +59,10 @@
         <init-param>
             <param-name>profileEnable</param-name>
             <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>principalSessionName</param-name>
+            <param-value>users.username</param-value>
         </init-param>
     </filter>
     <filter-mapping>
@@ -99,6 +104,14 @@
     <servlet>
         <servlet-name>DruidStatView</servlet-name>
         <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+        <init-param>
+            <param-name>loginUsername</param-name>
+            <param-value>gaobh</param-value>
+        </init-param>
+        <init-param>
+            <param-name>loginPassword</param-name>
+            <param-value>gbh123456</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>DruidStatView</servlet-name>
@@ -131,4 +144,15 @@
         <url-pattern>/VerifyCodeServlet</url-pattern>
     </servlet-mapping>
     <!-- 图片验证码servlet配置end -->
+
+    <!--访问页面计数-->
+    <servlet>
+        <servlet-name>CounterServlet</servlet-name>
+        <servlet-class>com.gao.ssm.module.tools.CounterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CounterServlet</servlet-name>
+        <url-pattern>/CounterServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

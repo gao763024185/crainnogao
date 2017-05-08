@@ -125,16 +125,13 @@ public class AdminController {
         model.addAttribute("pageNum",pageNum);
         //菜单列表
         List<BaseMenu> list = baseMenuService.findAll();
-        model.addAttribute("list",list);
+        model.addAttribute("listMenu",list);
         //筛选
         if (flag!=null && flag ==1){
             return "redirect:" + returnurl;
         }else{
             return view_base+"crainnogao_ad";
         }
-
-
-
     }
 
     /*用户信息编辑*/

@@ -15,7 +15,7 @@
                     </div>
                     <div id="nav">
                     <ul class="left hide-on-med-and-down">
-                        #foreach($list in $list)
+                        #foreach($list in $listMenu)
                             #if($!{list.menuType}==1)
                                 <li><a >$!{list.menuName}</a></li>
                             #end
@@ -23,7 +23,7 @@
                     </ul>
                     </div>
                     <ul class="right hide-on-med-and-down">
-                        #foreach($list in $list)
+                        #foreach($list in $listMenu)
                             #if($!{list.menuType}==2)
                                 <li><a href=$!{list.menuUrl}>$!{list.menuName}</a></li>
                             #end

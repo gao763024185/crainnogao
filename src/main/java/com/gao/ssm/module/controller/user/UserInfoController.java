@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -92,14 +94,30 @@ public class UserInfoController {
     }
 
     @RequestMapping("/detail")
-    public String detail(ModelMap modelMap,@RequestParam(value = "logId") String logId){
+    public String detail(ModelMap modelMap, HttpServletRequest request,@RequestParam(value = "logId") String logId){
         Logs logs = logsService.getById(logId);
         modelMap.addAttribute("logs",logs);
+        List<BaseMenu> list = baseMenuService.findAll();
+        modelMap.addAttribute("list",list);
+        HttpSession session = request.getSession();
+        session.setAttribute("logId",logId);
+        Integer count = null;
+
+//        synchronized(){
+            if (session.getAttribute("count")==null){
+                count=1;
+            }else
+                count++;
+//        }
+        session.setAttribute("count",count);
+
         return "detail";
     }
 //    进入about页面
     @RequestMapping("/about")
-    public String about(){
+    public String about(ModelMap modelMap){
+        List<BaseMenu> list = baseMenuService.findAll();
+        modelMap.addAttribute("list",list);
         return "about";
     }
 
@@ -118,22 +136,30 @@ public class UserInfoController {
 //            set.add(map);
 //        }
         modelMap.addAttribute("logsList",logsList);
+        List<BaseMenu> list = baseMenuService.findAll();
+        modelMap.addAttribute("list",list);
         return "documents";
     }
 
     //进入微博页面
     @RequestMapping("/weibo")
-    public String weibo(){
+    public String weibo(ModelMap modelMap){
+        List<BaseMenu> list = baseMenuService.findAll();
+        modelMap.addAttribute("list",list);
         return "weibo";
     }
     //进入相册页面
     @RequestMapping("/album")
-    public String album(){
+    public String album(ModelMap modelMap){
+        List<BaseMenu> list = baseMenuService.findAll();
+        modelMap.addAttribute("list",list);
         return "album";
     }
     //进入统计页面
     @RequestMapping("/statistics")
-    public String statistics(){
+    public String statistics(ModelMap modelMap){
+        List<BaseMenu> list = baseMenuService.findAll();
+        modelMap.addAttribute("list",list);
         return "statistics";
     }
 }

@@ -69,7 +69,7 @@
         <property name="requestContextAttribute" value="rc"/> <!--request属性引用名称-->
 
     </bean>
-    <!-- velocity 配置end -->
+        <!-- velocity 配置end -->
     <!-- 对模型视图名称的解析，即在模型视图名称添加前后缀(如果最后一个还是表示文件夹,则最后的斜杠不要漏了) 使用JSP-->
     <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

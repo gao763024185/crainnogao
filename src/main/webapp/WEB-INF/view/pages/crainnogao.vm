@@ -43,6 +43,19 @@
                 </div>
                 <div class="col m3 mobile-hidden"  style="width: 30%!important;">
                     <div class="col s12 m12">
+                        <div class="card white darken-2">
+                            <div class="card-content black-text">
+                                <span class="card-title">这是头像</span>
+                            </div>
+                            <div class="card-action">
+                                <ul>
+                                    <li><a href="">999999日志</a></li>
+                                    <li><a href="">999999标签</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s12 m12">
                         <div id="smoothmenu1" class="card">
                             #if($logs.getDataList().size()!=0)
                                 <ul id="tab-menu" class="ddsmoothmenu">
