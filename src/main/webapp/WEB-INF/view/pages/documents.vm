@@ -9,8 +9,10 @@
                     <div class="card-content black-text">
                         <blockquote>归档目录</blockquote>
                         <div class="collection">
+##                            href="/crainnogao/detail?logId=$!{logList.logId}"
+    <div class="collection-item" id ="aa" >fjijfija</div>
                             #foreach($logList in $logsList)
-                                <a class="collection-item" href="/crainnogao/detail?logId=$!{logList.logId}">#dateTimeText($!{logList.logCreated},'yyyy-MM-dd') $!{logList.getLogTitle()}</a>
+                                <a class="collection-item" data-logid="$!{logList.logId}" >#dateTimeText($!{logList.logCreated},'yyyy-MM-dd') $!{logList.getLogTitle()}</a>
                             #end
                         </div>
                     </div>
