@@ -69,6 +69,13 @@ $(function () {
         if (current<totalPage){
             location.href='/crainnogao/?pageNum='+ ++current;
         }
+    });
+
+    $(document).on('click','#aa',function () {
+        alert(11111);
+    });
+    $("#aa").click(function () {
+        alert(999);
     })
 });
 
