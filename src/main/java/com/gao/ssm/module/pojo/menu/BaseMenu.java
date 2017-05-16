@@ -12,7 +12,6 @@ public class BaseMenu {
 
     private String menuType;
 
-    private Integer count;
 
     public Integer getMenuId() {
         return menuId;
@@ -54,11 +53,5 @@ public class BaseMenu {
         this.menuType = menuType == null ? null : menuType.trim();
     }
 
-    public Integer getCount() {
-        return count;
-    }
 
-    public void setCount(Integer count) {
-        this.count = count;
-    }
 }

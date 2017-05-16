@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
@@ -31,8 +32,8 @@ public class UserInfoController {
     private LogsService logsService;
     @Resource
     private BaseMenuService baseMenuService;
-//    @Resource
-//    private CounterServlet counterServlet;
+    @Resource
+    ServletContext context;
     private String view_base = "/p/";
     @RequestMapping("/")
     public String showTest(ModelMap modelMap,@RequestParam(value = "pageNum",required = false) Integer pageNum){
@@ -100,7 +101,6 @@ public class UserInfoController {
         modelMap.addAttribute("logs",logs);
         List<BaseMenu> list = baseMenuService.findAll();
         modelMap.addAttribute("list",list);
-        //
         return "detail";
     }
 //    进入about页面
@@ -113,23 +113,17 @@ public class UserInfoController {
 
 //    进入归档页面
     @RequestMapping("/documents")
-    public String documents(ModelMap modelMap,HttpServletRequest request) {
+    public String documents(ModelMap modelMap, HttpServletRequest request) {
         List<Logs> logsList = logsService.findAll();
-//        Set<Map<String,Logs>> set = new HashSet<>();
-//        for (Logs logs : logsList){
-//            logs.setLogCreatedStr(logs.getLogCreated(),"yyyy-MM-dd");
-//            logs.setLogCreatedStr(logs.getLogCreated(),"yyyy-MM-dd");
-//            logs.setYear(DateUtil.format(logs.getLogCreated(), "yyyy").toString());
-//            logs.setMonth(DateUtil.format(logs.getLogCreated(),"MM").toString());
-//            Map<String,Logs> map = new HashedMap();
-//            map.put(logs.getYear(),logs);
-//            set.add(map);
-//        }
         modelMap.addAttribute("logsList",logsList);
-//        ServletContext context = request.getAttribute("list");
+        List<Map<String,String>> listcontext = (List) context.getAttribute("list");
         List<BaseMenu> list = baseMenuService.findAll();
-        for (BaseMenu menu : list) {
-
+        for (int i = 0 ; listcontext!=null&&i<listcontext.size();i++){
+            for (Logs logs : logsList) {
+                if(logs.getLogId().equals(listcontext.get(i).get("logId"))){
+                    logs.setCount(Integer.valueOf(listcontext.get(i).get("count")));
+                }
+            }
         }
         modelMap.addAttribute("list",list);
         return "documents";

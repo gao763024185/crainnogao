@@ -20,7 +20,6 @@
     <style>
         #gaobh {
             width: 100%;
-            /*height: 100%;*/
             position:absolute;
             margin:auto;
             z-index:2;
@@ -33,6 +32,7 @@
     #parse("pages/common/header.vm")
     $screen_content
     #parse("pages/common/footer.vm")
+
 </div>
 
     <script src="/js/canvas.js"></script>
@@ -54,7 +54,12 @@
             (document.getElementsByTagName('head')[0]
             || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
+        $(document).on('click','.collection a',function () {
+            var logId = $(this).data('logid');
+            location.href='/CounterServlet?logId='+logId;
+        });
     </script>
+
 </body>
 
 </html>

@@ -71,11 +71,5 @@ $(function () {
         }
     });
 
-    $(document).on('click','#aa',function () {
-        alert(11111);
-    });
-    $("#aa").click(function () {
-        alert(999);
-    })
 });
 

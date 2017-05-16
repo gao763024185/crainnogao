@@ -22,6 +22,7 @@ public class Logs {
 
     private String year;
     private String month;
+    private Integer count;
 
     public String getLogId() {
         return logId;
@@ -103,6 +104,13 @@ public class Logs {
         this.month = month;
     }
 
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

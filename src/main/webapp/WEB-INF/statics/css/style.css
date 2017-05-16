@@ -255,3 +255,16 @@ pre{
 .collection-item a:hover{
     background-color:red;
 }
+
+span.badgeSelf {
+    min-width: 3rem;
+    padding: 0 6px;
+    margin-left: 14px;
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 22px;
+    height: 22px;
+    color: #757575;
+    float: right;
+    box-sizing: border-box;
+}
