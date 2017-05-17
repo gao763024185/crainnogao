@@ -33,5 +33,4 @@ public interface LogsMapper {
 
     List<Logs> findAll();
 
-//    public Pager<Logs> findAll(List<Logs> logs,int pageNum,int pageSize);
 }

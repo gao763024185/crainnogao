@@ -14,10 +14,13 @@ public interface LogsService {
     int insert(Logs record);
     List<Logs> findAll();
 
-//     Pager<Logs> findAll (List<Logs> logs,int pageNum,int pageSize);
     int deleteByPrimaryKey(String logId);
 
     List<Logs> selectByExample(LogsExample example);
 
     int updateByPrimaryKeySelective(Logs logs);
+
+    void installLogsCount();
+
+    int updateByExampleSelective(Logs record, LogsExample example);
 }
