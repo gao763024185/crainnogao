@@ -13,7 +13,10 @@
                                 <a class="collection-item" data-logid="$!{logList.logId}">
                                     <span class="time">#dateTimeText($!{logList.logCreated},'yyyy-MM-dd')</span>
                                     $!{logList.getLogTitle()}
-                                    <span class="badgeSelf">$!{logList.getCount()}</span>
+                                    #if($!{logList.getCount()}>0)
+                                        <span class="badgeSelf">$!{logList.getCount()}</span>
+                                    #end
+
                                 </a>
 
                             #end
