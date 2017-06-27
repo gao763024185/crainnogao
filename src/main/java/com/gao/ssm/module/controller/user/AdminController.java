@@ -10,6 +10,8 @@ import com.gao.ssm.module.service.menu.BaseMenuService;
 import com.gao.ssm.module.service.user.UserInfoService;
 import com.gao.ssm.module.tools.FileUploadService;
 import com.gao.ssm.module.tools.Pager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +33,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/crainnogao/admin")
 public class AdminController {
+    private final static Logger logger = LoggerFactory.getLogger(AdminController.class);
     @Resource
     private UserInfoService userInfoService;
 
@@ -152,13 +155,17 @@ public class AdminController {
 
     /*用户信息提交*/
     @RequestMapping(value = "/userinfoSubmit", method = RequestMethod.POST)
+    @ResponseBody
     public String userinfoSubmit(@ModelAttribute BaseUser user,HttpServletRequest request,
                                  @RequestParam(value = "avatarSub",required = false) MultipartFile avatar
                                 )throws IOException{
+        logger.error("----------userinfoSubmit start-----------");
         String cate = "avatar-user";
         FileResult fileResult = null;
         BaseUser baseUser = new BaseUser();
+
         if (avatar.getOriginalFilename()!=null && avatar.getOriginalFilename()!=""){
+            logger.error("----------userinfoSubmit if-----------");
             fileResult = FileUploadService.picSubmit(request,cate,avatar,user.getUid());
             baseUser.setUid(user.getUid());
             baseUser.setUserName(user.getUserName());

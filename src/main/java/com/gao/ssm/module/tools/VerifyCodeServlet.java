@@ -1,10 +1,8 @@
 package com.gao.ssm.module.tools;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
-import java.util.Random;
+//import com.sun.image.codec.jpeg.JPEGCodec;
+//import com.sun.image.codec.jpeg.JPEGImageEncoder;
+
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -12,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.util.Random;
 
 /**
  * 产生验证码图片的servlet
@@ -152,6 +153,10 @@ public class VerifyCodeServlet extends HttpServlet {
         // 将图像输出到Servlet输出流中。
         ServletOutputStream sos = response.getOutputStream();
         ImageIO.write(buffImg, "jpeg", sos);
+
+//        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(sos);
+//        encoder.encode(buffImg);
+
         sos.close();
     }
 }

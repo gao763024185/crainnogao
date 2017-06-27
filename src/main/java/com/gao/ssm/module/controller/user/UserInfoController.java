@@ -3,6 +3,7 @@ package com.gao.ssm.module.controller.user;
 import com.gao.ssm.module.pojo.logs.Logs;
 import com.gao.ssm.module.pojo.logs.LogsExample;
 import com.gao.ssm.module.pojo.menu.BaseMenu;
+import com.gao.ssm.module.pojo.user.BaseUser;
 import com.gao.ssm.module.service.logs.LogsService;
 import com.gao.ssm.module.service.menu.BaseMenuService;
 import com.gao.ssm.module.service.user.UserInfoService;
@@ -52,6 +53,8 @@ public class UserInfoController {
         modelMap.addAttribute("pageNum",pageNum);
         List<BaseMenu> list = baseMenuService.findAll();
         modelMap.addAttribute("list",list);
+        List<BaseUser> user = userInfoService.findAll();
+        modelMap.addAttribute("user",user.get(0));
         return "crainnogao";
     }
 

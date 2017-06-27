@@ -268,3 +268,21 @@ span.badgeSelf {
     float: right;
     box-sizing: border-box;
 }
+
+.avatar {
+    width: 125px;
+    height: 125px;
+    float: left;
+}
+.avatar div {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    top: 5px;
+}
+.avatar div img {
+    width: 100%;
+    height: 100%;
+}

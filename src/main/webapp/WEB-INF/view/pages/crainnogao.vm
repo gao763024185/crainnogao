@@ -45,11 +45,19 @@
                     <div class="col s12 m12">
                         <div class="card white darken-2">
                             <div class="card-content black-text">
-                                <span class="card-title">这是头像</span>
+                                <span class="card-title">
+                                    <div class="avatar">
+                                        <div>
+                                            <a href="" >
+                                                <img src="/$user.avatar" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </span>
                             </div>
                             <div class="card-action">
                                 <ul>
-                                    <li><a href="">999999日志</a></li>
+                                    <li>lalalla</li>
                                     <li><a href="">999999标签</a></li>
                                 </ul>
                             </div>
