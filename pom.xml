@@ -314,7 +314,17 @@
     </dependency>
     <!--使用logback end-->
     <!-- 日志文件管理包 end -->
-
+    <!--JUnit包-->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.stefanbirkner</groupId>
+      <artifactId>system-rules</artifactId>
+      <version>1.6.0</version>
+    </dependency>
 
     <!--JSON处理-->
     <dependency>
@@ -357,6 +367,11 @@
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
       <version>${commons-lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
     </dependency>
 
 
