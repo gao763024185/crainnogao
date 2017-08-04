@@ -21,7 +21,7 @@
                                 <div id="firstshow">
                                     <div class="panel-heading">
                                         <div class="col-lg-12">
-                                        <span class="col-lg-8"><a href="/CounterServlet?logId=$logs.logId"><blockquote>$logs.logTitle</blockquote></a></span>
+                                        <span class="col-lg-8"><a href="/crainnogao/detail?logId=$logs.logId"><blockquote>$logs.logTitle</blockquote></a></span>
                                         <span class="col-lg-4">#dateTimeText($logs.logCreated,'yyyy-MM-dd HH:mm')</span>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@
                                     <p class="yinxiang">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;最新笔记</p>
                                     <div id="ajshow">
                                         #foreach($log in $logs.getDataList())
-                                            <li class="logTitle"><a href="/CounterServlet?logId=$!{log.logId}">$!{log.logTitle}</a></li>
+                                            <li class="logTitle"><a href="/crainnogao/detail?logId=$!{log.logId}">$!{log.logTitle}</a></li>
                                         #end
                                     </div>
                                 </ul>

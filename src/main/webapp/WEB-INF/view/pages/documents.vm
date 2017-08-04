@@ -10,7 +10,7 @@
                         <blockquote>归档目录</blockquote>
                         <div class="collection">
                             #foreach($logList in $logsList)
-                                <a class="collection-item" data-logid="$!{logList.logId}" href="/CounterServlet?logId=$!{logList.logId}">
+                                <a class="collection-item" data-logid="$!{logList.logId}" href="/crainnogao/detail?logId=$!{logList.logId}">
                                     <span class="time">#dateTimeText($!{logList.logCreated},'yyyy-MM-dd')</span>
                                     $!{logList.getLogTitle()}
                                     #if($!{logList.getCount()}>0)

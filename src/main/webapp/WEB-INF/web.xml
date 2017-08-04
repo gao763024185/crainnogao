@@ -146,13 +146,13 @@
     <!-- 图片验证码servlet配置end -->
 
     <!--访问页面计数-->
-    <servlet>
-        <servlet-name>CounterServlet</servlet-name>
-        <servlet-class>com.gao.ssm.module.tools.CounterServlet</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>CounterServlet</servlet-name>-->
+        <!--<servlet-class>com.gao.ssm.module.tools.CounterServlet</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>CounterServlet</servlet-name>
-        <url-pattern>/CounterServlet</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>CounterServlet</servlet-name>-->
+        <!--<url-pattern>/CounterServlet</url-pattern>-->
+    <!--</servlet-mapping>-->
 </web-app>
