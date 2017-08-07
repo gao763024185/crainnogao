@@ -19,7 +19,7 @@
     <context:component-scan base-package="com.gao.ssm.module.controller"/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <bean id="counterAspect" class="com.gao.ssm.module.tools.CounterAspect"/>
-    <!-- 配置注解驱动 -->
+    <!-- 配置注解驱动de SpringMVC -->
     <mvc:annotation-driven/>
     <!--静态资源映射-->
     <!--
