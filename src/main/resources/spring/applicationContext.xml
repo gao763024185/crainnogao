@@ -23,7 +23,8 @@
     <!--http://blog.csdn.net/u012763117/article/details/17253849-->
     <!--http://casheen.iteye.com/blog/295348-->
     <!--http://blog.csdn.net/zhang854429783/article/details/6785574-->
-    <context:component-scan base-package="com.gao.ssm.module.service.*,com.gao.ssm.module.mapper.*"/>
+
+
 
 
 </beans>

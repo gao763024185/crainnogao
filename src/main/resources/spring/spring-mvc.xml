@@ -17,6 +17,7 @@
 
     <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
     <context:component-scan base-package="com.gao.ssm.module.controller"/>
+    <context:component-scan base-package="com.gao.ssm.module.service.*,com.gao.ssm.module.mapper.*"/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <bean id="counterAspect" class="com.gao.ssm.module.tools.CounterAspect"/>
     <!-- 配置注解驱动de SpringMVC -->
