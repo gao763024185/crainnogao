@@ -35,7 +35,8 @@ public class FileUploadService {
         logger.error("----------realPath-----------"+realPath);
         String fileName = getRandomFileName()+suffix;
         try {
-            File file = new File(FilenameUtils.concat(realPath,avatar));
+            String avatar1 = "files/picture/"+ DateUtil.format(new Date(),"yyyyMMdd/")+cate;
+            File file = new File(FilenameUtils.concat(realPath,avatar1));
             logger.error("----------file-----------"+file.getAbsolutePath());
             //判断文件是否存在
             if (!file.exists() && !file.isDirectory()){
@@ -52,10 +53,10 @@ public class FileUploadService {
             destFile =  new File(folder,fileName);
             logger.error("----------destFile-----------"+destFile.getAbsolutePath());
             if (destFile.exists()) {
+                logger.error("----------destFile----exists-------"+destFile.getAbsolutePath());
                 destFile.delete();
                 destFile = new File(folder, fileName);
             }
-
             oriFile.transferTo(destFile);
         } catch (IOException e) {
             e.printStackTrace();

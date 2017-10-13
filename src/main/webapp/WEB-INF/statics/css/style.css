@@ -272,7 +272,7 @@ span.badgeSelf {
 .avatar {
     width: 125px;
     height: 125px;
-    float: left;
+    /*float: left;*/
 }
 .avatar div {
     width: 110px;

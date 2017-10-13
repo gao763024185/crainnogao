@@ -27,6 +27,3 @@
         </div>
     </div>
 </main>
-#@block("script")
-    ddjfjaf
-#end
