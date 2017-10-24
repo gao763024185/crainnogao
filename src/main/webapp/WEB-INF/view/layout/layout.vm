@@ -1,8 +1,9 @@
 #* @vtlmacrolibrary path="" *#
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 ## 在移动设备浏览器上，通过为视口（viewport）设置 meta 属性为 user-scalable=no 可以禁用其缩放（zooming）功能。
 ## 这样禁用缩放功能后，用户只能滚动屏幕，就能让你的网站看上去更像原生应用的感觉。注意，这种方式我们并不推荐所有网站使用，
 ## 还是要看你自己的情况而定！
@@ -18,6 +19,9 @@
     <link rel="stylesheet" href="/css/monokai_sublime.min.css">
     <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css"/>
     <script type="text/javascript" src="/js/three.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/album/normalize.css" />
+    <link rel="stylesheet" href="/css/album/jquery-yys-slider.css">
     <style>
         #gaobh {
             width: 100%;
@@ -58,6 +62,14 @@
     })();
 </script>
 
+##<script>window.jQuery || document.write('<script src="/js/jQuery-core/jquery-2.0.3.min.js"></script>')</script>
+<script src="/js/jQuery-core/jquery-yys-slider.js"></script>
+<script>
+    $(function(){
+        $('.content-part.part-tese').addClass('show');
+        $('.gallery_container').gallery_slider({imgNum: 4});
+    })
+</script>
 </body>
 
 </html>
