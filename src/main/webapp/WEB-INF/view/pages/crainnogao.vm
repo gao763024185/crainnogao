@@ -84,6 +84,7 @@
                             </div>
                             <div class="card-action">
                                 <ul>
+                                    <div id="text-12" class="widget-area widget-sidebar"><h3>帮我喂喂小仓鼠</h3> <div class="textwidget"><object type="application/x-shockwave-flash" style="outline:none;" data="http://wuzhuti.cn/resources/flash/hamster.swf?" width="242" height="184" class=""><param name="movie" value="https://wuzhuti.cn/resources/flash/hamster.swf?"><param name="AllowScriptAccess" value="always"><param name="wmode" value="transparent"></object></div> </div>
                                     <li><a href="">Mybatis插入返回主键值</a></li>
                                     <li><a href="">SpringMVC上传图片</a></li>
                                 </ul>
