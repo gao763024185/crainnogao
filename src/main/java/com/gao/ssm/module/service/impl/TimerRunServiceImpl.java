@@ -12,7 +12,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by 高保红 on 2017/5/17.
+ * @description 定时器service
+ * @author: gaobh
+ * @date: 2017/5/17
+ * @version: v1.0
  */
 @Service
 public class TimerRunServiceImpl implements TimerRunService {
@@ -21,16 +24,20 @@ public class TimerRunServiceImpl implements TimerRunService {
     @Resource
     private LogsService logsService;
 
+    @Override
     public void countTimer() {
-        final long timeInterval = 10*60*1000; //10分钟执行一次
+        /**
+         * 10分钟执行一次
+         */
+        final long timeInterval = 10 * 60 * 1000;
 
-        new Thread(){
-            public void run(){
-                while (true){
+        new Thread() {
+            public void run() {
+                while (true) {
                     count();
-                    try{
+                    try {
                         Thread.sleep(timeInterval);
-                    }catch (InterruptedException e){
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
@@ -38,16 +45,16 @@ public class TimerRunServiceImpl implements TimerRunService {
         }.start();
     }
 
-    public void count(){
-        List<Map<String,String>> mapList = (List)context.getAttribute("list");
-        if (mapList!=null && mapList.size()>0){
-            for (Map<String, String> map:mapList){
-                LogsExample logsExample  = new LogsExample();
+    public void count() {
+        List<Map<String, String>> mapList = (List) context.getAttribute("list");
+        if (mapList != null && mapList.size() > 0) {
+            for (Map<String, String> map : mapList) {
+                LogsExample logsExample = new LogsExample();
                 LogsExample.Criteria criteria = logsExample.createCriteria();
                 criteria.andLogIdEqualTo(map.get("logId"));
                 Logs logs = new Logs();
                 logs.setCount(Integer.valueOf(map.get("count")));
-                logsService.updateByExampleSelective(logs,logsExample);
+                logsService.updateByExampleSelective(logs, logsExample);
             }
         }
     }

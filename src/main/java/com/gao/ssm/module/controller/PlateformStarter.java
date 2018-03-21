@@ -8,7 +8,10 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
- * Created by 高保红 on 2017/5/16.
+ * @description 定时器
+ * @author: gaobh
+ * @date: 2017/5/16
+ * @version: v1.0
  */
 @Component
 public class PlateformStarter {
@@ -17,8 +20,9 @@ public class PlateformStarter {
     private TimerRunService timerRunService;
     @Resource
     private LogsService logsService;
+
     @PostConstruct
-    public void init(){
+    public void init() {
         logsService.installLogsCount();//启动时载入访问次数
         timerRunService.countTimer();//启动保存访问次数的定时器
     }

@@ -1,7 +1,10 @@
 package com.gao.ssm.module.cookie;
 
 /**
- * Created by 高保红 on 2017/2/23.
+ * @description 用户登陆实体类
+ * @author: gaobh
+ * @date: 2017/2/23
+ * @version: v1.0
  */
 public class UserAgent {
 

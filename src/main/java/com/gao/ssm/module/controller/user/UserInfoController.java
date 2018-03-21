@@ -22,7 +22,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by gaobh on 2016/12/13.
+ * @description 前台controller
+ * @author: gaobh
+ * @date: 2016/12/13
+ * @version: v1.0
  */
 @Controller
 @RequestMapping("/crainnogao")
@@ -35,7 +38,6 @@ public class UserInfoController {
     private BaseMenuService baseMenuService;
     @Resource
     ServletContext context;
-    private String view_base = "/p/";
 
     @RequestMapping("/")
     public String showTest(ModelMap modelMap, @RequestParam(value = "pageNum", required = false) Integer pageNum) {
@@ -59,6 +61,15 @@ public class UserInfoController {
         return "crainnogao";
     }
 
+    /**
+     * 分页显示首页
+     *
+     * @param pageNum
+     * @param item
+     * @param pageSize
+     * @param logs
+     * @return
+     */
     @RequestMapping("fenye")
     @ResponseBody
     public Object fenye(@RequestParam(value = "pageNum", required = false) Integer pageNum,
@@ -91,6 +102,13 @@ public class UserInfoController {
         return map;
     }
 
+    /**
+     * 显示日志
+     *
+     * @param modelMap
+     * @param logId
+     * @return
+     */
     @RequestMapping("/logshow")
     @ResponseBody
     public Object logshow(ModelMap modelMap, @RequestParam(value = "logId") String logId) {
@@ -100,6 +118,14 @@ public class UserInfoController {
         return logs;
     }
 
+    /**
+     * 日志详情页
+     *
+     * @param modelMap
+     * @param request
+     * @param logId
+     * @return
+     */
     @RequestMapping("/detail")
     public String detail(ModelMap modelMap, HttpServletRequest request, @RequestParam(value = "logId") String logId) {
         Logs logs = logsService.getById(logId);
@@ -109,7 +135,12 @@ public class UserInfoController {
         return "detail";
     }
 
-    //    进入about页面
+    /**
+     * 进入about页面
+     *
+     * @param modelMap
+     * @return
+     */
     @RequestMapping("/about")
     public String about(ModelMap modelMap) {
         List<BaseMenu> list = baseMenuService.findAll();
@@ -117,17 +148,23 @@ public class UserInfoController {
         return "about";
     }
 
-    //    进入归档页面
+    /**
+     * 进入归档页面
+     *
+     * @param modelMap
+     * @param request
+     * @return
+     */
     @RequestMapping("/documents")
     public String documents(ModelMap modelMap, HttpServletRequest request) {
         List<Logs> logsList = logsService.findAll();
         modelMap.addAttribute("logsList", logsList);
-        List<Map<String, String>> listcontext = (List) context.getAttribute("list");
+        List<Map<String, String>> listContext = (List) context.getAttribute("list");
         List<BaseMenu> list = baseMenuService.findAll();
-        for (int i = 0; listcontext != null && i < listcontext.size(); i++) {
+        for (int i = 0; listContext != null && i < listContext.size(); i++) {
             for (Logs logs : logsList) {
-                if (logs.getLogId().equals(listcontext.get(i).get("logId"))) {
-                    logs.setCount(Integer.valueOf(listcontext.get(i).get("count")));
+                if (logs.getLogId().equals(listContext.get(i).get("logId"))) {
+                    logs.setCount(Integer.valueOf(listContext.get(i).get("count")));
                 }
             }
         }
@@ -135,7 +172,12 @@ public class UserInfoController {
         return "documents";
     }
 
-    //进入微博页面
+    /**
+     * 进入微博页面
+     *
+     * @param modelMap
+     * @return
+     */
     @RequestMapping("/weibo")
     public String weibo(ModelMap modelMap) {
         List<BaseMenu> list = baseMenuService.findAll();
@@ -143,7 +185,12 @@ public class UserInfoController {
         return "weibo";
     }
 
-    //进入相册页面
+    /**
+     * 进入相册页面
+     *
+     * @param modelMap
+     * @return
+     */
     @RequestMapping("/album")
     public String album(ModelMap modelMap) {
         List<BaseMenu> list = baseMenuService.findAll();
@@ -151,7 +198,12 @@ public class UserInfoController {
         return "album";
     }
 
-    //进入统计页面
+    /**
+     * 进入统计页面
+     *
+     * @param modelMap
+     * @return
+     */
     @RequestMapping("/statistics")
     public String statistics(ModelMap modelMap) {
         List<BaseMenu> list = baseMenuService.findAll();

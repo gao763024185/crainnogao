@@ -30,9 +30,16 @@ public interface BaseUserMapper {
 
     int updateByPrimaryKey(BaseUser record);
 
-    /* 自定义 start*/
-    BaseUser loginValid (BaseUser user);
+    /**
+     * 登陆验证
+     * @param user
+     * @return
+     */
+    BaseUser loginValid(BaseUser user);
 
+    /**
+     * 查出所有的登陆列表
+     * @return
+     */
     List<BaseUser> findAll();
-    /* 自定义 end*/
 }

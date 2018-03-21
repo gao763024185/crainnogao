@@ -28,27 +28,29 @@ public class CounterAspect {
     @Around("count()")
     public Object countNum(ProceedingJoinPoint joinPoint) throws Throwable {
         Object result = null;
-        try{
+        try {
             result = joinPoint.proceed();
-        }catch (Throwable throwable){
+        } catch (Throwable throwable) {
             System.out.println("出错啦");
         }
 
         Object[] args = joinPoint.getArgs();
         HttpServletRequest request = null;
         ModelMap mapping = null;
-        String logId=null;
+        String logId = null;
         //通过分析aop监听参数分析出request等信息
         for (int i = 0; i < args.length; i++) {
             if (args[i] instanceof HttpServletRequest) {
                 request = (HttpServletRequest) args[i];
-            }if (args[i] instanceof ModelMap) {
+            }
+            if (args[i] instanceof ModelMap) {
                 mapping = (ModelMap) args[i];
-            }if (args[i] instanceof String){
+            }
+            if (args[i] instanceof String) {
                 logId = (String) args[i];
             }
         }
-        System.out.println("我是counterAspect:"+logId);
+        System.out.println("我是counterAspect:" + logId);
         synchronized (context) {
             List<Map<String, String>> list = new ArrayList<>();
             list = (List<Map<String, String>>) context.getAttribute("list");

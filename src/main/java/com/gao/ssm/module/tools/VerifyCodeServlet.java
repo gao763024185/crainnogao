@@ -1,7 +1,5 @@
 package com.gao.ssm.module.tools;
 
-//import com.sun.image.codec.jpeg.JPEGCodec;
-//import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
@@ -16,8 +14,8 @@ import java.util.Random;
 
 /**
  * 产生验证码图片的servlet
- * @author Administrator
  *
+ * @author Administrator
  */
 public class VerifyCodeServlet extends HttpServlet {
 
@@ -29,7 +27,7 @@ public class VerifyCodeServlet extends HttpServlet {
     private int width = 100;
 
     /**
-     *  验证码图片的高度。
+     * 验证码图片的高度。
      */
     private int height = 30;
 
@@ -56,9 +54,9 @@ public class VerifyCodeServlet extends HttpServlet {
     /**
      * codeSequence 表示字符允许出现的序列值
      */
-    char[] codeSequence = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+    char[] codeSequence = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
             'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W',
-            'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
     /**
      * 初始化验证图片属性
@@ -87,7 +85,7 @@ public class VerifyCodeServlet extends HttpServlet {
         }
         //width-4 除去左右多余的位置，使验证码更加集中显示，减得越多越集中。
         //codeCount+1     //等比分配显示的宽度，包括左右两边的空格
-        codeX = (width-4) / (codeCount+1);
+        codeX = (width - 4) / (codeCount + 1);
         //height - 10 集中显示验证码
         fontHeight = height - 10;
         codeY = height - 7;
@@ -99,6 +97,7 @@ public class VerifyCodeServlet extends HttpServlet {
      * @throws ServletException
      * @throws java.io.IOException
      */
+    @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
         // 定义图像buffer
         BufferedImage buffImg = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -136,7 +135,7 @@ public class VerifyCodeServlet extends HttpServlet {
             green = random.nextInt(255);
             blue = random.nextInt(255);
             // 用随机产生的颜色将验证码绘制到图像中。
-            gd.setColor(new Color(red,green,blue));
+            gd.setColor(new Color(red, green, blue));
             gd.drawString(strRand, (i + 1) * codeX, codeY);
             // 将产生的四个随机数组合在一起。
             randomCode.append(strRand);

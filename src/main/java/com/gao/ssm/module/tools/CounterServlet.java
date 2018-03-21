@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
 public class CounterServlet extends HttpServlet {
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //一个web应用程序只有一个上下文对象,该上下文对象可访问所有servlet
 //        ServletContext context = getServletContext();
 //        synchronized (context) {
 //            List<Map<String,String>> list = new ArrayList<>();
-            String logId = req.getParameter("logId")==null? null:req.getParameter("logId");
+        String logId = req.getParameter("logId") == null ? null : req.getParameter("logId");
 //            list = (List<Map<String,String>>) context.getAttribute("list");
 //            if (list==null){
 //                list = new ArrayList<>();
@@ -46,7 +48,7 @@ public class CounterServlet extends HttpServlet {
 //                    list.add(map);
 //            }
 //            context.setAttribute("list", list);
-            resp.sendRedirect("/crainnogao/detail?logId="+logId);
+        resp.sendRedirect("/crainnogao/detail?logId=" + logId);
 //        }
     }
 }

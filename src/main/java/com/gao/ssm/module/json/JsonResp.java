@@ -1,6 +1,11 @@
 package com.gao.ssm.module.json;
 
-
+/**
+ * @description JsonResp
+ * @author: gaobh
+ * @date: 2017/2/23
+ * @version: v1.0
+ */
 public class JsonResp {
     public static final JsonResp Success = new JsonResp(0, null, null, null);
     public static final JsonResp Fail = new JsonResp(1, null, null, null);
@@ -14,19 +19,24 @@ public class JsonResp {
     public static JsonResp buildSuccees(Object data) {
         return new JsonResp(Result_Success, data);
     }
+
     public static JsonResp success() {
         return new JsonResp(Result_Success, null);
     }
+
     public static JsonResp success(Object data) {
         return new JsonResp(Result_Success, data);
     }
+
     public static JsonResp fail() {
         return new JsonResp(Result_Fail, null);
     }
+
     public static JsonResp fail(String msg) {
         return new JsonResp(Result_Fail, null);
     }
-    public static JsonResp fail(String error,String msg) {
+
+    public static JsonResp fail(String error, String msg) {
         return new JsonResp(Result_Fail, null);
     }
 
@@ -87,6 +97,6 @@ public class JsonResp {
         this.data = data;
     }
 
- }
+}
 
 

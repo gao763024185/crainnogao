@@ -10,17 +10,24 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * Created by 高保红 on 2017/4/26.
+ * @description 管理员service
+ * @author: gaobh
+ * @date: 2017/4/26
+ * @version: v1.0
  */
 @Service
 public class BaseMenuServiceImpl implements BaseMenuService {
 
     @Resource
     private BaseMenuMapper baseMenuMapper;
-    public List<BaseMenu> selectByExample(BaseMenuExample example){
+
+    @Override
+    public List<BaseMenu> selectByExample(BaseMenuExample example) {
         return baseMenuMapper.selectByExample(example);
     }
-    public  List<BaseMenu> findAll(){
+
+    @Override
+    public List<BaseMenu> findAll() {
         return baseMenuMapper.findAll();
     }
 }

@@ -14,42 +14,68 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by gaobh on 2016/12/22.
+ * @description 日志service
+ * @author: gaobh
+ * @date: 2016/12/22
+ * @version: v1.0
  */
 @Service
-public class LogsServiceImpl implements LogsService{
+public class LogsServiceImpl implements LogsService {
     @Resource
     private LogsMapper logsMapper;
     @Resource
     ServletContext context;
 
-    public List<Logs> findAll(){return logsMapper.findAll();}
+    @Override
+    public List<Logs> findAll() {
+        return logsMapper.findAll();
+    }
 
-    public int insert(Logs logs){return logsMapper.insert(logs);}
+    @Override
+    public int insert(Logs logs) {
+        return logsMapper.insert(logs);
+    }
 
-    public Logs getById(String logId){return logsMapper.selectByPrimaryKey(logId);}
+    @Override
+    public Logs getById(String logId) {
+        return logsMapper.selectByPrimaryKey(logId);
+    }
 
-    public int deleteByPrimaryKey(String logId){return logsMapper.deleteByPrimaryKey(logId);}
-    public List<Logs> selectByExample(LogsExample example){
+    @Override
+    public int deleteByPrimaryKey(String logId) {
+        return logsMapper.deleteByPrimaryKey(logId);
+    }
+
+    @Override
+    public List<Logs> selectByExample(LogsExample example) {
         return logsMapper.selectByExample(example);
     }
-    public int updateByPrimaryKeySelective(Logs logs){
+
+    @Override
+    public int updateByPrimaryKeySelective(Logs logs) {
         return logsMapper.updateByPrimaryKeySelective(logs);
     }
 
-    public  int updateByExampleSelective(Logs record, LogsExample example){return logsMapper.updateByExampleSelective(record,example);}
-    //处理项目启动时访问次数加载
-    public void installLogsCount(){
-        List<Map<String,String>> mapList = new ArrayList<>();
+    @Override
+    public int updateByExampleSelective(Logs record, LogsExample example) {
+        return logsMapper.updateByExampleSelective(record, example);
+    }
+
+    /**
+     * 处理项目启动时访问次数加载
+     */
+    @Override
+    public void installLogsCount() {
+        List<Map<String, String>> mapList = new ArrayList<>();
         List<Logs> logsList = findAll();
-        for (int i=0;i<logsList.size();i++){
-            if (logsList.get(i).getCount()>0){
-                Map<String,String> map = new HashedMap();
-                map.put("logId",logsList.get(i).getLogId());
-                map.put("count",String.valueOf(logsList.get(i).getCount()));
+        for (int i = 0; i < logsList.size(); i++) {
+            if (logsList.get(i).getCount() > 0) {
+                Map<String, String> map = new HashedMap();
+                map.put("logId", logsList.get(i).getLogId());
+                map.put("count", String.valueOf(logsList.get(i).getCount()));
                 mapList.add(map);
             }
         }
-        context.setAttribute("list",mapList);
+        context.setAttribute("list", mapList);
     }
 }

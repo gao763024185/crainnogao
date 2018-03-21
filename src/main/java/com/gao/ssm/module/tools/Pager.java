@@ -6,7 +6,7 @@ import java.util.List;
  * Created by gaobh on 2016/12/29.
  */
 public class Pager<T> {
-    private int pageSize=5;
+    private int pageSize = 5;
 
     private int currentPage;
 
@@ -16,26 +16,27 @@ public class Pager<T> {
 
     private List<T> dataList;
 
-    public Pager(int pageNum,int pageSize,List<T> sourceList){
+    public Pager(int pageNum, int pageSize, List<T> sourceList) {
 
-        if (sourceList==null){
+        if (sourceList == null) {
             return;
         }
         this.totalRecord = sourceList.size();
         this.pageSize = pageSize;
-        this.totalPage = totalRecord/pageSize;
-        if (totalRecord<pageSize || totalRecord%pageSize != 0){
-            this.totalPage = this.totalPage+1;
+        this.totalPage = totalRecord / pageSize;
+        if (totalRecord < pageSize || totalRecord % pageSize != 0) {
+            this.totalPage = this.totalPage + 1;
         }
 
         this.currentPage = this.totalPage < pageNum ? this.totalPage : pageNum;
 
-        int fromIndex = this.pageSize*(this.currentPage-1);
+        int fromIndex = this.pageSize * (this.currentPage - 1);
 
-        int toIndex = this.pageSize*this.currentPage > this.totalRecord ? this.totalRecord : this.pageSize*this.currentPage;
+        int toIndex = this.pageSize * this.currentPage > this.totalRecord ? this.totalRecord : this.pageSize * this.currentPage;
 
-        this.dataList = sourceList.subList(fromIndex,toIndex);
+        this.dataList = sourceList.subList(fromIndex, toIndex);
     }
+
     public Pager() {
     }
 
