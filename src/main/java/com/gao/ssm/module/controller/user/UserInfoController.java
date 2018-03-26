@@ -28,7 +28,7 @@ import java.util.Map;
  * @version: v1.0
  */
 @Controller
-@RequestMapping("/crainnogao")
+@RequestMapping("/")
 public class UserInfoController {
     @Resource
     private UserInfoService userInfoService;
@@ -39,7 +39,7 @@ public class UserInfoController {
     @Resource
     ServletContext context;
 
-    @RequestMapping("/")
+    @RequestMapping("index")
     public String showTest(ModelMap modelMap, @RequestParam(value = "pageNum", required = false) Integer pageNum) {
         if (pageNum == null) {
             pageNum = 1;

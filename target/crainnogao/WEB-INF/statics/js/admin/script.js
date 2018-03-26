@@ -5,14 +5,14 @@ $(function () {
         var pwdvalid = /^[a-zA-Z]{1}([a-zA-Z0-9]|[_]){4,19}$/;   //只能输入5-20个以字母开头、可带数字或“_”的字串
         var userName = $("#username").val();
         var password = $("#password").val();
-        var codetext = $("#codetext").val();
+        var codeText = $("#codetext").val();
         if (userName == "") {
             alert("用户名不能为空");
             $("#userName").focus();
         } else if (password == "") {
             alert("密码不能为空");
             $("#password").focus();
-        } else if (codetext == "") {
+        } else if (codeText == "") {
             alert("验证码不能为空");
             $("#codetext").focus();
         } else if (!unamevalid.test(userName)) {
@@ -25,11 +25,11 @@ $(function () {
             var data = {
                 userName: userName,
                 password: password,
-                codetext: codetext
+                codeText: codeText
             };
             $.ajax({
                 type: 'POST',
-                url: "/crainnogao/admin/loginVal",
+                url: "/admin/loginVal",
                 data: data,
                 dataType: "json",
                 success: function (resp) {
@@ -37,7 +37,7 @@ $(function () {
                         // alert(JSON.stringify(resp.data));
                         // document.cookie = "uid="+resp.data.uid;
                         // document.cookie = "name="+resp.data.userName;
-                        window.location.href='/crainnogao/admin/crainnogao_ad'
+                        window.location.href='/admin/crainnogao_ad'
                     } else {
                         alert(resp.msg);
                     }
@@ -57,13 +57,13 @@ $(function () {
 
     $(document).on('click','.issuesubmit',function () {
         var logId = $("#logId").val();
-        var codetext = $("#codetext").val();
+        var codeText = $("#codetext").val();
         var logTitle = $("#logTitle").val();
         var logSummary = $("#logSummary").val();
         var logContent = $("#ts").val();
         var data = {
             logId:logId,
-            codetext:codetext,
+            codeText:codeText,
             logTitle:logTitle,
             logSummary:logSummary,
             logContent:logContent
@@ -76,7 +76,7 @@ $(function () {
             success:function (data) {
                 if(data.result==0){
                     alert("发表成功!");
-                    window.location.href='/crainnogao/admin/crainnogao_ad'
+                    window.location.href='/admin/crainnogao_ad'
                 }else{
                     alert("发表失败!")
                 }
@@ -95,7 +95,7 @@ $(function () {
             if(r==true){
                 $.post('/delete',data,function (resp) {
                     if (resp.result==0){
-                        window.location.href='/crainnogao/admin/crainnogao_ad';
+                        window.location.href='/admin/crainnogao_ad';
                     }else {
                         alert("删除失败!")
                     }
@@ -104,7 +104,7 @@ $(function () {
         });
     $(document).on('click','.update',function () {
         var logId = $(this).parent().parent().data('id');
-        location.href="/crainnogao/admin/crainnogao_ad?logId="+logId;
+        location.href="/admin/crainnogao_ad?logId="+logId;
     });
     //编辑用户
     $(document).on('click','.edit',function () {
@@ -119,7 +119,7 @@ $(function () {
     $(document).on('click','.avatarSubTn',function () {
 
         // window.close();
-        // window.location.href='/crainnogao/admin/crainnogao_ad';
+        // window.location.href='/admin/crainnogao_ad';
     });
     /** 日志分页 start **/
     var current = 1;
@@ -183,7 +183,7 @@ $(function () {
 
     function ajaxFenye(data) {
         $.ajax({
-            url:"/crainnogao/fenye",
+            url:"/fenye",
             type:"post",
             data:data,
             dataType:"json",

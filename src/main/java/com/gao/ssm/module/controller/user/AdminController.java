@@ -33,7 +33,7 @@ import java.util.Map;
  * @version: v1.0
  */
 @Controller
-@RequestMapping("/crainnogao/admin")
+@RequestMapping("/admin")
 public class AdminController {
     private final static Logger logger = LoggerFactory.getLogger(AdminController.class);
     @Resource

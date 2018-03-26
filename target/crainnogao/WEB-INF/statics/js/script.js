@@ -1,6 +1,6 @@
 $(function () {
     $(document).on('click','#crainnogao_ad',function () {
-        window.location.href="/crainnogao/admin/crainnogao_ad";
+        window.location.href="/admin/crainnogao_ad";
     });
 
     if ($('#detaillogcontentfir').val()!=undefined){
@@ -62,12 +62,12 @@ $(function () {
     }
     $(document).on('click','.prevPage',function () {
         if (current>1){
-            location.href='/crainnogao/?pageNum='+ --current;
+            location.href='/index/?pageNum='+ --current;
         }
     });
     $(document).on('click','.nextPage',function () {
         if (current<totalPage){
-            location.href='/crainnogao/?pageNum='+ ++current;
+            location.href='/index/?pageNum='+ ++current;
         }
     });
 

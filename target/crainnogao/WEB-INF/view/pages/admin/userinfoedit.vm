@@ -4,7 +4,7 @@
 
 <div class="userinfoedit">
     <div class="container">
-        <form enctype="multipart/form-data" method="post" action="/crainnogao/admin/userinfoSubmit" >
+        <form enctype="multipart/form-data" method="post" action="/admin/userinfoSubmit" >
         <table>
             <tr>
                 <td>上传头像:</td>

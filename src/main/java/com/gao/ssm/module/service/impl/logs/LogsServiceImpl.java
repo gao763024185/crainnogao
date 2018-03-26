@@ -4,7 +4,10 @@ import com.gao.ssm.module.mapper.logs.LogsMapper;
 import com.gao.ssm.module.pojo.logs.Logs;
 import com.gao.ssm.module.pojo.logs.LogsExample;
 import com.gao.ssm.module.service.logs.LogsService;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.map.HashedMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -33,7 +36,7 @@ public class LogsServiceImpl implements LogsService {
 
     @Override
     public int insert(Logs logs) {
-        return logsMapper.insert(logs);
+        return logsMapper.insertSelective(logs);
     }
 
     @Override
@@ -61,6 +64,7 @@ public class LogsServiceImpl implements LogsService {
         return logsMapper.updateByExampleSelective(record, example);
     }
 
+    private final static Logger logger = LoggerFactory.getLogger(LogsServiceImpl.class);
     /**
      * 处理项目启动时访问次数加载
      */
@@ -68,12 +72,18 @@ public class LogsServiceImpl implements LogsService {
     public void installLogsCount() {
         List<Map<String, String>> mapList = new ArrayList<>();
         List<Logs> logsList = findAll();
-        for (int i = 0; i < logsList.size(); i++) {
-            if (logsList.get(i).getCount() > 0) {
-                Map<String, String> map = new HashedMap();
-                map.put("logId", logsList.get(i).getLogId());
-                map.put("count", String.valueOf(logsList.get(i).getCount()));
-                mapList.add(map);
+        logger.error("-------installLogsCount-------"+logsList.size());
+        if (CollectionUtils.isNotEmpty(logsList)){
+            for (int i = 0; i < logsList.size(); i++) {
+                if (null != logsList.get(i)){
+                    logger.error("-------logsList.get(i)-------"+logsList.get(i));
+                    if (logsList.get(i).getCount() > 0) {
+                        Map<String, String> map = new HashedMap();
+                        map.put("logId", logsList.get(i).getLogId());
+                        map.put("count", String.valueOf(logsList.get(i).getCount()));
+                        mapList.add(map);
+                    }
+                }
             }
         }
         context.setAttribute("list", mapList);
