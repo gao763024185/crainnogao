@@ -6,4 +6,9 @@ package com.gao.ssm.module.service;
  */
 public interface TimerRunService {
     void countTimer();
+
+    /**
+     * 保存访问量
+     */
+    void saveCount();
 }

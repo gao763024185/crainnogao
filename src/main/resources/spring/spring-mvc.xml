@@ -22,6 +22,8 @@
     <bean id="counterAspect" class="com.gao.ssm.module.tools.CounterAspect"/>
     <!-- 配置注解驱动de SpringMVC -->
     <mvc:annotation-driven/>
+
+    <import resource="spring_quartz.xml"/>
     <!--静态资源映射-->
     <!--
     http://perfy315.iteye.com/blog/2008763mapping="/js/**"

@@ -24,6 +24,6 @@ public class PlateformStarter {
     @PostConstruct
     public void init() {
         logsService.installLogsCount();//启动时载入访问次数
-        timerRunService.countTimer();//启动保存访问次数的定时器
+//        timerRunService.countTimer();//启动保存访问次数的定时器
     }
 }

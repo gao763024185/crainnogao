@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @description 定时器service
+ * @description 定时器service（定时器采用quartz，spring自带定时器暂时未启用）
  * @author: gaobh
  * @date: 2017/5/17
  * @version: v1.0
@@ -45,6 +45,16 @@ public class TimerRunServiceImpl implements TimerRunService {
         }.start();
     }
 
+    /**
+     * 保存访问量
+     */
+    @Override
+    public void saveCount() {
+        this.count();
+    }
+
+
+    @SuppressWarnings("Duplicates")
     public void count() {
         List<Map<String, String>> mapList = (List) context.getAttribute("list");
         if (mapList != null && mapList.size() > 0) {

@@ -29,10 +29,10 @@ public class QuartzTest {
      */
     public static void main(String[] args) {
         try {
-            //创建scheduler
+            //创建scheduler：调度器。所有的调度都是由他控制
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
-            //定义一个Trigger
+            //定义一个Trigger 触发的条件
             Trigger trigger = newTrigger().withIdentity("trigger1", "group1")
                     //一旦加入scheduler，立即生效
                     .startNow()
